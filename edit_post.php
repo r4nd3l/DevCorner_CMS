@@ -1,43 +1,56 @@
 <?php require_once("includes/db.php"); ?>
 <?php require_once("includes/functions.php"); ?>
 <?php require_once("includes/sessions.php"); ?>
-<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
+<?php confirm_login(); ?>
 <?php
+  $search_query_parameter = $_GET['id'];
   if(isset($_POST["Submit"])){
-    $category = $_POST["category_title"];
-    $admin    = $_SESSION["userName"];
+    $post_title       = $_POST["post_title"];
+    $category         = $_POST["category"];
+    $image            = $_FILES["image_upload"]["name"];
+    $target           =  "uploads/".basename($_FILES["image_upload"]["name"]);
+    $post_description = $_POST["post_description"];
+    $admin            = "Admin";
 
     // Data and time settings
     date_default_timezone_set("Europe/Budapest");
     $current_time = time();
     $datetime     = strftime("%Y %B %d - %H:%M:%S",$current_time);
 
-      if(empty($category)){
-        $_SESSION["ErrorMessage"] = "All fields must be filled out!";
-        Redirect_to("categories.php");
-      }elseif (strlen($category)<3) {
-        $_SESSION["ErrorMessage"] = "Category title should be greater than 2 characters!";
-        Redirect_to("categories.php");
-      }elseif (strlen($category)>49) {
-        $_SESSION["ErrorMessage"] = "Category title should be shorter!";
-        Redirect_to("categories.php");
+      if(empty($post_title)){
+        $_SESSION["ErrorMessage"] = "Title is empty!";
+        Redirect_to("posts.php");
+      }elseif (strlen($post_title)<5) {
+        $_SESSION["ErrorMessage"] = "Post title should be greater than 2 characters!";
+        Redirect_to("posts.php");
+      }elseif (strlen($post_description)>9999) {
+        $_SESSION["ErrorMessage"] = "The text is too long!";
+        Redirect_to("posts.php");
       }else{
-        // Query to insert category in DB when everything is fine
+        // Query to update post in DB when everything is fine
         global $connecting_db;
-        $sql = "INSERT INTO category(title,author,datetime)";
-        $sql .= "VALUES(:categoryName,:adminName,:dateTime)";
-        $stmt = $connecting_db->prepare($sql);
-        $stmt->bindValue(':categoryName',$category);
-        $stmt->bindValue(':adminName',$admin);
-        $stmt->bindValue(':dateTime',$datetime);
-        $execute = $stmt->execute();
+        if (!empty($_FILES["image_upload"]["name"])) {
+          $sql = "UPDATE posts
+                  SET title='$post_title', category='$category', image='$image', post='$post_description'
+                  WHERE id='$search_query_parameter'";
+        }else{
+          $sql = "UPDATE posts
+                  SET title='$post_title', category='$category', post='$post_description'
+                  WHERE id='$search_query_parameter'";
+        }
 
+        $execute = $connecting_db->query($sql);
+
+        // Moving the uploaded image to the 'uploads' directory
+        move_uploaded_file($_FILES["image_upload"]["tmp_name"],$target);
+
+        // var_dump($execute);
         if($execute){
-          $_SESSION["SuccessMessage"]="Category with id: ". $connecting_db->lastInsertId() ." added successfully!";
-          Redirect_to("categories.php");
+          $_SESSION["SuccessMessage"]="Post updated successfully!";
+          Redirect_to("posts.php");
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-          Redirect_to("categories.php");
+          Redirect_to("posts.php");
         }
       }
     } // Ending of Submit button if-condition
@@ -62,7 +75,7 @@
   <!-- Custom Style -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <title>Categories</title>
+  <title>Edit post</title>
 </head>
 <body>
 
@@ -110,7 +123,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-edit text-success"></i> Manage categories</h6>
+          <h6><i class="fas fa-edit text-success"></i> Edit post</h6>
         </div>
       </div>
     </div>
@@ -118,23 +131,62 @@
   <!-- Header - END -->
 
   <!-- Main part -->
-  <!-- Add new category -->
   <section class="container py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
         <?php
           echo ErrorMessage();
           echo SuccessMessage();
+
+          global $connecting_db;
+          $sql = "SELECT * FROM posts WHERE id='$search_query_parameter'";
+          $stmt = $connecting_db->query($sql);
+          while($data_rows = $stmt->fetch()){
+            $title_to_be_updated    = $data_rows['title'];
+            $category_to_be_updated = $data_rows['category'];
+            $image_to_be_updated    = $data_rows['image'];
+            $post_to_be_updated     = $data_rows['post'];
+          }
         ?>
-        <form class="" action="categories.php" method="post">
+        <form class="" action="edit_post.php?id=<?php echo $search_query_parameter; ?>" method="post" enctype="multipart/form-data">
           <div class="card">
             <div class="card-header">
-              <h5 class="m-0">Add new category</h5>
+              <h5 class="m-0">Add new post</h5>
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="title"><span class="fieldInfo">Category title:</span></label>
-                <input class="form-control" type="text" name="category_title" id="title" placeholder="Type title here" value="">
+                <label for="title" class="m-0"><span class="fieldInfo">Post title:</span></label>
+                <input class="form-control" type="text" name="post_title" id="title" placeholder="Type title here" value="<?php echo $title_to_be_updated; ?>">
+              </div>
+              <div class="form-group">
+                <label for="category_title" class="m-0"><span class="fieldInfo">Chose category:</span></label>
+                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b>".$category_to_be_updated."</b>"." is set up)"; ?></span>
+                <select id="category_title" class="form-control" name="category">
+                  <?php
+                    // Fetching all the categories from category table
+                    global $connecting_db;
+                    $sql = "SELECT id,title FROM category";
+                    $stmt = $connecting_db->query($sql);
+                    while($data_rows = $stmt->fetch()){
+                      $id = $data_rows["id"];
+                      $category_name = $data_rows["title"];
+                  ?>
+                    <option><?php echo $category_name; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <span class="fieldInfo_2">(Currently the <?php echo "<b>".basename($image_to_be_updated)."</b>"." image is set up)"; ?></span>
+                <!-- Modal will goes here -->
+                <img src="uploads/<?php echo $image_to_be_updated; ?>" width="170px">
+                <div class="custom-file">
+                  <input class="custom-file-input" type="File" name="image_upload" id="image_select" value="">
+                  <label for="image_select" class="m-0 custom-file-label">Select image</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="post" class="m-0"><span class="fieldInfo">Post:</span></label>
+                <textarea class="form-control" id="post" name="post_description" rows="8" cols="80"><?php echo $post_to_be_updated; ?></textarea>
               </div>
               <div class="row">
                 <div class="col-lg-12">
@@ -152,63 +204,6 @@
       </div>
     </div>
   </section>
-  <!-- Add new category - END -->
-
-  <!-- Delete existing category -->
-  <section class="container py-2 mb-4">
-    <div class="row">
-      <div class="col-lg-12">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
-        <!--  -->
-        <h5><i class="fas fa-inbox text-success"></i> Existing categories</h5>
-        <div class="card">
-          <table class="table table-hover" style="margin-bottom: 0;">
-            <thead class="thead-light">
-              <tr>
-                <th><b>#</b></th>
-                <th>Date & Time</th>
-                <th>Category</th>
-                <th>Creator</th>
-                <th class="text-center">Action</th>
-              </tr>
-            </thead>
-
-          <?php
-            global $connecting_db;
-            $sql = "SELECT * FROM category ORDER BY id desc";
-            $execute = $connecting_db->query($sql);
-            $sr_no = 0;
-
-            while ($data_rows = $execute->fetch()) {
-              $category_id   = $data_rows["id"];
-              $category_date = $data_rows["datetime"];
-              $category_name = $data_rows["title"];
-              $creator_name  = $data_rows["author"];
-              $sr_no++;
-          ?>
-            <tbody>
-              <tr>
-                <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                <td><?php echo htmlentities($category_date); ?></td>
-                <td class="table-secondary"><?php echo htmlentities($category_name); ?></td>
-                <td class="table-success"><?php echo htmlentities($creator_name); ?></td>
-                <td class="text-center">
-                  <a href="delete_category.php?id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          <?php } ?>
-          </table>
-        </div>
-        <!--  - END -->
-
-      </div>
-    </div>
-  </section>
-  <!-- Delete existing category - END -->
   <!-- Main part - END -->
 
   <!-- Footer part --><!-- fixed-bottom -->

@@ -21,6 +21,7 @@
   --wh-: #fefefe;
   --sg-: #f7f7f7;
   --lg-: #b9b9b9;
+  --gy-: #f7f7f7;
   --shadow1-: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   --shadow2-: 0 0 8px rgba(0,0,0,0.6);
   --shadow3-: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
@@ -56,8 +57,19 @@ a:hover{
   font-size: 1.2em;
 }
 
+.fieldInfo_2{
+  font-size: 0.8em;
+}
 
+.bg-grayish{
+  background: var(--gy-);
+}
 
+.img-profile{
+  height: 45px;
+  object-fit: contain;
+  /* vertical-align: sub; */
+}
 
 
 

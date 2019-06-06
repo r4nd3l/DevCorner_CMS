@@ -4,40 +4,48 @@
 <?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
 <?php
   if(isset($_POST["Submit"])){
-    $category = $_POST["category_title"];
-    $admin    = $_SESSION["userName"];
+    $username         = $_POST["Username"];
+    $name             = $_POST["Name"];
+    $password         = $_POST["Password"];
+    $confirm_password = $_POST["Confirm_password"];
+    $admin            = $_SESSION["userName"];
 
     // Data and time settings
     date_default_timezone_set("Europe/Budapest");
     $current_time = time();
     $datetime     = strftime("%Y %B %d - %H:%M:%S",$current_time);
 
-      if(empty($category)){
+      if(empty($username) || empty($password) || empty($confirm_password)){
         $_SESSION["ErrorMessage"] = "All fields must be filled out!";
-        Redirect_to("categories.php");
-      }elseif (strlen($category)<3) {
-        $_SESSION["ErrorMessage"] = "Category title should be greater than 2 characters!";
-        Redirect_to("categories.php");
-      }elseif (strlen($category)>49) {
-        $_SESSION["ErrorMessage"] = "Category title should be shorter!";
-        Redirect_to("categories.php");
+        Redirect_to("admins.php");
+      }elseif (strlen($password)<7) {
+        $_SESSION["ErrorMessage"] = "Password should be at least 6 character!";
+        Redirect_to("admins.php");
+      }elseif ($password !== $confirm_password) {
+        $_SESSION["ErrorMessage"] = "Password and confirm password should match!";
+        Redirect_to("admins.php");
+      }elseif (check_username_exists($username)) {
+        $_SESSION["ErrorMessage"] = "Username is already exists! Try another one!";
+        Redirect_to("admins.php");
       }else{
-        // Query to insert category in DB when everything is fine
+        // Query to insert new admin in DB when everything is fine
         global $connecting_db;
-        $sql = "INSERT INTO category(title,author,datetime)";
-        $sql .= "VALUES(:categoryName,:adminName,:dateTime)";
+        $sql = "INSERT INTO admins(datetime,username,password,admin_name,added_by)";
+        $sql .= "VALUES(:dateTime,:userName,:password,:admin_name,:added_by)";
         $stmt = $connecting_db->prepare($sql);
-        $stmt->bindValue(':categoryName',$category);
-        $stmt->bindValue(':adminName',$admin);
         $stmt->bindValue(':dateTime',$datetime);
+        $stmt->bindValue(':userName',$username);
+        $stmt->bindValue(':password',$password);
+        $stmt->bindValue(':admin_name',$name);
+        $stmt->bindValue(':added_by',$admin);
         $execute = $stmt->execute();
 
         if($execute){
-          $_SESSION["SuccessMessage"]="Category with id: ". $connecting_db->lastInsertId() ." added successfully!";
-          Redirect_to("categories.php");
+          $_SESSION["SuccessMessage"]= "New admin ". $name ." added successfully!";
+          Redirect_to("admins.php");
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-          Redirect_to("categories.php");
+          Redirect_to("admins.php");
         }
       }
     } // Ending of Submit button if-condition
@@ -62,7 +70,7 @@
   <!-- Custom Style -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <title>Categories</title>
+  <title>Admin page</title>
 </head>
 <body>
 
@@ -110,7 +118,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-edit text-success"></i> Manage categories</h6>
+          <h6><i class="fas fa-user text-success"></i> Manage admins</h6>
         </div>
       </div>
     </div>
@@ -118,7 +126,6 @@
   <!-- Header - END -->
 
   <!-- Main part -->
-  <!-- Add new category -->
   <section class="container py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
@@ -126,15 +133,32 @@
           echo ErrorMessage();
           echo SuccessMessage();
         ?>
-        <form class="" action="categories.php" method="post">
+        <form class="" action="admins.php" method="post">
           <div class="card">
             <div class="card-header">
-              <h5 class="m-0">Add new category</h5>
+              <h5 class="m-0">Add new admin</h5>
             </div>
             <div class="card-body">
+              <!-- Username -->
               <div class="form-group">
-                <label for="title"><span class="fieldInfo">Category title:</span></label>
-                <input class="form-control" type="text" name="category_title" id="title" placeholder="Type title here" value="">
+                <label for="username" class="m-0"><span class="fieldInfo">Username:</span></label>
+                <input class="form-control" type="text" name="Username" id="username" placeholder="Type username here" value="">
+              </div>
+              <!-- Name -->
+              <div class="form-group">
+                <label for="name" class="m-0"><span class="fieldInfo">Name:</span></label>
+                <span class="fieldInfo_2 text-muted float-right pt-1">(This is optional)</span>
+                <input class="form-control" type="text" name="Name" id="name" placeholder="Type name here" value="">
+              </div>
+              <!-- Password -->
+              <div class="form-group">
+                <label for="password" class="m-0"><span class="fieldInfo">Password:</span></label>
+                <input class="form-control" type="password" name="Password" id="password" value="">
+              </div>
+              <!-- Confirm password -->
+              <div class="form-group">
+                <label for="confirm_password" class="m-0"><span class="fieldInfo">Confirm password:</span></label>
+                <input class="form-control" type="password" name="Confirm_password" id="confirm_password" value="">
               </div>
               <div class="row">
                 <div class="col-lg-12">
@@ -152,9 +176,8 @@
       </div>
     </div>
   </section>
-  <!-- Add new category - END -->
 
-  <!-- Delete existing category -->
+  <!-- Delete existing admins -->
   <section class="container py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
@@ -163,40 +186,43 @@
           echo SuccessMessage();
         ?>
         <!--  -->
-        <h5><i class="fas fa-inbox text-success"></i> Existing categories</h5>
+        <h5><i class="fas fa-user-slash text-success"></i> Delete existing admin</h5>
         <div class="card">
           <table class="table table-hover" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
                 <th><b>#</b></th>
                 <th>Date & Time</th>
-                <th>Category</th>
-                <th>Creator</th>
+                <th>Username</th>
+                <th>Admin name</th>
+                <th>Added by</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
 
           <?php
             global $connecting_db;
-            $sql = "SELECT * FROM category ORDER BY id desc";
+            $sql = "SELECT * FROM admins ORDER BY id desc";
             $execute = $connecting_db->query($sql);
             $sr_no = 0;
 
             while ($data_rows = $execute->fetch()) {
-              $category_id   = $data_rows["id"];
-              $category_date = $data_rows["datetime"];
-              $category_name = $data_rows["title"];
-              $creator_name  = $data_rows["author"];
+              $admin_id       = $data_rows["id"];
+              $admin_date     = $data_rows["datetime"];
+              $admin_username = $data_rows["username"];
+              $admin_name     = $data_rows["admin_name"];
+              $added_by       = $data_rows["added_by"];
               $sr_no++;
           ?>
             <tbody>
               <tr>
                 <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                <td><?php echo htmlentities($category_date); ?></td>
-                <td class="table-secondary"><?php echo htmlentities($category_name); ?></td>
-                <td class="table-success"><?php echo htmlentities($creator_name); ?></td>
+                <td><?php echo htmlentities($admin_date); ?></td>
+                <td class="table-secondary"><?php echo htmlentities($admin_username); ?></td>
+                <td class="table-success"><?php echo htmlentities($admin_name); ?></td>
+                <td class="table-success"><?php echo htmlentities($added_by); ?></td>
                 <td class="text-center">
-                  <a href="delete_category.php?id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                  <a href="delete_admin.php?id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -208,7 +234,7 @@
       </div>
     </div>
   </section>
-  <!-- Delete existing category - END -->
+  <!-- Delete existing admins - END -->
   <!-- Main part - END -->
 
   <!-- Footer part --><!-- fixed-bottom -->

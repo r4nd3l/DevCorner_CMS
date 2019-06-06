@@ -1,6 +1,7 @@
 <?php require_once("includes/db.php"); ?>
 <?php require_once("includes/functions.php"); ?>
 <?php require_once("includes/sessions.php"); ?>
+<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
 <?php
   if(isset($_POST["Submit"])){
     $post_title       = $_POST["post_title"];
@@ -8,7 +9,7 @@
     $image            = $_FILES["image_upload"]["name"];
     $target           =  "uploads/".basename($_FILES["image_upload"]["name"]);
     $post_description = $_POST["post_description"];
-    $admin            = "Admin";
+    $admin            = $_SESSION["userName"];
 
     // Data and time settings
     date_default_timezone_set("Europe/Budapest");
@@ -21,7 +22,7 @@
       }elseif (strlen($post_title)<5) {
         $_SESSION["ErrorMessage"] = "Post title should be greater than 2 characters!";
         Redirect_to("add_new_post.php");
-      }elseif (strlen($post_description)>999) {
+      }elseif (strlen($post_description)>9999) {
         $_SESSION["ErrorMessage"] = "The text is too long!";
         Redirect_to("add_new_post.php");
       }else{
@@ -45,7 +46,7 @@
           $_SESSION["SuccessMessage"]="Post with id: ". $connecting_db->lastInsertId() ." added successfully!";
           Redirect_to("add_new_post.php");
         }else{
-          $_SESSION["SuccessMessage"]="Something went wrong.. Please try again!";
+          $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
           Redirect_to("add_new_post.php");
         }
       }
@@ -188,8 +189,8 @@
   </section>
   <!-- Main part - END -->
 
-  <!-- Footer part -->
-  <footer class="bg-light border-top fixed-bottom">
+  <!-- Footer part --><!-- fixed-bottom -->
+  <footer class="bg-light border-top">
     <div class="container">
       <div class="row m-3">
         <div class="col">

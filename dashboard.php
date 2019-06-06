@@ -22,7 +22,7 @@
   <!-- Custom Style -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <title>Posts</title>
+  <title>Dashboard</title>
 </head>
 <body>
 
@@ -70,7 +70,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-edit text-success"></i> Manage blog posts</h6>
+          <h6><i class="fas fa-cog text-success"></i> Dashboard</h6>
         </div>
 
         <div class="col-lg-3 mb-2">
@@ -106,65 +106,83 @@
   <!-- Main part -->
   <section class="container py-2 mb-4">
     <div class="row">
-      <div class="col-lg-12">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
+      <?php
+        echo ErrorMessage();
+        echo SuccessMessage();
+      ?>
+      <!-- Left side area -->
+      <div class="col-lg-2">
+        <div class="card text-center text-success border-success mb-3">
+          <div class="crad-body">
+            <h6 class="my-2">Posts</h6>
+            <h5 class=""><i class="fab fa-readme"></i> <?php total_posts();?></h5>
+          </div>
+        </div>
+
+        <div class="card text-center text-success border-success mb-3">
+          <div class="crad-body">
+            <h6 class="my-2">Categories</h6>
+            <h5 class=""><i class="fas fa-inbox"></i> <?php total_categories(); ?></h5>
+          </div>
+        </div>
+
+        <div class="card text-center text-success border-success mb-3">
+          <div class="crad-body">
+            <h6 class="my-2">Admins</h6>
+            <h5 class=""><i class="fas fa-users"></i> <?php total_admins(); ?></h5>
+          </div>
+        </div>
+
+        <div class="card text-center text-success border-success mb-3">
+          <div class="crad-body">
+            <h6 class="my-2">Comments</h6>
+            <h5 class=""><i class="fas fa-comments"></i> <?php total_comments(); ?></h5>
+          </div>
+        </div>
+      </div>
+      <!-- Left side area - END -->
+
+      <!-- Right side area -->
+      <div class="col-lg-10">
+        <h5><i class="fab fa-readme text-success"></i> Top posts</h5>
         <div class="card">
           <table class="table table-hover" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th>#</th>
+                <th><b>#</b></th>
                 <th>Title</th>
-                <th>Category</th>
-                <th>Data & Time</th>
+                <th>Date & Time</th>
                 <th>Author</th>
-                <th>Banner</th>
-                <th>Comments</th>
-                <th class="text-center">Action</th>
+                <th class="text-center">Comments</th>
                 <th class="text-center">Preview</th>
               </tr>
             </thead>
             <?php
+              $sr_no = 0;
               global $connecting_db;
-              $sql = "SELECT * FROM posts";
+              $sql = "SELECT * FROM posts ORDER BY id desc LIMIT 0,5";
               $stmt = $connecting_db->query($sql);
-              $sr = 0;
 
               while ($data_rows = $stmt->fetch()) {
-                $id               = $data_rows["id"];
-                $datetime         = $data_rows["datetime"];
-                $post_title       = $data_rows["title"];
-                $category         = $data_rows["category"];
-                $admin            = $data_rows["author"];
-                $image            = $data_rows["image"];
-                $post_description = $data_rows["post"];
-                $sr++;
+                $post_id = $data_rows["id"];
+                $datetime = $data_rows["datetime"];
+                $author = $data_rows["author"];
+                $title = $data_rows["title"];
+                $sr_no++;
             ?>
             <tbody>
               <tr>
-                <td><b><?php echo $sr; ?>.</b></td>
-                <td class="table-success"><?php if(strlen($post_title)>20){$post_title = substr($post_title,0,20).'..';} echo $post_title;?></td>
-                <td><?php if(strlen($category)>8){$category = substr($category,0,8).'..';} echo $category;?></td>
-                <td><?php if(strlen($datetime)>11){$datetime = substr($datetime,0,11).'..';} echo $datetime;?></td>
-                <td class="table-secondary"><?php if(strlen($admin)>6){$admin = substr($admin,0,6).'..';} echo $admin;?></td>
-                <td>
-                  <!-- Modal will goes here -->
-                  <p><?php echo basename($image); ?></p>
-                  <img src="uploads/<?php echo $image; ?>" width="170px;">
-                </td>
+                <td><b><?php echo $sr_no; ?></b>.</td>
+                <td class="table-success"><?php echo $title; ?></td>
+                <td><?php echo $datetime; ?></td>
+                <td class="table-secondary"><?php echo $author; ?></td>
                 <td class="text-center p-1">
-                  <span class="text-success" title="Approved"><i class="far fa-clock"></i> <?php approve_comment($id);?></span>
+                  <span class="text-success" title="Approved"><i class="far fa-clock"></i> <?php approve_comment($post_id);?></span>
                   <hr class="m-0">
-                  <span class="badge text-secondary" title="Unapproved"><i class="fas fa-history"></i> <?php disapprove_comment($id);?></span>
+                  <span class="badge text-secondary" title="Unapproved"><i class="fas fa-history"></i> <?php disapprove_comment($post_id);?></span>
                 </td>
                 <td class="text-center">
-                  <a href="edit_post.php?id=<?php echo $id; ?>" title="Edit"><i class="fas fa-edit"></i></a>
-                  <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                </td>
-                <td class="text-center">
-                  <a href="full_post.php?id=<?php echo $id; ?>" target="_blank" title="Live preview"><i class="fas fa-glasses"></i></a>
+                  <a href="full_post.php?id=<?php echo $post_id; ?>" title="Live preview" target="_blank"><i class="fas fa-glasses"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -172,6 +190,7 @@
           </table>
         </div>
       </div>
+      <!-- Right side area - END -->
     </div>
   </section>
   <!-- Main part - END -->
