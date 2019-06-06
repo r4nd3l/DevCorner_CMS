@@ -90,7 +90,7 @@
       <div class="collapse navbar-collapse" id="navbar_collapse_CMS">
         <!-- Menu part -->
         <ul class="navbar-nav m-auto">
-          <li class="nav-item"><a href="myProfile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li>
+          <li class="nav-item"><a href="my_profile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li>
           <li class="nav-item"><a href="dashboard.php" class="nav-link">Dashboard</a></li>
           <li class="nav-item"><a href="posts.php" class="nav-link">Posts</a></li>
           <li class="nav-item"><a href="categories.php" class="nav-link">Categories</a></li>

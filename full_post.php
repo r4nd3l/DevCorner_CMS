@@ -83,7 +83,7 @@
       <div class="collapse navbar-collapse" id="navbar_collapse_CMS">
         <!-- Menu part -->
         <ul class="navbar-nav m-auto">
-          <!-- <li class="nav-item"><a href="myProfile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li> -->
+          <!-- <li class="nav-item"><a href="my_profile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li> -->
           <li class="nav-item"><a href="blog.php" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="" class="nav-link">About us</a></li>
           <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
@@ -148,6 +148,12 @@
             }
             $sql = "SELECT * FROM posts WHERE id='$postIdFromURL'";
             $stmt = $connecting_db->query($sql);
+            $result = $stmt->rowcount();
+
+            if ($result !=1) {
+              $_SESSION["ErrorMessage"]="Bad Request!";
+              Redirect_to("blog.php?page=1");
+            }
           }
           while($data_rows = $stmt->fetch()){
             $postId            = $data_rows["id"];
@@ -162,12 +168,12 @@
           <img src="uploads/<?php echo htmlentities($image); ?>" class="img-fluid card-img-top" title="<?php echo $image; ?>" alt="<?php echo $image; ?>">
           <div class="card-body">
             <h4 class="bard-title mb-0"><?php echo htmlentities($post_title); ?></h4>
-            <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <?php echo htmlentities($category); ?></small><br>
-            <small class="text-muted">Written by <?php echo htmlentities($admin); ?> On <?php echo htmlentities($datetime); ?></small>
+            <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href="blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
+            <small class="text-muted">Written by <a href="profile.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a> On <?php echo htmlentities($datetime); ?></small>
             <span class="float-right fieldInfo_2"><i class="fas fa-comment-alt text-success"></i> <?php approve_comment($postId);?> Comment</span>
             <hr>
             <p class="card-text">
-              <?php echo htmlentities($post_description); ?></p>
+              <?php echo nl2br($post_description); ?></p>
           </div>
         </div>
         <?php } ?>

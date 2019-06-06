@@ -42,7 +42,7 @@
       <div class="collapse navbar-collapse" id="navbar_collapse_CMS">
         <!-- Menu part -->
         <ul class="navbar-nav m-auto">
-          <li class="nav-item"><a href="myProfile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li>
+          <li class="nav-item"><a href="my_profile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li>
           <li class="nav-item"><a href="dashboard.php" class="nav-link">Dashboard</a></li>
           <li class="nav-item"><a href="posts.php" class="nav-link">Posts</a></li>
           <li class="nav-item"><a href="categories.php" class="nav-link">Categories</a></li>
@@ -106,10 +106,7 @@
   <!-- Main part -->
   <section class="container py-2 mb-4">
     <div class="row">
-      <?php
-        echo ErrorMessage();
-        echo SuccessMessage();
-      ?>
+
       <!-- Left side area -->
       <div class="col-lg-2">
         <div class="card text-center text-success border-success mb-3">
@@ -144,6 +141,10 @@
 
       <!-- Right side area -->
       <div class="col-lg-10">
+        <?php
+          echo ErrorMessage();
+          echo SuccessMessage();
+        ?>
         <h5><i class="fab fa-readme text-success"></i> Top posts</h5>
         <div class="card">
           <table class="table table-hover" style="margin-bottom: 0;">
