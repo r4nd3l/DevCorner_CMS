@@ -75,47 +75,12 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <div class="container">
-
-      <!-- Logo part -->
-      <a href="" class="navbar-brand"><i class="fas fa-code text-success"></i> DevCorner</a>
-
-      <!-- The button for "Collapsable munu" -->
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar_collapse_CMS">
-        <span class="navbar-toggler-icon text-white"></span>
-      </button>
-
-      <!-- Collapsable menu -->
-      <div class="collapse navbar-collapse" id="navbar_collapse_CMS">
-        <!-- Menu part -->
-        <ul class="navbar-nav m-auto">
-          <li class="nav-item"><a href="my_profile.php" class="nav-link"><i class="fas fa-user text-success"></i> My Profile</a></li>
-          <li class="nav-item"><a href="dashboard.php" class="nav-link">Dashboard</a></li>
-          <li class="nav-item"><a href="posts.php" class="nav-link">Posts</a></li>
-          <li class="nav-item"><a href="categories.php" class="nav-link">Categories</a></li>
-          <li class="nav-item"><a href="admins.php" class="nav-link">Manage Admins</a></li>
-          <li class="nav-item"><a href="comments.php" class="nav-link">Comments</a></li>
-          <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Live Blog</a></li>
-        </ul>
-
-        <!-- Login/out part -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="logout.php" class="btn btn-light btn-sm nav-link">
-              <span class="align-sub"><i class="fas fa-sign-out-alt"></i> Logout</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </nav>
+    <?php require_once("partials/admin_navbar.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
   <header class="py-3">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
           <h6><i class="fas fa-user text-success"></i> Manage admins</h6>
@@ -126,7 +91,7 @@
   <!-- Header - END -->
 
   <!-- Main part -->
-  <section class="container py-2 mb-4">
+  <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
         <?php
@@ -178,7 +143,7 @@
   </section>
 
   <!-- Delete existing admins -->
-  <section class="container py-2 mb-4">
+  <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
         <?php
@@ -238,20 +203,7 @@
   <!-- Main part - END -->
 
   <!-- Footer part --><!-- fixed-bottom -->
-  <footer class="bg-light border-top">
-    <div class="container">
-      <div class="row m-3">
-        <div class="col">
-          <p class="lead text-center">Theme by DevCorner - <span id="year"></span></p>
-          <p class="text-center small">
-            This site is only used for a case-study of <br>
-            <a href="https://github.com/r4nd3l"><i class="fas fa-code text-success" style="cursor: pointer; text-decoration: none;"></i> DevCorner Community</a> -
-            The independent web developer community
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->
 
 

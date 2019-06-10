@@ -41,7 +41,7 @@ html,body{
 
 .navbar-brand{
   color: var(--gr-) !important;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 a{
