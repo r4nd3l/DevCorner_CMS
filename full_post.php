@@ -77,7 +77,7 @@
 
       <!-- Main area -->
       <div class="col-sm-8">
-        <h1><i class="fas fa-code text-success"></i> DevCorner Community CMS</h1>
+        <h1><i class="fas fa-code text-success"></i> DevCorner Community CMS!!</h1>
         <h1 class="lead">The independent web developer community</h1>
         <hr>
         <?php
