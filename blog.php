@@ -19,7 +19,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
   <!-- Custom Style -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+
+  <!-- Google Fonts Roboto - Fallback -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
   <title>Blog</title>
 </head>
@@ -98,8 +101,9 @@
           <div class="card-body">
             <a href="full_post.php?id=<?php echo $postId; ?>"><h4 class="bard-title mb-0"><?php echo htmlentities($post_title); ?></h4></a>
             <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href="blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
-            <small class="text-muted">Written by <a href="profile.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a> On <?php echo htmlentities($datetime); ?></small>
-            <span class="float-right fieldInfo_2"><i class="fas fa-comment-alt text-success"></i> <?php approve_comment($postId);?> Comment</span>
+            <small class="text-muted">Written by <a href="profile.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
+            On <?php echo htmlentities($datetime); ?></small>
+            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php approve_comment($postId);?> Comment</span>
             <hr>
             <p class="card-text">
               <?php

@@ -53,7 +53,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
   <!-- Custom Style -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Custom Style -->
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+
+<!-- Google Fonts Roboto - Fallback -->
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
 
   <title>Login</title>
 </head>
