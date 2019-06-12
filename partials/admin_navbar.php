@@ -17,9 +17,9 @@
         <li class="nav-item"><a href="dashboard.php" class="nav-link">Dashboard</a></li>
         <li class="nav-item"><a href="posts.php" class="nav-link">Posts</a></li>
         <li class="nav-item"><a href="categories.php" class="nav-link">Categories</a></li>
-        <li class="nav-item"><a href="admins.php" class="nav-link">Manage Admins</a></li>
+        <li class="nav-item"><a href="admins.php" class="nav-link">Admins</a></li>
         <li class="nav-item"><a href="comments.php" class="nav-link">Comments</a></li>
-        <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Live Blog</a></li>
+        <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Blog</a></li>
       </ul>
 
       <!-- Login/out part -->

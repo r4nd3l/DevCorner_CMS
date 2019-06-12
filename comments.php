@@ -1,30 +1,26 @@
 <?php require_once("includes/db.php"); ?>
 <?php require_once("includes/functions.php"); ?>
 <?php require_once("includes/sessions.php"); ?>
+<?php
+  switch ($_REQUEST['a']) {
+    case 'disapprove_comment':
+        include('includes/disapprove_comment.php');
+      break;
+    case 'approve_comment':
+        include('includes/approve_comment.php');
+      break;
+    case 'delete_comment':
+        include('includes/delete_comment.php');
+      break;
+  }
+?>
 <?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- DevCorner - Favicon -->
-  <link rel="shortcut icon" href="img/favicon.svg"/>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
-
-  <!-- Font-Awesome v5.8.2 -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
-  <!-- Bootstrap 4.3 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-  <!-- Custom Style -->
-  <!-- Custom Style -->
-<link rel="stylesheet" href="css/styles.css" type="text/css">
-
-<!-- Google Fonts Roboto - Fallback -->
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+  <!-- Header part -->
+    <?php require_once('partials/header.php'); ?>
+  <!-- Header part - END -->
 
   <title>Comments</title>
 </head>
@@ -56,12 +52,12 @@
           ?>
           <!-- Unapproved table -->
           <h5><i class="far fa-clock text-success"></i> Unapproved comments</h5>
-          <div class="card">
+          <div class="card table-responsive">
             <table class="table table-hover" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
                   <th><b>#</b></th>
-                  <th>Date & Time</th>
+                  <th>Date</th>
                   <th>Name</th>
                   <th>Comment</th>
                   <th class="text-center">Action</th>
@@ -90,8 +86,8 @@
                   <td class="table-secondary"><?php echo htmlentities($commenter_name); ?></td>
                   <td class="table-success"><?php echo htmlentities($comment_content); ?></td>
                   <td class="text-center">
-                    <a href="approve_comment.php?id=<?php echo $comment_id; ?>" title="Approve"><i class="far fa-check-circle"></i></a>
-                    <a href="delete_comment.php?id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    <a href="comments.php?a=approve_comment&id=<?php echo $comment_id; ?>" title="Approve"><i class="far fa-check-circle"></i></a>
+                    <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
                   </td>
                   <td class="text-center">
                     <a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="Live preview" target="_blank"><i class="fas fa-glasses"></i></a>
@@ -121,7 +117,7 @@
               <thead class="thead-light">
                 <tr>
                   <th><b>#</b></th>
-                  <th>Date & Time</th>
+                  <th>Date</th>
                   <th>Name</th>
                   <th>Comment</th>
                   <th class="text-center">Action</th>
@@ -150,8 +146,8 @@
                   <td class="table-secondary"><?php echo htmlentities($commenter_name); ?></td>
                   <td class="table-success"><?php echo htmlentities($comment_content); ?></td>
                   <td class="text-center">
-                    <a href="disapprove_comment.php?id=<?php echo $comment_id; ?>" title="Dispprove"><i class="fas fa-undo"></i></a>
-                    <a href="delete_comment.php?id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    <a href="comments.php?a=disapprove_comment&id=<?php echo $comment_id; ?>" title="Dispprove"><i class="fas fa-undo"></i></a>
+                    <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
                   </td>
                   <td class="text-center">
                     <a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="Live preview" target="_blank"><i class="fas fa-glasses"></i></a>

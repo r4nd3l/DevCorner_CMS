@@ -5,26 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- DevCorner - Favicon -->
-  <link rel="shortcut icon" href="img/favicon.svg"/>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
-
-  <!-- Font-Awesome v5.8.2 -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
-  <!-- Bootstrap 4.3 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-  <!-- Custom Style -->
-  <!-- Custom Style -->
-<link rel="stylesheet" href="css/styles.css" type="text/css">
-
-<!-- Google Fonts Roboto - Fallback -->
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+  <!-- Header part -->
+    <?php require_once('partials/header.php'); ?>
+  <!-- Header part - END -->
 
   <title>Posts</title>
 </head>
@@ -80,14 +63,14 @@
           echo ErrorMessage();
           echo SuccessMessage();
         ?>
-        <div class="card">
+        <div class="card table-responsive">
           <table class="table table-hover" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
                 <th>#</th>
                 <th>Title</th>
                 <th>Category</th>
-                <th>Data & Time</th>
+                <th>Date</th>
                 <th>Author</th>
                 <th>Banner</th>
                 <th>Comments</th>
