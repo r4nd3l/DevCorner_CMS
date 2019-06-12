@@ -99,7 +99,7 @@
         ?>
         <h5><i class="fab fa-readme text-success"></i> Top posts</h5>
         <div class="card table-responsive">
-          <table class="table table-hover" style="margin-bottom: 0;">
+          <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
                 <th><b>#</b></th>
@@ -107,7 +107,6 @@
                 <th>Date</th>
                 <th>Author</th>
                 <th class="text-center">Comments</th>
-                <th class="text-center">Preview</th>
               </tr>
             </thead>
             <?php
@@ -117,25 +116,22 @@
               $stmt = $connecting_db->query($sql);
 
               while ($data_rows = $stmt->fetch()) {
-                $post_id = $data_rows["id"];
+                $post_id  = $data_rows["id"];
                 $datetime = $data_rows["datetime"];
-                $author = $data_rows["author"];
-                $title = $data_rows["title"];
+                $author   = $data_rows["author"];
+                $title    = $data_rows["title"];
                 $sr_no++;
             ?>
             <tbody>
               <tr>
                 <td><b><?php echo $sr_no; ?></b>.</td>
-                <td class="table-success"><?php echo $title; ?></td>
-                <td><?php echo $datetime; ?></td>
-                <td class="table-secondary"><?php echo $author; ?></td>
-                <td class="text-center p-1">
-                  <span class="text-success" title="Approved"><i class="far fa-clock"></i> <?php approve_comment($post_id);?></span>
+                <td><a href="full_post.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
+                <td class="text-muted"><?php echo $datetime; ?></td>
+                <td><a href="profile.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>
+                <td class="text-center mouse_default p-1">
+                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($post_id);?></span>
                   <hr class="m-0">
-                  <span class="badge text-secondary" title="Unapproved"><i class="fas fa-history"></i> <?php disapprove_comment($post_id);?></span>
-                </td>
-                <td class="text-center">
-                  <a href="full_post.php?id=<?php echo $post_id; ?>" title="Live preview" target="_blank"><i class="fas fa-glasses"></i></a>
+                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($post_id);?></span>
                 </td>
               </tr>
             </tbody>

@@ -53,7 +53,7 @@
           <!-- Unapproved table -->
           <h5><i class="far fa-clock text-success"></i> Unapproved comments</h5>
           <div class="card table-responsive">
-            <table class="table table-hover" style="margin-bottom: 0;">
+            <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
                   <th><b>#</b></th>
@@ -61,7 +61,6 @@
                   <th>Name</th>
                   <th>Comment</th>
                   <th class="text-center">Action</th>
-                  <th class="text-center">Preview</th>
                 </tr>
               </thead>
 
@@ -82,15 +81,12 @@
               <tbody>
                 <tr>
                   <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                  <td><?php echo htmlentities($datetime_of_comments); ?></td>
-                  <td class="table-secondary"><?php echo htmlentities($commenter_name); ?></td>
-                  <td class="table-success"><?php echo htmlentities($comment_content); ?></td>
+                  <td class="text-muted"><?php echo htmlentities($datetime_of_comments); ?></td>
+                  <td class="text-muted"><?php echo htmlentities($commenter_name); ?></td>
+                  <td><a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="View" target="_blank"><?php echo htmlentities($comment_content); ?></a></td>
                   <td class="text-center">
                     <a href="comments.php?a=approve_comment&id=<?php echo $comment_id; ?>" title="Approve"><i class="far fa-check-circle"></i></a>
                     <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                  </td>
-                  <td class="text-center">
-                    <a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="Live preview" target="_blank"><i class="fas fa-glasses"></i></a>
                   </td>
                 </tr>
               </tbody>
@@ -113,7 +109,7 @@
           <!-- Disapprove table -->
           <h5><i class="fas fa-history text-success"></i> Disapprove comments</h5>
           <div class="card">
-            <table class="table table-hover" style="margin-bottom: 0;">
+            <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
                   <th><b>#</b></th>
@@ -121,7 +117,6 @@
                   <th>Name</th>
                   <th>Comment</th>
                   <th class="text-center">Action</th>
-                  <th class="text-center">Preview</th>
                 </tr>
               </thead>
 
@@ -142,15 +137,12 @@
               <tbody>
                 <tr>
                   <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                  <td><?php echo htmlentities($datetime_of_comments); ?></td>
-                  <td class="table-secondary"><?php echo htmlentities($commenter_name); ?></td>
-                  <td class="table-success"><?php echo htmlentities($comment_content); ?></td>
+                  <td class="text-muted"><?php echo htmlentities($datetime_of_comments); ?></td>
+                  <td class="text-muted"><?php echo htmlentities($commenter_name); ?></td>
+                  <td><a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="View" target="_blank"><?php echo htmlentities($comment_content); ?></a></td>
                   <td class="text-center">
                     <a href="comments.php?a=disapprove_comment&id=<?php echo $comment_id; ?>" title="Dispprove"><i class="fas fa-undo"></i></a>
                     <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                  </td>
-                  <td class="text-center">
-                    <a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="Live preview" target="_blank"><i class="fas fa-glasses"></i></a>
                   </td>
                 </tr>
               </tbody>

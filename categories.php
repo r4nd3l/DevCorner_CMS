@@ -124,7 +124,7 @@
         <!--  -->
         <h5><i class="fas fa-inbox text-success"></i> Existing categories</h5>
         <div class="card table-responsive">
-          <table class="table table-hover" style="margin-bottom: 0;">
+          <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
                 <th><b>#</b></th>
@@ -151,9 +151,9 @@
             <tbody>
               <tr>
                 <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                <td><?php echo htmlentities($category_date); ?></td>
-                <td class="table-secondary"><?php echo htmlentities($category_name); ?></td>
-                <td class="table-success"><?php echo htmlentities($creator_name); ?></td>
+                <td class="text-muted"><?php echo htmlentities($category_date); ?></td>
+                <td><a href="blog.php?category=<?php echo $category_name; ?>" target="_blank" title="View all"><?php echo htmlentities($category_name); ?></a></td>
+                <td><a href="profile.php?username=<?php echo htmlentities($creator_name); ?>" target="_blank" title="Public profile"><?php echo htmlentities($creator_name); ?></a></td>
                 <td class="text-center">
                   <a href="categories.php?a=delete_category&id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>

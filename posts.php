@@ -64,7 +64,7 @@
           echo SuccessMessage();
         ?>
         <div class="card table-responsive">
-          <table class="table table-hover" style="margin-bottom: 0;">
+          <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
                 <th>#</th>
@@ -75,7 +75,6 @@
                 <th>Banner</th>
                 <th>Comments</th>
                 <th class="text-center">Action</th>
-                <th class="text-center">Preview</th>
               </tr>
             </thead>
             <?php
@@ -97,26 +96,23 @@
             <tbody>
               <tr>
                 <td><b><?php echo $sr; ?>.</b></td>
-                <td class="table-success"><?php if(strlen($post_title)>20){$post_title = substr($post_title,0,20).'..';} echo $post_title;?></td>
-                <td><?php if(strlen($category)>8){$category = substr($category,0,8).'..';} echo $category;?></td>
-                <td><?php if(strlen($datetime)>11){$datetime = substr($datetime,0,11).'..';} echo $datetime;?></td>
-                <td class="table-secondary"><?php if(strlen($admin)>6){$admin = substr($admin,0,6).'..';} echo $admin;?></td>
+                <td><a href="full_post.php?id=<?php echo $id; ?>" target="_blank" title="View"><?php echo $post_title;?></a></td>
+                <td><a href="blog.php?category=<?php echo $category; ?>" target="_blank" title="View all"><?php echo $category;?></a></td>
+                <td class="text-muted"><?php echo $datetime;?></td>
+                <td><a href="profile.php?username=<?php echo htmlentities($admin); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin); ?></a></td>
                 <td>
                   <!-- Modal will goes here -->
                   <p><?php echo basename($image); ?></p>
                   <img src="uploads/<?php echo $image; ?>" width="170px;">
                 </td>
-                <td class="text-center p-1">
-                  <span class="text-success" title="Approved"><i class="far fa-clock"></i> <?php approve_comment($id);?></span>
+                <td class="text-center mouse_default p-1">
+                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($id);?></span>
                   <hr class="m-0">
-                  <span class="badge text-secondary" title="Unapproved"><i class="fas fa-history"></i> <?php disapprove_comment($id);?></span>
+                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($id);?></span>
                 </td>
                 <td class="text-center">
                   <a href="edit_post.php?id=<?php echo $id; ?>" title="Edit"><i class="fas fa-edit"></i></a>
-                  <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                </td>
-                <td class="text-center">
-                  <a href="full_post.php?id=<?php echo $id; ?>" target="_blank" title="Live preview"><i class="fas fa-glasses"></i></a>
+                  <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
             </tbody>

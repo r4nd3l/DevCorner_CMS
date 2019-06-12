@@ -24,8 +24,8 @@
     $admin_image    = $_FILES["image_upload"]["name"];
     $target         =  "img/".basename($_FILES["image_upload"]["name"]);
 
-    if (strlen($admin_headline)>30) {
-      $_SESSION["ErrorMessage"] = "Headline is too long! (maximum is 30 character)";
+    if (strlen($admin_headline)>50) {
+      $_SESSION["ErrorMessage"] = "Headline is too long! (maximum is 50 character)";
       Redirect_to("my_profile.php");
     }elseif (strlen($admin_bio)>500) {
       $_SESSION["ErrorMessage"] = "Bio text is too long! (maximum is 500 character)";
@@ -122,7 +122,7 @@
               <div class="form-group">
                 <input class="form-control" type="text" id="my_name" placeholder="Headline" name="admin_headline">
                 <small class="text-muted">Add a professional headline like, 'Web developer' at DevCorner
-                  <span class="text-danger">Not more than 30 characters</span>
+                  <span class="text-danger">Not more than 50 characters</span>
                 </small>
               </div>
 

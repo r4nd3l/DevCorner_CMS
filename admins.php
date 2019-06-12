@@ -147,7 +147,7 @@
         <!--  -->
         <h5><i class="fas fa-user-slash text-success"></i> Delete existing admin</h5>
         <div class="card table-responsive">
-          <table class="table table-hover" style="margin-bottom: 0;">
+          <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
                 <th><b>#</b></th>
@@ -176,10 +176,10 @@
             <tbody>
               <tr>
                 <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                <td><?php echo htmlentities($admin_date); ?></td>
-                <td class="table-secondary"><?php echo htmlentities($admin_username); ?></td>
-                <td class="table-success"><?php echo htmlentities($admin_name); ?></td>
-                <td class="table-success"><?php echo htmlentities($added_by); ?></td>
+                <td class="text-muted"><?php echo htmlentities($admin_date); ?></td>
+                <td><a href="profile.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a></td>
+                <td class="text-muted"><?php echo htmlentities($admin_name); ?></td>
+                <td class="text-muted"><?php echo htmlentities($added_by); ?></td>
                 <td class="text-center">
                   <a href="admins.php?a=delete_admin&id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>

@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Roboto';
-  src: url('../font/Roboto/Roboto.ttf');
+  src: url('../font/Roboto/Roboto-Medium.ttf');
 }
 
 
@@ -29,6 +29,10 @@
 /* Utilities */
 .align-sub{
   vertical-align: sub;
+}
+
+.mouse_default{
+  cursor: default;
 }
 
 html,body{
