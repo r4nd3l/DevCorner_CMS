@@ -43,9 +43,9 @@ html,body{
 
 body{
   background-color: white;
-  /* background: url('../img/img_05.jpeg') no-repeat 50% 50%;
-  background-size: cover;
-  background-attachment: fixed; */
+  /* background: url('../img/img_05.jpeg') no-repeat 50% 50%; */
+  /* background-size: cover; */
+  /* background-attachment: fixed; */
 }
 
 .navbar-brand{
@@ -82,6 +82,91 @@ a:hover{
 .lift{
   margin-top: 3em;
 }
+
+/* Custom width settings */
+.w_005{width: 5vw;}
+.w_010{width: 10vw;}
+.w_015{width: 15vw;}
+.w_020{width: 20vw;}
+.w_025{width: 25vw;}
+.w_030{width: 30vw;}
+.w_035{width: 35vw;}
+.w_040{width: 40vw;}
+.w_045{width: 45vw;}
+.w_050{width: 50vw;}
+.w_055{width: 55vw;}
+.w_060{width: 60vw;}
+.w_065{width: 65vw;}
+.w_070{width: 70vw;}
+.w_075{width: 75vw;}
+.w_080{width: 80vw;}
+.w_085{width: 85vw;}
+.w_090{width: 90vw;}
+.w_095{width: 95vw;}
+.w_100{width: 100vw;}
+
+/* Tooltip settings */
+.img_tooltip{
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 0px;
+}
+.img_tooltip p{
+  cursor: pointer;
+}
+.img_tooltip:hover{
+  background: var(--dc-);
+  box-shadow: var(--shadow1-);
+}
+.img_tooltip .content{
+  position: relative;
+  bottom: 160px;
+  left: 25px;
+  background: transparent;
+  text-align: justify;
+  box-sizing: border-box;
+  border-radius: 0.2em;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+  transform: translateX(-50%) translateY(-50px);
+  box-shadow: var(--shadow1-);
+}
+.img_tooltip .content img{
+  border-radius: 0.2em;
+  border: 1px solid var(--dc-);
+  background-size: cover;
+  width: 10em;
+  height: 100%;
+}
+.img_tooltip .content:before{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--dc-);
+  bottom: -5px;
+  left: 70px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.img_tooltip:hover .content{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

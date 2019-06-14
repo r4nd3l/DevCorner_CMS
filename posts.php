@@ -63,11 +63,11 @@
           echo ErrorMessage();
           echo SuccessMessage();
         ?>
-        <div class="card table-responsive">
+        <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th>#</th>
+                <th class="text-right">#</th>
                 <th>Title</th>
                 <th>Category</th>
                 <th>Date</th>
@@ -77,6 +77,7 @@
                 <th class="text-center">Action</th>
               </tr>
             </thead>
+            <tbody>
             <?php
               global $connecting_db;
               $sql = "SELECT * FROM posts";
@@ -93,30 +94,36 @@
                 $post_description = $data_rows["post"];
                 $sr++;
             ?>
-            <tbody>
-              <tr>
-                <td><b><?php echo $sr; ?>.</b></td>
-                <td><a href="full_post.php?id=<?php echo $id; ?>" target="_blank" title="View"><?php echo $post_title;?></a></td>
-                <td><a href="blog.php?category=<?php echo $category; ?>" target="_blank" title="View all"><?php echo $category;?></a></td>
-                <td class="text-muted"><?php echo $datetime;?></td>
-                <td><a href="profile.php?username=<?php echo htmlentities($admin); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin); ?></a></td>
-                <td>
-                  <!-- Modal will goes here -->
+            <tr>
+              <td class="text-right font-weight-bold w_005"><?php echo $sr; ?>.</td>
+              <td class="w_035"><a href="full_post.php?id=<?php echo $id; ?>" target="_blank" title="View"><?php echo $post_title;?></a></td>
+              <td class="font-weight-bold w_010"><a href="blog.php?category=<?php echo $category; ?>" target="_blank" title="View all"><?php echo $category;?></a></td>
+              <td class="text-muted w_015"><?php echo $datetime;?></td>
+              <td class="font-weight-bold w_010">
+                <!-- Modal will goes here -->
+                <a href="profile.php?username=<?php echo htmlentities($admin); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin); ?></a>
+              </td>
+              <td class="_w015">
+                <!-- Modal will goes here -->
+                <div class="img_tooltip">
                   <p><?php echo basename($image); ?></p>
-                  <img src="uploads/<?php echo $image; ?>" width="170px;">
-                </td>
-                <td class="text-center mouse_default p-1">
-                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($id);?></span>
-                  <hr class="m-0">
-                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($id);?></span>
-                </td>
-                <td class="text-center">
-                  <a href="edit_post.php?id=<?php echo $id; ?>" title="Edit"><i class="fas fa-edit"></i></a>
-                  <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i>
+                  <div class="content">
+                    <img src="uploads/<?php echo $image; ?>">
+                  </div>
+                </div>
+              </td>
+              <td class="text-center w_005 mouse_default p-1">
+                <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($id);?></span>
+                <hr class="m-0">
+                <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($id);?></span>
+              </td>
+              <td class="text-center w_005">
+                <a href="edit_post.php?id=<?php echo $id; ?>" title="Edit"><i class="fas fa-edit"></i></a>
+                <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
-            </tbody>
             <?php } ?>
+            </tbody>
           </table>
         </div>
       </div>
@@ -128,14 +135,9 @@
     <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->
 
-
-  <!-- CDNs -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <!-- Custom scripts -->
-  <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
+  <!-- Scripts -->
+    <?php require_once("partials/scripts.php"); ?>
+  <!-- Scripts - END -->
 
 </body>
 </html>

@@ -98,17 +98,18 @@
           echo SuccessMessage();
         ?>
         <h5><i class="fab fa-readme text-success"></i> Top posts</h5>
-        <div class="card table-responsive">
+        <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th><b>#</b></th>
+                <th class="text-right">#</th>
                 <th>Title</th>
                 <th>Date</th>
                 <th>Author</th>
                 <th class="text-center">Comments</th>
               </tr>
             </thead>
+            <tbody>
             <?php
               $sr_no = 0;
               global $connecting_db;
@@ -122,20 +123,19 @@
                 $title    = $data_rows["title"];
                 $sr_no++;
             ?>
-            <tbody>
               <tr>
-                <td><b><?php echo $sr_no; ?></b>.</td>
-                <td><a href="full_post.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
-                <td class="text-muted"><?php echo $datetime; ?></td>
-                <td><a href="profile.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>
-                <td class="text-center mouse_default p-1">
+                <td class="text-right font-weight-bold w_005"><?php echo $sr_no; ?>.</td>
+                <td class="w_050"><a href="full_post.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
+                <td class="text-muted w_020"><?php echo $datetime; ?></td>
+                <td class="font-weight-bold w_020"><a href="profile.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>
+                <td class="text-center w_005 mouse_default p-1">
                   <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($post_id);?></span>
                   <hr class="m-0">
                   <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($post_id);?></span>
                 </td>
               </tr>
-            </tbody>
             <?php } ?>
+            </tbody>
           </table>
         </div>
       </div>
@@ -148,14 +148,9 @@
     <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->
 
-
-  <!-- CDNs -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <!-- Custom scripts -->
-  <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
+  <!-- Scripts -->
+    <?php require_once("partials/scripts.php"); ?>
+  <!-- Scripts - END -->
 
 </body>
 </html>

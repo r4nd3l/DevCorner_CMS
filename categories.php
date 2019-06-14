@@ -123,43 +123,42 @@
         ?>
         <!--  -->
         <h5><i class="fas fa-inbox text-success"></i> Existing categories</h5>
-        <div class="card table-responsive">
+        <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th><b>#</b></th>
+                <th class="text-right">#</th>
                 <th>Date</th>
                 <th>Category</th>
                 <th>Creator</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
-
-          <?php
-            global $connecting_db;
-            $sql = "SELECT * FROM category ORDER BY id desc";
-            $execute = $connecting_db->query($sql);
-            $sr_no = 0;
-
-            while ($data_rows = $execute->fetch()) {
-              $category_id   = $data_rows["id"];
-              $category_date = $data_rows["datetime"];
-              $category_name = $data_rows["title"];
-              $creator_name  = $data_rows["author"];
-              $sr_no++;
-          ?>
             <tbody>
-              <tr>
-                <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                <td class="text-muted"><?php echo htmlentities($category_date); ?></td>
-                <td><a href="blog.php?category=<?php echo $category_name; ?>" target="_blank" title="View all"><?php echo htmlentities($category_name); ?></a></td>
-                <td><a href="profile.php?username=<?php echo htmlentities($creator_name); ?>" target="_blank" title="Public profile"><?php echo htmlentities($creator_name); ?></a></td>
-                <td class="text-center">
-                  <a href="categories.php?a=delete_category&id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                </td>
-              </tr>
+            <?php
+              global $connecting_db;
+              $sql = "SELECT * FROM category ORDER BY id desc";
+              $execute = $connecting_db->query($sql);
+              $sr_no = 0;
+
+              while ($data_rows = $execute->fetch()) {
+                $category_id   = $data_rows["id"];
+                $category_date = $data_rows["datetime"];
+                $category_name = $data_rows["title"];
+                $creator_name  = $data_rows["author"];
+                $sr_no++;
+            ?>
+            <tr>
+              <td class="text-right font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
+              <td class="text-muted w_015"><?php echo htmlentities($category_date); ?></td>
+              <td class="font-weight-bold w_020"><a href="blog.php?category=<?php echo $category_name; ?>" target="_blank" title="View all"><?php echo htmlentities($category_name); ?></a></td>
+              <td class="w_055"><a href="profile.php?username=<?php echo htmlentities($creator_name); ?>" target="_blank" title="Public profile"><?php echo htmlentities($creator_name); ?></a></td>
+              <td class="text-center w_005">
+                <a href="categories.php?a=delete_category&id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+            <?php } ?>
             </tbody>
-          <?php } ?>
           </table>
         </div>
         <!--  - END -->
@@ -174,14 +173,9 @@
     <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->
 
-
-  <!-- CDNs -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <!-- Custom scripts -->
-  <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
+  <!-- Scripts -->
+    <?php require_once("partials/scripts.php"); ?>
+  <!-- Scripts - END -->
 
 </body>
 </html>

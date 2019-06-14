@@ -146,11 +146,11 @@
         ?>
         <!--  -->
         <h5><i class="fas fa-user-slash text-success"></i> Delete existing admin</h5>
-        <div class="card table-responsive">
+        <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th><b>#</b></th>
+                <th class="text-right">#</th>
                 <th>Date</th>
                 <th>Username</th>
                 <th>Admin name</th>
@@ -158,34 +158,34 @@
                 <th class="text-center">Action</th>
               </tr>
             </thead>
-
-          <?php
-            global $connecting_db;
-            $sql = "SELECT * FROM admins ORDER BY id desc";
-            $execute = $connecting_db->query($sql);
-            $sr_no = 0;
-
-            while ($data_rows = $execute->fetch()) {
-              $admin_id       = $data_rows["id"];
-              $admin_date     = $data_rows["datetime"];
-              $admin_username = $data_rows["username"];
-              $admin_name     = $data_rows["admin_name"];
-              $added_by       = $data_rows["added_by"];
-              $sr_no++;
-          ?>
             <tbody>
-              <tr>
-                <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                <td class="text-muted"><?php echo htmlentities($admin_date); ?></td>
-                <td><a href="profile.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a></td>
-                <td class="text-muted"><?php echo htmlentities($admin_name); ?></td>
-                <td class="text-muted"><?php echo htmlentities($added_by); ?></td>
-                <td class="text-center">
-                  <a href="admins.php?a=delete_admin&id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                </td>
-              </tr>
+            <?php
+              global $connecting_db;
+              $sql = "SELECT * FROM admins ORDER BY id desc";
+              $execute = $connecting_db->query($sql);
+              $sr_no = 0;
+
+              while ($data_rows = $execute->fetch()) {
+                $admin_id       = $data_rows["id"];
+                $admin_date     = $data_rows["datetime"];
+                $admin_username = $data_rows["username"];
+                $admin_name     = $data_rows["admin_name"];
+                $added_by       = $data_rows["added_by"];
+                $admin_image    = $data_rows["admin_image"];
+                $sr_no++;
+            ?>
+            <tr>
+              <td class="text-right font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
+              <td class="text-muted w_015"><?php echo htmlentities($admin_date); ?></td>
+              <td class="font-weight-bold w_025"><a href="profile.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a> <img src="img/<?php echo $admin_image; ?>"></td>
+              <td class="text-muted w_025"><?php echo htmlentities($admin_name); ?></td>
+              <td class="text-muted w_025"><?php echo htmlentities($added_by); ?></td>
+              <td class="text-center w_005">
+                <a href="admins.php?a=delete_admin&id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+            <?php } ?>
             </tbody>
-          <?php } ?>
           </table>
         </div>
         <!--  - END -->
@@ -200,14 +200,9 @@
     <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->
 
-
-  <!-- CDNs -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <!-- Custom scripts -->
-  <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
+  <!-- Scripts -->
+    <?php require_once("partials/scripts.php"); ?>
+  <!-- Scripts - END -->
 
 </body>
 </html>

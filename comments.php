@@ -52,45 +52,44 @@
           ?>
           <!-- Unapproved table -->
           <h5><i class="far fa-clock text-success"></i> Unapproved comments</h5>
-          <div class="card table-responsive">
+          <div class="card">
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
-                  <th><b>#</b></th>
+                  <th class="text-right">#</th>
                   <th>Date</th>
                   <th>Name</th>
                   <th>Comment</th>
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
-
-            <?php
-              global $connecting_db;
-              $sql = "SELECT * FROM comments WHERE status='OFF' ORDER BY id desc";
-              $execute = $connecting_db->query($sql);
-              $sr_no = 0;
-
-              while ($data_rows = $execute->fetch()) {
-                $comment_id           = $data_rows["id"];
-                $datetime_of_comments = $data_rows["datetime"];
-                $commenter_name       = $data_rows["name"];
-                $comment_content      = $data_rows["comment"];
-                $comment_post_id      = $data_rows["post_id"];
-                $sr_no++;
-            ?>
               <tbody>
-                <tr>
-                  <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                  <td class="text-muted"><?php echo htmlentities($datetime_of_comments); ?></td>
-                  <td class="text-muted"><?php echo htmlentities($commenter_name); ?></td>
-                  <td><a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="View" target="_blank"><?php echo htmlentities($comment_content); ?></a></td>
-                  <td class="text-center">
-                    <a href="comments.php?a=approve_comment&id=<?php echo $comment_id; ?>" title="Approve"><i class="far fa-check-circle"></i></a>
-                    <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                  </td>
-                </tr>
+              <?php
+                global $connecting_db;
+                $sql = "SELECT * FROM comments WHERE status='OFF' ORDER BY id desc";
+                $execute = $connecting_db->query($sql);
+                $sr_no = 0;
+
+                while ($data_rows = $execute->fetch()) {
+                  $comment_id           = $data_rows["id"];
+                  $datetime_of_comments = $data_rows["datetime"];
+                  $commenter_name       = $data_rows["name"];
+                  $comment_content      = $data_rows["comment"];
+                  $comment_post_id      = $data_rows["post_id"];
+                  $sr_no++;
+              ?>
+              <tr>
+                <td class="text-right font-weight-bold w_005"><?php echo htmlentities($sr_no); ?>.</td>
+                <td class="text-muted w_015"><?php echo htmlentities($datetime_of_comments); ?></td>
+                <td class="text-muted font-weight-bold w_020"><?php echo htmlentities($commenter_name); ?></td>
+                <td class="w_055"><a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="View" target="_blank"><?php echo htmlentities($comment_content); ?></a></td>
+                <td class="text-center w_005">
+                  <a href="comments.php?a=approve_comment&id=<?php echo $comment_id; ?>" title="Approve"><i class="far fa-check-circle"></i></a>
+                  <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+              <?php } ?>
               </tbody>
-            <?php } ?>
             </table>
           </div>
           <!-- Unapproved table - END -->
@@ -112,7 +111,7 @@
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
-                  <th><b>#</b></th>
+                  <th class="text-right">#</th>
                   <th>Date</th>
                   <th>Name</th>
                   <th>Comment</th>
@@ -136,11 +135,11 @@
             ?>
               <tbody>
                 <tr>
-                  <td><b><?php echo htmlentities($sr_no); ?>.</b></td>
-                  <td class="text-muted"><?php echo htmlentities($datetime_of_comments); ?></td>
-                  <td class="text-muted"><?php echo htmlentities($commenter_name); ?></td>
-                  <td><a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="View" target="_blank"><?php echo htmlentities($comment_content); ?></a></td>
-                  <td class="text-center">
+                  <td class="text-right font-weight-bold w_005"><?php echo htmlentities($sr_no); ?>.</td>
+                  <td class="text-muted w_015"><?php echo htmlentities($datetime_of_comments); ?></td>
+                  <td class="text-muted font-weight-bold w_020"><?php echo htmlentities($commenter_name); ?></td>
+                  <td class="w_055"><a href="full_post.php?id=<?php echo $comment_post_id; ?>" title="View" target="_blank"><?php echo htmlentities($comment_content); ?></a></td>
+                  <td class="text-center w_005">
                     <a href="comments.php?a=disapprove_comment&id=<?php echo $comment_id; ?>" title="Dispprove"><i class="fas fa-undo"></i></a>
                     <a href="comments.php?a=delete_comment&id=<?php echo $comment_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
                   </td>
@@ -160,14 +159,9 @@
     <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->
 
-
-  <!-- CDNs -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <!-- Custom scripts -->
-  <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
+  <!-- Scripts -->
+    <?php require_once("partials/scripts.php"); ?>
+  <!-- Scripts - END -->
 
 </body>
 </html>
