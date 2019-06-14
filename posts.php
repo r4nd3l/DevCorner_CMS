@@ -105,7 +105,7 @@
               </td>
               <td class="_w015">
                 <!-- Modal will goes here -->
-                <div class="img_tooltip">
+                <div class="img_tooltip_posts">
                   <p><?php echo basename($image); ?></p>
                   <div class="content">
                     <img src="uploads/<?php echo $image; ?>">

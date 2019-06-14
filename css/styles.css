@@ -105,55 +105,96 @@ a:hover{
 .w_095{width: 95vw;}
 .w_100{width: 100vw;}
 
-/* Tooltip settings */
-.img_tooltip{
-  /* justify-content: center; */
-  /* align-items: center; */
-  height: 0px;
+/* Tooltip posts settings */
+.img_tooltip_posts{
+  height: 0px; /* size fixer */
 }
-.img_tooltip p{
+.img_tooltip_posts p{
   cursor: pointer;
+  width: fit-content;
 }
-.img_tooltip:hover{
-  background: var(--dc-);
-  box-shadow: var(--shadow1-);
+.img_tooltip_posts p:hover{
+  color: var(--dc-);
 }
-.img_tooltip .content{
+.img_tooltip_posts .content{
   position: relative;
   bottom: 160px;
   left: 25px;
-  background: transparent;
-  text-align: justify;
   box-sizing: border-box;
   border-radius: 0.2em;
   visibility: hidden;
   opacity: 0;
   transition: 0.2s;
   transform: translateX(-50%) translateY(-50px);
-  box-shadow: var(--shadow1-);
 }
-.img_tooltip .content img{
+.img_tooltip_posts .content img{
   border-radius: 0.2em;
   border: 1px solid var(--dc-);
   background-size: cover;
   width: 10em;
   height: 100%;
 }
-.img_tooltip .content:before{
+.img_tooltip_posts .content:before{
   content: '';
   position: absolute;
   width: 10px;
   height: 10px;
   background: var(--dc-);
   bottom: -5px;
-  left: 70px;
+  left: 75px;
   transform: rotate(45deg);
   z-index: -1;
 }
-.img_tooltip:hover .content{
+.img_tooltip_posts:hover .content{
   visibility: visible;
   opacity: 1;
   transform: translateX(-50%) translateY(0px);
+  box-shadow: var(--shadow1-);
+}
+
+/* Tooltip admins settings */
+.img_tooltip_admins{
+  height: 0px; /* size fixer */
+  width: fit-content;
+}
+.img_tooltip_admins p{
+  cursor: pointer;
+  width: fit-content;
+}
+.img_tooltip_admins .content{
+  position: relative;
+  bottom: 215px;
+  left: 25px;
+  box-sizing: border-box;
+  border-radius: 0.2em;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+  transform: translateX(-50%) translateY(-50px);
+}
+.img_tooltip_admins .content img{
+  border-radius: 0.2em;
+  border: 1px solid var(--dc-);
+  background-size: cover;
+  width: 10em;
+  height: 100%;
+}
+.img_tooltip_admins .content:before{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--dc-);
+  bottom: -5px;
+  left: 75px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.img_tooltip_admins:hover .content{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0px);
+  box-shadow: var(--shadow1-);
 }
 
 

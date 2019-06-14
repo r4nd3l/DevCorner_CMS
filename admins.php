@@ -177,7 +177,14 @@
             <tr>
               <td class="text-right font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
               <td class="text-muted w_015"><?php echo htmlentities($admin_date); ?></td>
-              <td class="font-weight-bold w_025"><a href="profile.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a> <img src="img/<?php echo $admin_image; ?>"></td>
+              <td class="font-weight-bold w_025">
+                <div class="img_tooltip_admins">
+                  <p><a href="profile.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a></p>
+                  <div class="content">
+                    <img src="img/<?php echo $admin_image; ?>">
+                  </div>
+                </div>
+              </td>
               <td class="text-muted w_025"><?php echo htmlentities($admin_name); ?></td>
               <td class="text-muted w_025"><?php echo htmlentities($added_by); ?></td>
               <td class="text-center w_005">
