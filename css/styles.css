@@ -42,7 +42,7 @@ html,body{
 }
 
 body{
-  background-color: white;
+  background: white;
   /* background: url('../img/img_05.jpeg') no-repeat 50% 50%; */
   /* background-size: cover; */
   /* background-attachment: fixed; */
@@ -197,6 +197,94 @@ a:hover{
   box-shadow: var(--shadow1-);
 }
 
+
+/* The Modal (background) */
+._modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 8em; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(21,21,21,0.8); /* Black w/ opacity */
+  z-index: 100;
+}
+
+
+/* The Modal button */
+#_myBtn{
+  cursor: pointer;
+}
+
+/* Modal Content */
+._modal-content {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  height: 100vh;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  text-align: center;
+  background: transparent;
+  background-size: cover;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes animatetop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+._close {
+  color: var(--dc-);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0;
+  margin: -1.5em -1.25em;
+}
+
+._close:hover,
+._close:focus {
+  color: var(--gr-);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+._modal-body{
+  margin: 0 auto;
+  color: var(--gr-);
+  padding: 0;
+}
+
+/* iFrame settings */
+.posts_iframe{
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding:;
+}
 
 
 

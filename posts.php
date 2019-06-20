@@ -118,10 +118,23 @@
                 <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($id);?></span>
               </td>
               <td class="text-center w_005">
+
+                <i class="fas fa-ad" id="myBtn_" data-btn="myBtn_<?php echo $id; ?>"></i>
+                <!-- Modal for posts-->
+                <div id="myModal_" data-modal="myModal_<?php echo $id; ?>" class="_modal">
+                  <div class="_modal-content">
+                    <div class="_modal-header"><span class="_close"><i class="far fa-times-circle"></i></span></div>
+                    <div class="_modal-body">
+                      <iframe class="posts_iframe" src="<?php echo 'edit_post.php'.'?id='.$id;?>" frameborder="0"></iframe>
+                    </div>
+                  </div>
+                </div>
+
                 <a href="edit_post.php?id=<?php echo $id; ?>" title="Edit"><i class="fas fa-edit"></i></a>
                 <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
+
             <?php } ?>
             </tbody>
           </table>
@@ -138,6 +151,8 @@
   <!-- Scripts -->
     <?php require_once("partials/scripts.php"); ?>
   <!-- Scripts - END -->
+
+  <script src="js/_modal.js" charset="utf-8"></script>
 
 </body>
 </html>
