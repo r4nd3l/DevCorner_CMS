@@ -47,11 +47,10 @@
         // var_dump($execute);
         if($execute){
           $_SESSION["SuccessMessage"]="Post updated successfully!";
-          Redirect_to("posts.php");
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-          Redirect_to("posts.php");
         }
+        Redirect_to("admin.php?a=posts");
       }
     } // Ending of Submit button if-condition
 ?>
@@ -82,7 +81,7 @@
       $post_to_be_updated     = $data_rows['post'];
     }
     ?>
-    <form class="" action="edit_post.php?id=<?php echo $search_query_parameter; ?>" method="post" enctype="multipart/form-data">
+    <form class="" action="edit_post.php?id=<?php echo $search_query_parameter; ?>" method="post" enctype="multipart/form-data" target="_top">
       <div class="card">
         <div class="card-header">
           <h6 class="m-0">Editing - <span class="text-muted"><?php echo $title_to_be_updated; ?></span></h6>

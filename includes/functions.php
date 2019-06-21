@@ -93,7 +93,7 @@
     $stmt_approve = $connecting_db->query($sql_approve);
     $total_rows   = $stmt_approve->fetch();
     $total        = array_shift($total_rows);
-    echo $total;
+    return $total;
   }
 
   // Disapprove comments according to post
@@ -103,7 +103,7 @@
     $stmt_disapproved = $connecting_db->query($sql_disapproved);
     $total_rows   = $stmt_disapproved->fetch();
     $total        = array_shift($total_rows);
-    echo $total;
+    return $total;
   }
 
 ?>

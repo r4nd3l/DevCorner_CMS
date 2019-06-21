@@ -5,3 +5,4 @@
 
 <!-- Custom scripts -->
 <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
+<script src="js/_modal.js"></script>

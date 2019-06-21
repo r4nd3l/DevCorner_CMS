@@ -1,24 +1,9 @@
-<?php require_once("includes/db.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-<?php require_once("includes/sessions.php"); ?>
-<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Header part -->
-    <?php require_once('partials/header.php'); ?>
-  <!-- Header part - END -->
+<?php
 
-  <title>Posts</title>
-</head>
-<body>
+$TITLE = 'Posts';
 
-  <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
-  <!-- Navbar - END -->
-
-  <!-- Header -->
-  <header class="py-3">
+$TARTALOM .= '
+<header class="py-3">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -45,7 +30,7 @@
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Approve comment -->
-          <a href="comments.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin.php?a=comments" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-check"></i> Approve comment</span>
           </a>
         </div>
@@ -59,10 +44,6 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
         <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
@@ -78,7 +59,7 @@
               </tr>
             </thead>
             <tbody>
-            <?php
+';
               global $connecting_db;
               $sql = "SELECT * FROM posts";
               $stmt = $connecting_db->query($sql);
@@ -93,49 +74,56 @@
                 $image            = $data_rows["image"];
                 $post_description = $data_rows["post"];
                 $sr++;
-            ?>
+$TARTALOM .= '
             <tr>
-              <td class="text-right font-weight-bold w_005"><?php echo $sr; ?>.</td>
-              <td class="w_035"><a href="full_post.php?id=<?php echo $id; ?>" target="_blank" title="View"><?php echo $post_title;?></a></td>
-              <td class="font-weight-bold w_010"><a href="blog.php?category=<?php echo $category; ?>" target="_blank" title="View all"><?php echo $category;?></a></td>
-              <td class="text-muted w_015"><?php echo $datetime;?></td>
+              <td class="text-right font-weight-bold w_005">'.$sr.'.</td>
+              <td class="w_035"><a href="full_post.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
+              <td class="font-weight-bold w_010"><a href="blog.php?category='.$category.'" target="_blank" title="View all">'.$category.'</a></td>
+              <td class="text-muted w_015">'.$datetime.'</td>
               <td class="font-weight-bold w_010">
                 <!-- Modal will goes here -->
-                <a href="profile.php?username=<?php echo htmlentities($admin); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin); ?></a>
+                <a href="profile.php?username='.htmlentities($admin).'" target="_blank" title="Public profile">'.htmlentities($admin).'</a>
               </td>
               <td class="_w015">
                 <!-- Modal will goes here -->
                 <div class="img_tooltip_posts">
-                  <p><?php echo basename($image); ?></p>
+                  <p>'.basename($image).'</p>
                   <div class="content">
-                    <img src="uploads/<?php echo $image; ?>">
+                    <img src="uploads/'.$image.'">
                   </div>
                 </div>
               </td>
               <td class="text-center w_005 mouse_default p-1">
-                <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($id);?></span>
+                <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '. disapprove_comment($id).'</span>
                 <hr class="m-0">
-                <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($id);?></span>
+                <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> '. approve_comment($id) .'</span>
               </td>
               <td class="text-center w_005">
 
-                <i class="fas fa-ad" id="myBtn_" data-btn="myBtn_<?php echo $id; ?>"></i>
                 <!-- Modal for posts-->
-                <div id="myModal_" data-modal="myModal_<?php echo $id; ?>" class="_modal">
-                  <div class="_modal-content">
-                    <div class="_modal-header"><span class="_close"><i class="far fa-times-circle"></i></span></div>
-                    <div class="_modal-body">
-                      <iframe class="posts_iframe" src="<?php echo 'edit_post.php'.'?id='.$id;?>" frameborder="0"></iframe>
+                <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editPostModalLabel">Edit posts</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <iframe id="editPostIframe" class="posts_iframe" src="" frameborder="0"></iframe>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <a href="edit_post.php?id=<?php echo $id; ?>" title="Edit"><i class="fas fa-edit"></i></a>
-                <a href="delete_post.php?id=<?php echo $id; ?>" title="Delete"><i class="fas fa-trash-alt"></i>
+                <a href="#editPost-id='.$id.'" title="Edit" data-toggle="modal" data-target="#editPostModal" data-postid="'.$id.'"><i class="fas fa-edit"></i></a>
+                <a href="delete_post.php?id='.$id.'" title="Delete"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
-
-            <?php } ?>
+              ';
+            }
+            $TARTALOM .= '
             </tbody>
           </table>
         </div>
@@ -143,16 +131,6 @@
     </div>
   </section>
   <!-- Main part - END -->
+';
 
-  <!-- Footer part --><!-- fixed-bottom -->
-    <?php require_once("partials/footer.php"); ?>
-  <!-- Footer part - END -->
-
-  <!-- Scripts -->
-    <?php require_once("partials/scripts.php"); ?>
-  <!-- Scripts - END -->
-
-  <script src="js/_modal.js" charset="utf-8"></script>
-
-</body>
-</html>
+?>

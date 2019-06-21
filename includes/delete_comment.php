@@ -8,10 +8,9 @@
 
     if ($execute) {
       $_SESSION["SuccessMessage"]= "Comment deleted successfully!";
-      Redirect_to("comments.php");
     }else{
       $_SESSION["ErrorMessage"]= "Something went wrong. Please try again!";
-      Redirect_to("comments.php");
     }
+    Redirect_to("admin.php?a=comments");
   }
 ?>

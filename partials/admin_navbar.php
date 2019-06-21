@@ -15,10 +15,10 @@
       <ul class="navbar-nav m-auto">
         <li class="nav-item"><a href="my_profile.php" class="nav-link"><i class="fas fa-user text-success"></i> Profile</a></li>
         <li class="nav-item"><a href="dashboard.php" class="nav-link">Dashboard</a></li>
-        <li class="nav-item"><a href="posts.php" class="nav-link">Posts</a></li>
+        <li class="nav-item"><a href="admin.php?a=posts" class="nav-link">Posts</a></li>
         <li class="nav-item"><a href="categories.php" class="nav-link">Categories</a></li>
         <li class="nav-item"><a href="admins.php" class="nav-link">Admins</a></li>
-        <li class="nav-item"><a href="comments.php" class="nav-link">Comments</a></li>
+        <li class="nav-item"><a href="admin.php?a=comments" class="nav-link">Comments</a></li>
         <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Blog</a></li>
       </ul>
 
