@@ -3,7 +3,7 @@
 <?php require_once("includes/sessions.php"); ?>
 <?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
 <?php
-  global $TARTALOM;
+  global $merged_content;
   switch ($_REQUEST['a']) {
     case 'posts':
         include('posts.php');
@@ -27,7 +27,7 @@
     <?php require_once('partials/header.php'); ?>
   <!-- Header part - END -->
 
-  <title><?php echo $TITLE; ?></title>
+  <title><?php echo $merged_title; ?></title>
 </head>
 <body>
 
@@ -40,7 +40,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-comments text-success"></i> Manage <?php echo $TITLE; ?></h6>
+          <h6><i class="fas fa-comments text-success"></i> Manage <?php echo $merged_title; ?></h6>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
   <!-- Header - END -->
 
   <!-- Main part -->
-    <section class="container-fluid py-2 mb-4">
+    <section class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
           <?php
@@ -61,7 +61,7 @@
   <!-- Main part - END -->
 
   <?php
-    echo $TARTALOM;// :)
+    echo $merged_content;// :)
   ?>
 
   <!-- Footer part --><!-- fixed-bottom -->

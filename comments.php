@@ -1,9 +1,7 @@
 <?php
-
-$TITLE = 'Comments';
-
-$TARTALOM .= '
-<section class="container-fluid py-2 mb-4">
+  $merged_title = 'Comments';
+  $merged_content .= '
+  <section class="container-fluid py-2 mb-4">
   <div class="row">
     <div class="col-lg-12">
           <!-- Unapproved table -->
@@ -12,31 +10,29 @@ $TARTALOM .= '
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
-                  <th class="text-right">#</th>
-                  <th>Date</th>
-                  <th>Name</th>
-                  <th>Comment</th>
-                  <th class="text-center">Action</th>
+                  <th class="text-right w_005">#</th>
+                  <th class="w_015" >Date</th>
+                  <th class="w_020">Name</th>
+                  <th class="w_055">Comment</th>
+                  <th class="text-center w_005">Action</th>
                 </tr>
               </thead>
               <tbody>
+              ';
+                global $connecting_db;
+                $sql = "SELECT * FROM comments WHERE status=0 ORDER BY id desc";
+                $execute = $connecting_db->query($sql);
+                $sr_no = 0;
 
-';
+                while ($data_rows = $execute->fetch()) {
+                  $comment_id           = $data_rows["id"];
+                  $datetime_of_comments = $data_rows["datetime"];
+                  $commenter_name       = $data_rows["name"];
+                  $comment_content      = $data_rows["comment"];
+                  $comment_post_id      = $data_rows["post_id"];
+                  $sr_no++;
 
-global $connecting_db;
-$sql = "SELECT * FROM comments WHERE status=0 ORDER BY id desc";
-$execute = $connecting_db->query($sql);
-$sr_no = 0;
-
-while ($data_rows = $execute->fetch()) {
-  $comment_id           = $data_rows["id"];
-  $datetime_of_comments = $data_rows["datetime"];
-  $commenter_name       = $data_rows["name"];
-  $comment_content      = $data_rows["comment"];
-  $comment_post_id      = $data_rows["post_id"];
-  $sr_no++;
-
-  $TARTALOM .= '
+              $merged_content .= '
               <tr>
                 <td class="text-right font-weight-bold w_005">'.htmlentities($sr_no).'.</td>
                 <td class="text-muted w_015">'.htmlentities($datetime_of_comments).'</td>
@@ -47,14 +43,13 @@ while ($data_rows = $execute->fetch()) {
                   <a href="admin.php?a=delete_comment&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>
               </tr>
-  ';
-}
-$TARTALOM .= '
+              ';
+              }
+              $merged_content .= '
               </tbody>
             </table>
           </div>
           <!-- Unapproved table - END -->
-
         </div>
       </div>
     </section>
@@ -68,29 +63,28 @@ $TARTALOM .= '
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
-                  <th class="text-right">#</th>
-                  <th>Date</th>
-                  <th>Name</th>
-                  <th>Comment</th>
-                  <th class="text-center">Action</th>
+                  <th class="text-right w_005">#</th>
+                  <th class="w_015" >Date</th>
+                  <th class="w_020">Name</th>
+                  <th class="w_055">Comment</th>
+                  <th class="text-center w_005">Action</th>
                 </tr>
               </thead>
-  ';
+              ';
+                global $connecting_db;
+                $sql = "SELECT * FROM comments WHERE status=1 ORDER BY id desc";
+                $execute = $connecting_db->query($sql);
+                $sr_no = 0;
 
-              global $connecting_db;
-              $sql = "SELECT * FROM comments WHERE status=1 ORDER BY id desc";
-              $execute = $connecting_db->query($sql);
-              $sr_no = 0;
+                while ($data_rows = $execute->fetch()) {
+                  $comment_id           = $data_rows["id"];
+                  $datetime_of_comments = $data_rows["datetime"];
+                  $commenter_name       = $data_rows["name"];
+                  $comment_content      = $data_rows["comment"];
+                  $comment_post_id      = $data_rows["post_id"];
+                  $sr_no++;
 
-              while ($data_rows = $execute->fetch()) {
-                $comment_id           = $data_rows["id"];
-                $datetime_of_comments = $data_rows["datetime"];
-                $commenter_name       = $data_rows["name"];
-                $comment_content      = $data_rows["comment"];
-                $comment_post_id      = $data_rows["post_id"];
-                $sr_no++;
-
-                $TARTALOM .= '
+              $merged_content .= '
               <tbody>
                 <tr>
                   <td class="text-right font-weight-bold w_005">'.htmlentities($sr_no).'.</td>
@@ -104,16 +98,14 @@ $TARTALOM .= '
                 </tr>
               </tbody>
               ';
-            }
-            $TARTALOM .= '
+              }
+              $merged_content .= '
             </table>
           </div>
           <!-- Disapprove table - END -->
-
         </div>
       </div>
     </section>
   <!-- Main part - END -->
-';
-
+  ';
 ?>

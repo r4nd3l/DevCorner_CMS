@@ -1,9 +1,7 @@
 <?php
-
-$TITLE = 'Posts';
-
-$TARTALOM .= '
-<header class="py-3">
+  $merged_title = 'Posts';
+  $merged_content .= '
+  <header class="py-3">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -48,18 +46,18 @@ $TARTALOM .= '
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right">#</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Author</th>
-                <th>Banner</th>
-                <th>Comments</th>
-                <th class="text-center">Action</th>
+                <th class="text-right w_005">#</th>
+                <th class="w_035">Title</th>
+                <th class="w_010">Category</th>
+                <th class="w_015">Date</th>
+                <th class="w_010">Author</th>
+                <th class="w_015">Banner</th>
+                <th class="w_005">Comments</th>
+                <th class="text-center w_005">Action</th>
               </tr>
             </thead>
             <tbody>
-';
+            ';
               global $connecting_db;
               $sql = "SELECT * FROM posts";
               $stmt = $connecting_db->query($sql);
@@ -74,10 +72,10 @@ $TARTALOM .= '
                 $image            = $data_rows["image"];
                 $post_description = $data_rows["post"];
                 $sr++;
-$TARTALOM .= '
+              $merged_content .= '
             <tr>
               <td class="text-right font-weight-bold w_005">'.$sr.'.</td>
-              <td class="w_035"><a href="full_post.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
+              <td class="d-inline-block text-truncate w_035"><a href="full_post.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
               <td class="font-weight-bold w_010"><a href="blog.php?category='.$category.'" target="_blank" title="View all">'.$category.'</a></td>
               <td class="text-muted w_015">'.$datetime.'</td>
               <td class="font-weight-bold w_010">
@@ -101,16 +99,16 @@ $TARTALOM .= '
               <td class="text-center w_005">
 
                 <!-- Modal for posts-->
-                <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog content_modal" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="editPostModalLabel">Edit posts</h5>
+                      <div class="modal-header py-1">
+                        <h6 class="mb-0 mt-1">Editing now - <span class="text-muted"> '. $post_title .' </span></h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal-body content_modal_body p-0">
                           <iframe id="editPostIframe" class="posts_iframe" src="" frameborder="0"></iframe>
                       </div>
                     </div>
@@ -123,7 +121,7 @@ $TARTALOM .= '
               </tr>
               ';
             }
-            $TARTALOM .= '
+            $merged_content .= '
             </tbody>
           </table>
         </div>
