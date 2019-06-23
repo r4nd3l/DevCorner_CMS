@@ -225,16 +225,9 @@ a:hover{
   padding: 0;
 }
 
-/* Small sized input */
-.input_sm{
-  height: calc(1em + 0.5rem);
-}
-
 /* Cursor pointer */
 .pointer{
   cursor: pointer;
-}
-.pre_view{
 }
 .pre_overlay {
   margin: 0 auto;

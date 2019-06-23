@@ -102,11 +102,11 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right">#</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Author</th>
-                <th class="text-center">Comments</th>
+                <th class="text-right w_005">#</th>
+                <th class="w_050">Title</th>
+                <th class="w_020">Date</th>
+                <th class="w_020">Author</th>
+                <th class="text-center w_005">Comments</th>
               </tr>
             </thead>
             <tbody>
@@ -124,7 +124,7 @@
                 $sr_no++;
             ?>
               <tr>
-                <td class="text-right font-weight-bold w_005"><?php echo $sr_no; ?>.</td>
+                <td class="text-right text-success font-weight-bold w_005"><?php echo $sr_no; ?>.</td>
                 <td class="w_050"><a href="full_post.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
                 <td class="text-muted w_020"><?php echo $datetime; ?></td>
                 <td class="font-weight-bold w_020"><a href="profile.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>

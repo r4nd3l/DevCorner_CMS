@@ -150,12 +150,12 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right">#</th>
-                <th>Date</th>
-                <th>Username</th>
-                <th>Admin name</th>
-                <th>Added by</th>
-                <th class="text-center">Action</th>
+                <th class="text-right w_005">#</th>
+                <th class="w_015">Date</th>
+                <th class="w_025">Username</th>
+                <th class="w_025">Admin name</th>
+                <th class="w_025">Added by</th>
+                <th class="text-center w_005">Action</th>
               </tr>
             </thead>
             <tbody>

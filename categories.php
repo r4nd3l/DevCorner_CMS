@@ -127,11 +127,11 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right">#</th>
-                <th>Date</th>
-                <th>Category</th>
-                <th>Creator</th>
-                <th class="text-center">Action</th>
+                <th class="text-right w_005">#</th>
+                <th class="w_015">Date</th>
+                <th class="w_020">Category</th>
+                <th class="w_055">Creator</th>
+                <th class="text-center w_005">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -149,7 +149,7 @@
                 $sr_no++;
             ?>
             <tr>
-              <td class="text-right font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
+              <td class="text-right text-success font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
               <td class="text-muted w_015"><?php echo htmlentities($category_date); ?></td>
               <td class="font-weight-bold w_020"><a href="blog.php?category=<?php echo $category_name; ?>" target="_blank" title="View all"><?php echo htmlentities($category_name); ?></a></td>
               <td class="w_055"><a href="profile.php?username=<?php echo htmlentities($creator_name); ?>" target="_blank" title="Public profile"><?php echo htmlentities($creator_name); ?></a></td>

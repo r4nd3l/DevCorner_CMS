@@ -74,13 +74,13 @@
                 $sr++;
               $merged_content .= '
             <tr>
-              <td class="text-right font-weight-bold w_005">'.$sr.'.</td>
+              <td class="text-right text-success font-weight-bold w_005">'.$sr.'.</td>
               <td class="d-inline-block text-truncate w_035"><a href="full_post.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
               <td class="font-weight-bold w_010"><a href="blog.php?category='.$category.'" target="_blank" title="View all">'.$category.'</a></td>
               <td class="text-muted w_015">'.$datetime.'</td>
               <td class="font-weight-bold w_010">
                 <!-- Modal will goes here -->
-                <a href="profile.php?username='.htmlentities($admin).'" target="_blank" title="Public profile">'.htmlentities($admin).'</a>
+                <a href="profile.php?username='.htmlentities($admin).'" target="_blank" title="Public profile" data-toggle="tooltip" data-placement="top" title="Tooltip on top">'.htmlentities($admin).'</a>
               </td>
               <td class="_w015">
                 <!-- Modal will goes here -->
