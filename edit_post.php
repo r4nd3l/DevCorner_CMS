@@ -108,35 +108,25 @@
                 </select>
               </div>
 
-              <div class="form-group">
-                <label class="m-0"><span class="fieldInfo">Select image:</span></label>
-                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b>".basename($image_to_be_updated)."</b>"." image is set up)"; ?></span>
-                <div class="custom-file">
-                  <input class="custom-file-input" type="File" name="image_upload" id="image_select" value="">
-                  <label for="image_select" class="m-0 custom-file-label">Select image</label>
-                </div>
-              </div>
-
+            </div>
+            <div class="col-lg-6">
               <div class="custom-file-container" data-upload-id="myFirstImage">
-                <label>Upload (Single File)
-                  <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"><span class="clear"><i class="fas fa-times-circle"></i> Clear</span></a>
+                <label class="m-0">Select image:
+                  <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"><span class="fieldInfo_2 text-success clear"><i class="fas fa-times-circle"></i> Clear</span></a>
                 </label>
-                <label class="custom-file-container__custom-file" >
+                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b>".basename($image_to_be_updated)."</b>"." image is set up)"; ?></span>
+                <label class="custom-file-container__custom-file m-0" for="image_select">
                   <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" aria-label="Choose File" name="image_upload" id="image_select" value="">
                   <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                   <span class="custom-file-container__custom-file__custom-file-control"></span>
                 </label>
-                <div class="custom-file-container__image-preview"></div>
+                <div class="pre_view">
+                  <div class="custom-file-container__image-preview my-3"></div>
+                  <span class="pre_overlay">
+                    <div class="pre_text"><?php echo $image_to_be_updated; ?></div>
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="pre_view">
-                <img id="imgUp" src="uploads/<?php echo $image_to_be_updated; ?>" class="img-fluid img-thumbnail" alt="<?php echo $image_to_be_updated; ?>">
-                <span class="pre_overlay">
-                  <div class="pre_text"><?php echo $image_to_be_updated; ?></div>
-                </span>
-              </div>
-
             </div>
           </div>
 
@@ -165,7 +155,7 @@
   <!-- Scripts - END -->
   <script type="text/javascript">
     var imgUp = "uploads/<?php echo $image_to_be_updated; ?>";
-    var upload = new FileUploadWithPreview('myFirstImage', {showDeleteButtonOnImages: true, text: {chooseFile: 'Select image', browse: 'Browse single'}})
+    var upload = new FileUploadWithPreview('myFirstImage', {showDeleteButtonOnImages: false, text: {chooseFile: 'Select image', browse: 'Browse'}})
   </script>
 
 </body>
