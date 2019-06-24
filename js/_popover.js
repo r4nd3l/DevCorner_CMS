@@ -1,7 +1,7 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip({
+  $('[data-toggle="popover"]').popover({
     container: 'body',
-    animated: 'fade',
+    trigger: 'focus',
     placement: 'top',
     html: true
   });

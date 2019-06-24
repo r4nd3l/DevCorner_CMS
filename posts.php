@@ -73,6 +73,10 @@
                 $post_description = $data_rows["post"];
                 $sr++;
               $merged_content .= '
+
+              <!-- Image preloader with CSS -->
+              <img src="uploads/'.$image.'" style="display: none;">
+
             <tr>
               <td class="text-right text-success font-weight-bold w_005">'.$sr.'.</td>
               <td class="d-inline-block text-truncate w_035"><a href="full_post.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
@@ -80,16 +84,11 @@
               <td class="text-muted w_015">'.$datetime.'</td>
               <td class="font-weight-bold w_010">
                 <!-- Modal will goes here -->
-                <a href="profile.php?username='.htmlentities($admin).'" target="_blank" title="Public profile" data-toggle="tooltip" data-placement="top" title="Tooltip on top">'.htmlentities($admin).'</a>
+                <a href="profile.php?username='.htmlentities($admin).'" target="_blank"> '.htmlentities($admin).' </a>
               </td>
               <td class="_w015">
                 <!-- Modal will goes here -->
-                <div class="img_tooltip_posts">
-                  <p>'.basename($image).'</p>
-                  <div class="content">
-                    <img src="uploads/'.$image.'">
-                  </div>
-                </div>
+                <span tabindex="0" class="text-success pointer" data-toggle="popover" data-content="<img width=\'150\' src=\'uploads/'.$image.'\'>">'.basename($image).'</span>
               </td>
               <td class="text-center w_005 mouse_default p-1">
                 <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '. disapprove_comment($id).'</span>
@@ -130,5 +129,4 @@
   </section>
   <!-- Main part - END -->
 ';
-
 ?>
