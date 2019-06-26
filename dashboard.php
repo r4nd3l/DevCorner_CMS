@@ -14,7 +14,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -27,7 +27,7 @@
 
         <div class="col-lg-3 mb-2">
           <!-- Add new post -->
-          <a href="add_new_post.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="post_add.php" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-file-alt"></i> Add new post</span>
           </a>
         </div>
@@ -125,13 +125,13 @@
             ?>
               <tr>
                 <td class="text-right text-success font-weight-bold w_005"><?php echo $sr_no; ?>.</td>
-                <td class="w_050"><a href="full_post.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
+                <td class="w_050"><a href="post_full.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
                 <td class="text-muted w_020"><?php echo $datetime; ?></td>
-                <td class="font-weight-bold w_020"><a href="profile.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>
+                <td class="font-weight-bold w_020"><a href="profile_public.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>
                 <td class="text-center w_005 mouse_default p-1">
-                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php disapprove_comment($post_id);?></span>
+                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php echo comment_disapprove($post_id);?></span>
                   <hr class="m-0">
-                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php approve_comment($post_id);?></span>
+                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php echo  comment_approve($post_id);?></span>
                 </td>
               </tr>
             <?php } ?>

@@ -3,8 +3,8 @@
 <?php require_once("includes/sessions.php"); ?>
 <?php
   switch ($_REQUEST['a']) {
-    case 'delete_admin':
-        include('includes/delete_admin.php');
+    case 'admin_delete':
+        include('includes/admin_delete.php');
       break;
   }
 ?>
@@ -69,7 +69,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -177,11 +177,11 @@
             <tr>
               <td class="text-right font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
               <td class="text-muted w_015"><?php echo htmlentities($admin_date); ?></td>
-              <td class="font-weight-bold w_025"><a href="profile.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a></td>
+              <td class="font-weight-bold w_025"><a href="profile_public.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a></td>
               <td class="text-muted w_025"><?php echo htmlentities($admin_name); ?></td>
               <td class="text-muted w_025"><?php echo htmlentities($added_by); ?></td>
               <td class="text-center w_005">
-                <a href="admins.php?a=delete_admin&id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                <a href="admins.php?a=admin_delete&id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
             <?php } ?>

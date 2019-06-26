@@ -29,7 +29,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/public_navbar.php"); ?>
+    <?php require_once("partials/navbar_public.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -95,15 +95,15 @@
             $post_description  = $data_rows["post"];
         ?>
         <div class="card mb-3">
-          <a href="full_post.php?id=<?php echo $postId; ?>">
+          <a href="post_full.php?id=<?php echo $postId; ?>">
             <img src="uploads/<?php echo htmlentities($image); ?>" class="img-fluid card-img-top" title="<?php echo htmlentities($post_title); ?>" alt="<?php echo htmlentities($image); ?>">
           </a>
           <div class="card-body">
-            <a href="full_post.php?id=<?php echo $postId; ?>"><h4 class="bard-title mb-0"><?php echo htmlentities($post_title); ?></h4></a>
+            <a href="post_full.php?id=<?php echo $postId; ?>"><h4 class="bard-title mb-0"><?php echo htmlentities($post_title); ?></h4></a>
             <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href="blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
-            <small class="text-muted">Written by <a href="profile.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
+            <small class="text-muted">Written by <a href="profile_public.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
             On <?php echo htmlentities($datetime); ?></small>
-            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo approve_comment($postId);?> Comment</span>
+            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo  comment_approve($postId);?> Comment</span>
             <hr>
             <p class="card-text">
               <?php
@@ -113,7 +113,7 @@
                 echo htmlentities($post_description);
               ?>
             </p>
-            <a href="full_post.php?id=<?php echo $postId; ?>" class="btn btn-success btn-sm float-right">
+            <a href="post_full.php?id=<?php echo $postId; ?>" class="btn btn-success btn-sm float-right">
               <span class="align-sub"><i class="fas fa-chevron-right"></i> Read more</span>
             </a>
           </div>
@@ -185,7 +185,7 @@
 
       <!-- Side area -->
       <div class="col-sm-4">
-        <?php require_once("partials/right_sidebar.php"); ?>
+        <?php require_once("partials/sidebar_right.php"); ?>
       </div>
       <!-- Side area - END -->
     </div>

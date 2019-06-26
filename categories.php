@@ -3,8 +3,8 @@
 <?php require_once("includes/sessions.php"); ?>
 <?php
   switch ($_REQUEST['a']) {
-    case 'delete_category':
-        include('includes/delete_category.php');
+    case 'category_delete':
+        include('includes/category_delete.php');
       break;
   }
 ?>
@@ -61,7 +61,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -152,9 +152,9 @@
               <td class="text-right text-success font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
               <td class="text-muted w_015"><?php echo htmlentities($category_date); ?></td>
               <td class="font-weight-bold w_020"><a href="blog.php?category=<?php echo $category_name; ?>" target="_blank" title="View all"><?php echo htmlentities($category_name); ?></a></td>
-              <td class="w_055"><a href="profile.php?username=<?php echo htmlentities($creator_name); ?>" target="_blank" title="Public profile"><?php echo htmlentities($creator_name); ?></a></td>
+              <td class="w_055"><a href="profile_public.php?username=<?php echo htmlentities($creator_name); ?>" target="_blank" title="Public profile"><?php echo htmlentities($creator_name); ?></a></td>
               <td class="text-center w_005">
-                <a href="categories.php?a=delete_category&id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                <a href="categories.php?a=category_delete&id=<?php echo $category_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
             <?php } ?>

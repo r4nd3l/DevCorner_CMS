@@ -15,10 +15,10 @@
 
       if(empty($name) || empty($email) || empty($comment)){
         $_SESSION["ErrorMessage"] = "All fields must be filled out!";
-        Redirect_to("full_post.php?id={$search_query_parameter}");
+        Redirect_to("post_full.php?id={$search_query_parameter}");
       }elseif (strlen($category)>500) {
         $_SESSION["ErrorMessage"] = "Comment length should shorter! (maximum is 500 character)";
-        Redirect_to("full_post.php?id={$search_query_parameter}");
+        Redirect_to("post_full.php?id={$search_query_parameter}");
       }else{
         // Query to insert comment in DB when everything is fine
         global $connecting_db;
@@ -35,10 +35,10 @@
         // var_dump($Execute);
         if($execute){
           $_SESSION["SuccessMessage"]="Comment submitted successfully! (under approval process)";
-          Redirect_to("full_post.php?id={$search_query_parameter}");
+          Redirect_to("post_full.php?id={$search_query_parameter}");
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-          Redirect_to("full_post.php?id={$search_query_parameter}");
+          Redirect_to("post_full.php?id={$search_query_parameter}");
         }
       }
     } // Ending of Submit button if-condition
@@ -71,7 +71,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/public_navbar.php"); ?>
+    <?php require_once("partials/navbar_public.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -132,9 +132,9 @@
           <div class="card-body">
             <h4 class="bard-title mb-0"><?php echo htmlentities($post_title); ?></h4>
             <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href="blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
-            <small class="text-muted">Written by <a href="profile.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
+            <small class="text-muted">Written by <a href="profile_public.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
             On <?php echo htmlentities($datetime); ?></small>
-            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo approve_comment($postId);?> Comment</span>
+            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo  comment_approve($postId);?> Comment</span>
             <hr>
             <p class="card-text">
               <?php echo nl2br($post_description); ?></p>
@@ -175,7 +175,7 @@
 
 
         <div class="">
-          <form class="" action="full_post.php?id=<?php echo $search_query_parameter; ?>" method="post">
+          <form class="" action="post_full.php?id=<?php echo $search_query_parameter; ?>" method="post">
             <div class="card mb-3">
               <div class="card-header">
                 <h5 class="fieldInfo m-0">Share your thoughts about this post</h5>
@@ -287,7 +287,7 @@
               <div class="media">
                 <img src="uploads/<?php echo htmlentities($image); ?>" class="d-block img-fluid align-self-start" width="90" height="90" alt="<?php echo htmlentities($image); ?>" title="<?php echo htmlentities($image); ?>">
                 <div class="media-body ml-2">
-                  <a href="full_post.php?id=<?php echo htmlentities($id); ?>" target="_blank">
+                  <a href="post_full.php?id=<?php echo htmlentities($id); ?>" target="_blank">
                     <h6 class="lead"><?php echo htmlentities($title); ?></h6>
                   </a>
                   <p class="small"><?php echo htmlentities($datetime); ?></p>

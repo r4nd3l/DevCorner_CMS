@@ -64,7 +64,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/public_navbar.php"); ?>
+    <?php require_once("partials/navbar_public.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->

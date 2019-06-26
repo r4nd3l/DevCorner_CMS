@@ -4,7 +4,7 @@ $(document).ready(function() {
       var button = $(event.relatedTarget); // Button that triggered the modal
       var post_id = button.data('postid'); // Extract info from data-* attributes
       var modal = $(this);
-      var src = 'edit_post.php?id=' + post_id;
+      var src = 'post_edit.php?id=' + post_id;
       console.log(src);
       modal.find('#editPostIframe').attr('src', src);
     });

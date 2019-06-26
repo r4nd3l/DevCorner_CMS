@@ -26,10 +26,10 @@
 
     if (strlen($admin_headline)>50) {
       $_SESSION["ErrorMessage"] = "Headline is too long! (maximum is 50 character)";
-      Redirect_to("my_profile.php");
+      Redirect_to("profile_private.php");
     }elseif (strlen($admin_bio)>500) {
       $_SESSION["ErrorMessage"] = "Bio text is too long! (maximum is 500 character)";
-      Redirect_to("my_profile.php");
+      Redirect_to("profile_private.php");
     }else{
       // Query to update admin data in DB when everything is fine
       global $connecting_db;
@@ -49,10 +49,10 @@
 
       if($execute){
         $_SESSION["SuccessMessage"]="Details updated successfully!";
-        Redirect_to("my_profile.php");
+        Redirect_to("profile_private.php");
       }else{
         $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-        Redirect_to("my_profile.php");
+        Redirect_to("profile_private.php");
       }
     }
   } // Ending of Submit button if-condition
@@ -69,7 +69,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -108,7 +108,7 @@
           echo ErrorMessage();
           echo SuccessMessage();
         ?>
-        <form class="" action="my_profile.php" method="post" enctype="multipart/form-data">
+        <form class="" action="profile_private.php" method="post" enctype="multipart/form-data">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Edit profile</h5>

@@ -10,7 +10,7 @@
 
         <div class="col-lg-3 mb-2">
           <!-- Add new post -->
-          <a href="add_new_post.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="post_add.php" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-file-alt"></i> Add new post</span>
           </a>
         </div>
@@ -79,21 +79,21 @@
 
             <tr>
               <td class="text-right text-success font-weight-bold w_005">'.$sr.'.</td>
-              <td class="d-inline-block text-truncate w_035"><a href="full_post.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
+              <td class="d-inline-block text-truncate w_035"><a href="post_full.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
               <td class="font-weight-bold w_010"><a href="blog.php?category='.$category.'" target="_blank" title="View all">'.$category.'</a></td>
               <td class="text-muted w_015">'.$datetime.'</td>
               <td class="font-weight-bold w_010">
                 <!-- Modal will goes here -->
-                <a href="profile.php?username='.htmlentities($admin).'" target="_blank"> '.htmlentities($admin).' </a>
+                <a href="profile_public.php?username='.htmlentities($admin).'" target="_blank"> '.htmlentities($admin).' </a>
               </td>
               <td class="_w015">
                 <!-- Modal will goes here -->
                 <span tabindex="0" class="text-success pointer" data-toggle="popover" data-content="<img width=\'150\' src=\'uploads/'.$image.'\'>">'.basename($image).'</span>
               </td>
               <td class="text-center w_005 mouse_default p-1">
-                <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '. disapprove_comment($id).'</span>
+                <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '. comment_disapprove($id).'</span>
                 <hr class="m-0">
-                <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> '. approve_comment($id) .'</span>
+                <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> '.  comment_approve($id) .'</span>
               </td>
               <td class="text-center w_005">
 
@@ -115,7 +115,7 @@
                 </div>
 
                 <a href="#editPost-id='.$id.'" title="Edit" data-toggle="modal" data-target="#editPostModal" data-postid="'.$id.'"><i class="fas fa-edit"></i></a>
-                <a href="delete_post.php?id='.$id.'" title="Delete"><i class="fas fa-trash-alt"></i>
+                <a href="post_delete.php?id='.$id.'" title="Delete"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
               ';

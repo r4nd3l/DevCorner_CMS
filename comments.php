@@ -37,10 +37,10 @@
                 <td class="text-right font-weight-bold w_005">'.htmlentities($sr_no).'.</td>
                 <td class="text-muted w_015">'.htmlentities($datetime_of_comments).'</td>
                 <td class="text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
-                <td class="w_055"><a href="full_post.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
+                <td class="w_055"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
                 <td class="text-center w_005">
                   <a href="admin.php?a=approve_comment&id='.$comment_id.'" title="Approve"><i class="far fa-check-circle"></i></a>
-                  <a href="admin.php?a=delete_comment&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                  <a href="admin.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>
               </tr>
               ';
@@ -90,10 +90,10 @@
                   <td class="text-right font-weight-bold w_005">'.htmlentities($sr_no).'.</td>
                   <td class="text-muted w_015">'.htmlentities($datetime_of_comments).'</td>
                   <td class="text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
-                  <td class="w_055"><a href="full_post.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
+                  <td class="w_055"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
                   <td class="text-center w_005">
                     <a href="admin.php?a=approve_comment&id='.$comment_id.'" title="Dispprove"><i class="fas fa-undo"></i></a>
-                    <a href="admin.php?a=delete_comment&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    <a href="admin.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                   </td>
                 </tr>
               </tbody>

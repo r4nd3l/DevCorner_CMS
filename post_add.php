@@ -18,13 +18,13 @@
 
       if(empty($post_title)){
         $_SESSION["ErrorMessage"] = "Title is empty!";
-        Redirect_to("add_new_post.php");
+        Redirect_to("post_add.php");
       }elseif (strlen($post_title)<5) {
         $_SESSION["ErrorMessage"] = "Post title should be greater than 2 characters!";
-        Redirect_to("add_new_post.php");
+        Redirect_to("post_add.php");
       }elseif (strlen($post_description)>9999) {
         $_SESSION["ErrorMessage"] = "The text is too long!";
-        Redirect_to("add_new_post.php");
+        Redirect_to("post_add.php");
       }else{
         // Query to insert post in DB when everything is fine
         global $connecting_db;
@@ -44,10 +44,10 @@
 
         if($execute){
           $_SESSION["SuccessMessage"]="Post with id: ". $connecting_db->lastInsertId() ." added successfully!";
-          Redirect_to("add_new_post.php");
+          Redirect_to("post_add.php");
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-          Redirect_to("add_new_post.php");
+          Redirect_to("post_add.php");
         }
       }
     } // Ending of Submit button if-condition
@@ -64,7 +64,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -87,7 +87,7 @@
           echo ErrorMessage();
           echo SuccessMessage();
         ?>
-        <form class="" action="add_new_post.php" method="post" enctype="multipart/form-data">
+        <form class="" action="post_add.php" method="post" enctype="multipart/form-data">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Add new post</h5>

@@ -46,7 +46,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
@@ -71,7 +71,7 @@
 
 
         ?>
-        <form class="" action="delete_post.php?id=<?php echo $search_query_parameter; ?>" method="post" enctype="multipart/form-data">
+        <form class="" action="post_delete.php?id=<?php echo $search_query_parameter; ?>" method="post" enctype="multipart/form-data">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Add new post</h5>

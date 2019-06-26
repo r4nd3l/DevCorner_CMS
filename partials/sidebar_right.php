@@ -63,7 +63,7 @@
       <div class="media">
         <img src="uploads/<?php echo htmlentities($image); ?>" class="d-block img-fluid align-self-start" width="90" height="90" alt="<?php echo basename(htmlentities($image)); ?>" title="<?php echo basename(htmlentities($image)); ?>">
         <div class="media-body ml-2">
-          <a href="full_post.php?id=<?php echo htmlentities($id); ?>" target="_blank">
+          <a href="post_full.php?id=<?php echo htmlentities($id); ?>" target="_blank">
             <h6 class="lead"><?php echo htmlentities($title); ?></h6>
           </a>
           <p class="small"><?php echo htmlentities($datetime); ?></p>

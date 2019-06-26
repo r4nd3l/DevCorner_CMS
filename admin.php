@@ -12,10 +12,10 @@
           include('comments.php');
         break;
     case 'approve_comment':
-        include('includes/approve_comment.php');
+        include('includes/comment_approve.php');
       break;
-    case 'delete_comment':
-        include('includes/delete_comment.php');
+    case 'comment_delete':
+        include('includes/comment_delete.php');
       break;
   }
 ?>
@@ -32,7 +32,7 @@
 <body>
 
   <!-- Navbar -->
-    <?php require_once("partials/admin_navbar.php"); ?>
+    <?php require_once("partials/navbar_admin.php"); ?>
   <!-- Navbar - END -->
 
   <!-- Header -->
