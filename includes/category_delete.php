@@ -8,10 +8,9 @@
 
     if ($execute) {
       $_SESSION["SuccessMessage"]= "Category deleted successfully!";
-      Redirect_to("categories.php");
     }else{
       $_SESSION["ErrorMessage"]= "Something went wrong. Please try again!";
-      Redirect_to("categories.php");
     }
+    Redirect_to("admin.php?a=categories");
   }
 ?>

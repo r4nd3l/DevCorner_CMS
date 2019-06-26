@@ -8,14 +8,29 @@
     case 'posts':
         include('posts.php');
       break;
-      case 'comments':
-          include('comments.php');
-        break;
+    case 'post_add':
+        include('includes/post_add.php');
+      break;
+    case 'post_add_function':
+        include('includes/post_add_function.php');
+      break;
+    case 'comments':
+        include('comments.php');
+      break;
     case 'approve_comment':
         include('includes/comment_approve.php');
       break;
     case 'comment_delete':
         include('includes/comment_delete.php');
+      break;
+    case 'categories':
+        include('categories.php');
+      break;
+    case 'category_delete':
+        include('includes/category_delete.php');
+      break;
+    case 'category_add':
+        include('includes/category_add.php');
       break;
   }
 ?>

@@ -27,13 +27,13 @@
 
         <div class="col-lg-3 mb-2">
           <!-- Add new post -->
-          <a href="post_add.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin.php?a=post_add" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-file-alt"></i> Add new post</span>
           </a>
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Add new category -->
-          <a href="categories.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin.php?a=categories" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-folder-plus"></i> Add new category</span>
           </a>
         </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Approve comment -->
-          <a href="comments.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin.php?a=comments" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-check"></i> Approve comment</span>
           </a>
         </div>

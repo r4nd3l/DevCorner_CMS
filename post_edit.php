@@ -19,13 +19,13 @@
 
       if(empty($post_title)){
         $_SESSION["ErrorMessage"] = "Title is empty!";
-        Redirect_to("posts.php");
+        Redirect_to("admin.php?a=posts");
       }elseif (strlen($post_title)<5) {
         $_SESSION["ErrorMessage"] = "Post title should be 2 characters at least!";
-        Redirect_to("posts.php");
+        Redirect_to("admin.php?a=posts");
       }elseif (strlen($post_description)>9999) {
         $_SESSION["ErrorMessage"] = "The text is too long!";
-        Redirect_to("posts.php");
+        Redirect_to("admin.php?a=posts");
       }else{
         // Query to update post in DB when everything is fine
         global $connecting_db;
