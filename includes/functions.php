@@ -89,7 +89,7 @@
   // Approve comments according to post
   function approve_comment($post_id){
     global $connecting_db;
-    $sql_approve  = "SELECT COUNT(*) FROM comments WHERE post_id='$post_id' AND status='ON'";
+    $sql_approve  = "SELECT COUNT(*) FROM comments WHERE post_id='$post_id' AND status=1";
     $stmt_approve = $connecting_db->query($sql_approve);
     $total_rows   = $stmt_approve->fetch();
     $total        = array_shift($total_rows);
@@ -99,7 +99,7 @@
   // Disapprove comments according to post
   function disapprove_comment($post_id){
     global $connecting_db;
-    $sql_disapproved  = "SELECT COUNT(*) FROM comments WHERE post_id='$post_id' AND status='OFF'";
+    $sql_disapproved  = "SELECT COUNT(*) FROM comments WHERE post_id='$post_id' AND status=0";
     $stmt_disapproved = $connecting_db->query($sql_disapproved);
     $total_rows   = $stmt_disapproved->fetch();
     $total        = array_shift($total_rows);
