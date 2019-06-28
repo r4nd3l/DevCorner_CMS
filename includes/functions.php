@@ -53,7 +53,7 @@
     $stmt       = $connecting_db->query($sql);
     $total_rows = $stmt->fetch();
     $total_post = array_shift($total_rows);
-    echo $total_post;
+    return $total_post;
   }
 
   // Total Categorires
@@ -63,7 +63,7 @@
     $stmt           = $connecting_db->query($sql);
     $total_rows     = $stmt->fetch();
     $total_category = array_shift($total_rows);
-    echo $total_category;
+    return $total_category;
   }
 
   // Total Admins
@@ -73,7 +73,7 @@
     $stmt         = $connecting_db->query($sql);
     $total_rows   = $stmt->fetch();
     $total_admins = array_shift($total_rows);
-    echo $total_admins;
+    return $total_admins;
   }
 
   // Total Comments
@@ -83,7 +83,7 @@
     $stmt           = $connecting_db->query($sql);
     $total_rows     = $stmt->fetch();
     $total_comments = array_shift($total_rows);
-    echo $total_comments;
+    return $total_comments;
   }
 
   // Approve comments according to post

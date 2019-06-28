@@ -22,7 +22,7 @@
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Add new admin -->
-          <a href="admins.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin.php?a=admins" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-user-plus"></i> Add new admin</span>
           </a>
         </div>

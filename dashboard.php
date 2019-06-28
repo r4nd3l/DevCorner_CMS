@@ -1,21 +1,6 @@
-<?php require_once("includes/db.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-<?php require_once("includes/sessions.php"); ?>
-<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Header part -->
-    <?php require_once('partials/header.php'); ?>
-  <!-- Header part - END -->
-
-  <title>Dashboard</title>
-</head>
-<body>
-
-  <!-- Navbar -->
-    <?php require_once("partials/navbar_admin.php"); ?>
-  <!-- Navbar - END -->
+<?php
+  $merged_title = 'Dashboard';
+  $merged_content .= '
 
   <!-- Header -->
   <header class="py-3">
@@ -39,7 +24,7 @@
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Add new admin -->
-          <a href="admins.php" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin.php?a=admins" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-user-plus"></i> Add new admin</span>
           </a>
         </div>
@@ -64,28 +49,28 @@
         <div class="card text-center text-success border-success mb-3">
           <div class="crad-body">
             <h6 class="my-2">Posts</h6>
-            <h5 class=""><i class="fab fa-readme"></i> <?php total_posts();?></h5>
+            <h5 class=""><i class="fab fa-readme"></i> '. total_posts() .'</h5>
           </div>
         </div>
 
         <div class="card text-center text-success border-success mb-3">
           <div class="crad-body">
             <h6 class="my-2">Categories</h6>
-            <h5 class=""><i class="fas fa-inbox"></i> <?php total_categories(); ?></h5>
+            <h5 class=""><i class="fas fa-inbox"></i> '. total_categories() .'</h5>
           </div>
         </div>
 
         <div class="card text-center text-success border-success mb-3">
           <div class="crad-body">
             <h6 class="my-2">Admins</h6>
-            <h5 class=""><i class="fas fa-users"></i> <?php total_admins(); ?></h5>
+            <h5 class=""><i class="fas fa-users"></i> '. total_admins() .'</h5>
           </div>
         </div>
 
         <div class="card text-center text-success border-success mb-3">
           <div class="crad-body">
             <h6 class="my-2">Comments</h6>
-            <h5 class=""><i class="fas fa-comments"></i> <?php total_comments(); ?></h5>
+            <h5 class=""><i class="fas fa-comments"></i> '. total_comments() .'</h5>
           </div>
         </div>
       </div>
@@ -93,10 +78,6 @@
 
       <!-- Right side area -->
       <div class="col-lg-10">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
         <h5><i class="fab fa-readme text-success"></i> Top posts</h5>
         <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
@@ -110,7 +91,7 @@
               </tr>
             </thead>
             <tbody>
-            <?php
+            ';
               $sr_no = 0;
               global $connecting_db;
               $sql = "SELECT * FROM posts ORDER BY id desc LIMIT 0,5";
@@ -122,19 +103,21 @@
                 $author   = $data_rows["author"];
                 $title    = $data_rows["title"];
                 $sr_no++;
-            ?>
+            $merged_content .= '
               <tr>
-                <td class="text-right text-success font-weight-bold w_005"><?php echo $sr_no; ?>.</td>
-                <td class="w_050"><a href="post_full.php?id=<?php echo $post_id; ?>" title="View" target="_blank"><?php echo $title; ?></a></td>
-                <td class="text-muted w_020"><?php echo $datetime; ?></td>
-                <td class="font-weight-bold w_020"><a href="profile_public.php?username=<?php echo htmlentities($author); ?>" target="_blank" title="Public profile"><?php echo $author; ?></a></td>
+                <td class="text-right text-success font-weight-bold w_005">'.$sr_no.'.</td>
+                <td class="w_050"><a href="post_full.php?id='.$post_id.'" title="View" target="_blank">'.$title.'</a></td>
+                <td class="text-muted w_020">'.$datetime.'</td>
+                <td class="font-weight-bold w_020"><a href="profile_public.php?username='.htmlentities($author).'" target="_blank" title="Public profile">'.$author.'</a></td>
                 <td class="text-center w_005 mouse_default p-1">
-                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> <?php echo comment_disapprove($post_id);?></span>
+                  <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '.comment_disapprove($post_id).'</span>
                   <hr class="m-0">
-                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> <?php echo  comment_approve($post_id);?></span>
+                  <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> '.comment_approve($post_id).'</span>
                 </td>
               </tr>
-            <?php } ?>
+              ';
+            }
+            $merged_content .= '
             </tbody>
           </table>
         </div>
@@ -143,14 +126,5 @@
     </div>
   </section>
   <!-- Main part - END -->
-
-  <!-- Footer part --><!-- fixed-bottom -->
-    <?php require_once("partials/footer.php"); ?>
-  <!-- Footer part - END -->
-
-  <!-- Scripts -->
-    <?php require_once("partials/scripts.php"); ?>
-  <!-- Scripts - END -->
-
-</body>
-</html>
+  ';
+?>

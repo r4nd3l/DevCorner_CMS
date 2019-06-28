@@ -8,10 +8,9 @@
 
     if ($execute) {
       $_SESSION["SuccessMessage"]= "Admin deleted successfully!";
-      Redirect_to("admins.php");
     }else{
       $_SESSION["ErrorMessage"]= "Something went wrong. Please try again!";
-      Redirect_to("admins.php");
     }
+    Redirect_to("admin.php?a=admins");
   }
 ?>

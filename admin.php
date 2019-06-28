@@ -32,9 +32,26 @@
     case 'category_add':
         include('includes/category_add.php');
       break;
+    case 'dashboard':
+        include('dashboard.php');
+      break;
+    case 'profile_private':
+        include('profile_private.php');
+      break;
+    case 'profile_private_function':
+        include('includes/profile_private_function.php');
+      break;
+    case 'admins':
+        include('admins.php');
+      break;
+    case 'admins_function':
+        include('includes/admins_function.php');
+      break;
+    case 'admin_delete':
+        include('includes/admin_delete.php');
+      break;
   }
 ?>
-<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

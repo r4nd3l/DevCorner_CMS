@@ -1,8 +1,6 @@
-<?php require_once("includes/db.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-<?php require_once("includes/sessions.php"); ?>
-<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
 <?php
+  $merged_title = 'Profile private';
+
   // Fetching the existing admin data start
   $admin_id = $_SESSION["user_id"];
   global $connecting_db;
@@ -17,68 +15,15 @@
     $existing_image    = $data_rows["admin_image"];
   }
 
-  if(isset($_POST["Submit"])){
-    $admin_name     = $_POST["admin_name"];
-    $admin_headline = $_POST["admin_headline"];
-    $admin_bio      = $_POST["admin_bio"];
-    $admin_image    = $_FILES["image_upload"]["name"];
-    $target         =  "img/".basename($_FILES["image_upload"]["name"]);
-
-    if (strlen($admin_headline)>50) {
-      $_SESSION["ErrorMessage"] = "Headline is too long! (maximum is 50 character)";
-      Redirect_to("profile_private.php");
-    }elseif (strlen($admin_bio)>500) {
-      $_SESSION["ErrorMessage"] = "Bio text is too long! (maximum is 500 character)";
-      Redirect_to("profile_private.php");
-    }else{
-      // Query to update admin data in DB when everything is fine
-      global $connecting_db;
-      if (!empty($_FILES["image_upload"]["name"])) {
-        $sql = "UPDATE admins
-                SET admin_name='$admin_name', admin_headline='$admin_headline', admin_bio='$admin_bio', admin_image='$admin_image'
-                WHERE id='$admin_id'";
-      }else{
-        $sql = "UPDATE admins
-                SET admin_name='$admin_name', admin_headline='$admin_headline', admin_bio='$admin_bio'
-                WHERE id='$admin_id'";
-      }
-      $execute = $connecting_db->query($sql);
-
-      // Moving the uploaded image to the 'uploads' directory
-      move_uploaded_file($_FILES["image_upload"]["tmp_name"],$target);
-
-      if($execute){
-        $_SESSION["SuccessMessage"]="Details updated successfully!";
-        Redirect_to("profile_private.php");
-      }else{
-        $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-        Redirect_to("profile_private.php");
-      }
-    }
-  } // Ending of Submit button if-condition
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Header part -->
-    <?php require_once('partials/header.php'); ?>
-  <!-- Header part - END -->
-
-  <title>My profile</title>
-</head>
-<body>
-
-  <!-- Navbar -->
-    <?php require_once("partials/navbar_admin.php"); ?>
-  <!-- Navbar - END -->
+  $merged_content .= '
 
   <!-- Header -->
   <header class="py-3">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-user text-success"></i> <?php echo $existing_username; ?></h6>
-          <small class="text-success"><?php echo $existing_headline; ?></small>
+          <h6><i class="fas fa-user text-success"></i> '.$existing_username.'</h6>
+          <small class="text-success">'.$existing_headline.'</small>
         </div>
       </div>
     </div>
@@ -92,23 +37,18 @@
       <div class="col-md-3">
         <div class="card">
           <div class="card-header bg-dark text-light">
-            <h3><?php echo $existing_name; ?></h3>
+            <h3>'.$existing_name.'</h3>
           </div>
           <div class="card-body">
-            <img src="img/<?php echo $existing_image; ?>" class="block img-fluid" alt="<?php echo $existing_image; ?>">
-            <div class=""><?php echo $existing_bio; ?></div>
+            <img src="img/'.$existing_image.'" class="block img-fluid" alt="'. $existing_image.'">
+            <div class="">'. $existing_bio.'</div>
           </div>
         </div>
       </div>
       <!-- Left column - END -->
 
-
       <div class="col-lg-9" style="">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
-        <form class="" action="profile_private.php" method="post" enctype="multipart/form-data">
+        <form class="" action="admin.php?a=profile_private_function" method="post" enctype="multipart/form-data">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Edit profile</h5>
@@ -121,7 +61,7 @@
 
               <div class="form-group">
                 <input class="form-control" type="text" id="my_name" placeholder="Headline" name="admin_headline">
-                <small class="text-muted">Add a professional headline like, 'Web developer' at DevCorner
+                <small class="text-muted">Add a professional headline like, \'Web developer\' at DevCorner
                   <span class="text-danger">Not more than 50 characters</span>
                 </small>
               </div>
@@ -139,7 +79,7 @@
 
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="dashboard.php" class="btn btn-light btn-sm border">
+                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">
@@ -154,14 +94,5 @@
     </div>
   </section>
   <!-- Main part - END -->
-
-  <!-- Footer part --><!-- fixed-bottom -->
-    <?php require_once("partials/footer.php"); ?>
-  <!-- Footer part - END -->
-
-  <!-- Scripts -->
-    <?php require_once("partials/scripts.php"); ?>
-  <!-- Scripts - END -->
-
-</body>
-</html>
+  ';
+?>

@@ -3,7 +3,7 @@
 <?php require_once("includes/sessions.php"); ?>
 <?php
   if (isset($_SESSION["user_id"])) {
-    Redirect_to("dashboard.php");
+    Redirect_to("admin.php?a=dashboard");
   }
 
   if (isset($_POST["Submit"])) {
@@ -25,7 +25,7 @@
         if (isset($_SESSION["tracking_URL"])) {
           Redirect_to($_SESSION["tracking_URL"]);
         }else{
-          Redirect_to("dashboard.php");
+          Redirect_to("admin.php?a=dashboard");
         }
 
       }else{

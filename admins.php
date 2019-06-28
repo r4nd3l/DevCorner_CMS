@@ -1,76 +1,6 @@
-<?php require_once("includes/db.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-<?php require_once("includes/sessions.php"); ?>
 <?php
-  switch ($_REQUEST['a']) {
-    case 'admin_delete':
-        include('includes/admin_delete.php');
-      break;
-  }
-?>
-<?php $_SESSION["tracking_URL"]= $_SERVER["PHP_SELF"]; confirm_login(); ?>
-<?php
-  if(isset($_POST["Submit"])){
-    $username         = $_POST["Username"];
-    $name             = $_POST["Name"];
-    $password         = $_POST["Password"];
-    $confirm_password = $_POST["Confirm_password"];
-    $admin            = $_SESSION["userName"];
-
-    // Data and time settings
-    date_default_timezone_set("Europe/Budapest");
-    $current_time = time();
-    $datetime     = strftime("%Y %B %d - %H:%M:%S",$current_time);
-
-      if(empty($username) || empty($password) || empty($confirm_password)){
-        $_SESSION["ErrorMessage"] = "All fields must be filled out!";
-        Redirect_to("admins.php");
-      }elseif (strlen($password)<7) {
-        $_SESSION["ErrorMessage"] = "Password should be at least 6 character!";
-        Redirect_to("admins.php");
-      }elseif ($password !== $confirm_password) {
-        $_SESSION["ErrorMessage"] = "Password and confirm password should match!";
-        Redirect_to("admins.php");
-      }elseif (check_username_exists($username)) {
-        $_SESSION["ErrorMessage"] = "Username is already exists! Try another one!";
-        Redirect_to("admins.php");
-      }else{
-        // Query to insert new admin in DB when everything is fine
-        global $connecting_db;
-        $sql = "INSERT INTO admins(datetime,username,password,admin_name,added_by)";
-        $sql .= "VALUES(:dateTime,:userName,:password,:admin_name,:added_by)";
-        $stmt = $connecting_db->prepare($sql);
-        $stmt->bindValue(':dateTime',$datetime);
-        $stmt->bindValue(':userName',$username);
-        $stmt->bindValue(':password',$password);
-        $stmt->bindValue(':admin_name',$name);
-        $stmt->bindValue(':added_by',$admin);
-        $execute = $stmt->execute();
-
-        if($execute){
-          $_SESSION["SuccessMessage"]= "New admin ". $name ." added successfully!";
-          Redirect_to("admins.php");
-        }else{
-          $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
-          Redirect_to("admins.php");
-        }
-      }
-    } // Ending of Submit button if-condition
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Header part -->
-    <?php require_once('partials/header.php'); ?>
-  <!-- Header part - END -->
-
-  <title>Admin page</title>
-</head>
-<body>
-
-  <!-- Navbar -->
-    <?php require_once("partials/navbar_admin.php"); ?>
-  <!-- Navbar - END -->
+  $merged_title = 'Admins';
+  $merged_content .= '
 
   <!-- Header -->
   <header class="py-3">
@@ -88,11 +18,7 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
-        <form class="" action="admins.php" method="post">
+        <form class="" action="admin.php?a=admins_function" method="post">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Add new admin</h5>
@@ -121,7 +47,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="dashboard.php" class="btn btn-light btn-sm border">
+                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">
@@ -140,11 +66,6 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
-        <?php
-          echo ErrorMessage();
-          echo SuccessMessage();
-        ?>
-        <!--  -->
         <h5><i class="fas fa-user-slash text-success"></i> Delete existing admin</h5>
         <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
@@ -159,7 +80,7 @@
               </tr>
             </thead>
             <tbody>
-            <?php
+            ';
               global $connecting_db;
               $sql = "SELECT * FROM admins ORDER BY id desc";
               $execute = $connecting_db->query($sql);
@@ -173,18 +94,20 @@
                 $added_by       = $data_rows["added_by"];
                 $admin_image    = $data_rows["admin_image"];
                 $sr_no++;
-            ?>
+            $merged_content .= '
             <tr>
-              <td class="text-right font-weight-bold w_005"><b><?php echo htmlentities($sr_no); ?>.</b></td>
-              <td class="text-muted w_015"><?php echo htmlentities($admin_date); ?></td>
-              <td class="font-weight-bold w_025"><a href="profile_public.php?username=<?php echo htmlentities($admin_username); ?>" target="_blank" title="Public profile"><?php echo htmlentities($admin_username); ?></a></td>
-              <td class="text-muted w_025"><?php echo htmlentities($admin_name); ?></td>
-              <td class="text-muted w_025"><?php echo htmlentities($added_by); ?></td>
+              <td class="text-right font-weight-bold w_005"><b>'. htmlentities($sr_no) .'.</b></td>
+              <td class="text-muted w_015">'. htmlentities($admin_date) .'</td>
+              <td class="font-weight-bold w_025"><a href="profile_public.php?username='. htmlentities($admin_username) .'" target="_blank" title="Public profile">'. htmlentities($admin_username) .'</a></td>
+              <td class="text-muted w_025">'. htmlentities($admin_name) .'</td>
+              <td class="text-muted w_025">'. htmlentities($added_by) .'</td>
               <td class="text-center w_005">
-                <a href="admins.php?a=admin_delete&id=<?php echo $admin_id; ?>" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                <a href="admin.php?a=admin_delete&id='. $admin_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
-            <?php } ?>
+            ';
+            }
+            $merged_content .= '
             </tbody>
           </table>
         </div>
@@ -195,14 +118,5 @@
   </section>
   <!-- Delete existing admins - END -->
   <!-- Main part - END -->
-
-  <!-- Footer part --><!-- fixed-bottom -->
-    <?php require_once("partials/footer.php"); ?>
-  <!-- Footer part - END -->
-
-  <!-- Scripts -->
-    <?php require_once("partials/scripts.php"); ?>
-  <!-- Scripts - END -->
-
-</body>
-</html>
+  ';
+?>

@@ -58,7 +58,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="dashboard.php" class="btn btn-light btn-sm border">
+                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">
