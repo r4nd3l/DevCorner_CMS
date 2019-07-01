@@ -46,14 +46,14 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right w_005">#</th>
-                <th class="w_035">Title</th>
-                <th class="w_010">Category</th>
-                <th class="w_015">Date</th>
-                <th class="w_010">Author</th>
-                <th class="w_015">Banner</th>
-                <th class="w_005">Comments</th>
-                <th class="text-center w_005">Action</th>
+                <th class="text-truncate text-right mw_005">#</th>
+                <th class="text-truncate mw_025">Title</th>
+                <th class="text-truncate mw_010">Category</th>
+                <th class="text-truncate mw_015">Date</th>
+                <th class="text-truncate mw_010">Author</th>
+                <th class="text-truncate mw_015">Banner</th>
+                <th class="text-truncate text-center mw_015">Comments</th>
+                <th class="text-truncate text-center mw_005">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -78,24 +78,24 @@
               <img src="uploads/'.$image.'" style="display: none;">
 
             <tr>
-              <td class="text-right text-success font-weight-bold w_005">'.$sr.'.</td>
-              <td class="d-inline-block text-truncate w_035"><a href="post_full.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
-              <td class="font-weight-bold w_010"><a href="blog.php?category='.$category.'" target="_blank" title="View all">'.$category.'</a></td>
-              <td class="text-muted w_015">'.$datetime.'</td>
-              <td class="font-weight-bold w_010">
+              <td class="text-right text-success font-weight-bold mw_005">'.$sr.'.</td>
+              <td class="text-truncate mw_025"><a href="post_full.php?id='.$id.'" target="_blank" title="View">'.$post_title.'</a></td>
+              <td class="text-truncate font-weight-bold mw_010"><a href="blog.php?category='.$category.'" target="_blank" title="View all">'.$category.'</a></td>
+              <td class="text-truncate text-muted mw_015">'.$datetime.'</td>
+              <td class="text-truncate font-weight-bold mw_010">
                 <!-- Modal will goes here -->
                 <a href="profile_public.php?username='.htmlentities($admin).'" target="_blank"> '.htmlentities($admin).' </a>
               </td>
-              <td class="_w015">
+              <td class="text-truncate mw_015">
                 <!-- Modal will goes here -->
                 <span tabindex="0" class="text-success pointer" data-toggle="popover" data-content="<img width=\'150\' src=\'uploads/'.$image.'\'>">'.basename($image).'</span>
               </td>
-              <td class="text-center w_005 mouse_default p-1">
+              <td class="text-truncate text-center mw_015 mouse_default p-1">
                 <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '. comment_disapprove($id).'</span>
                 <hr class="m-0">
                 <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> '.  comment_approve($id) .'</span>
               </td>
-              <td class="text-center w_005">
+              <td class="text-center mw_005">
 
                 <!-- Modal for posts-->
                 <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-hidden="true">

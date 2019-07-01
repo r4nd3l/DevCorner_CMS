@@ -10,11 +10,11 @@
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
-                  <th class="text-right w_005">#</th>
-                  <th class="w_015" >Date</th>
-                  <th class="w_020">Name</th>
-                  <th class="w_055">Comment</th>
-                  <th class="text-center w_005">Action</th>
+                  <th class="text-truncate text-right mw_005">#</th>
+                  <th class="text-truncate mw_020" >Date</th>
+                  <th class="text-truncate mw_020">Name</th>
+                  <th class="text-truncate mw_045">Comment</th>
+                  <th class="text-truncate text-center mw_010">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,11 +34,11 @@
 
               $merged_content .= '
               <tr>
-                <td class="text-right font-weight-bold w_005">'.htmlentities($sr_no).'.</td>
-                <td class="text-muted w_015">'.htmlentities($datetime_of_comments).'</td>
-                <td class="text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
-                <td class="w_055"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
-                <td class="text-center w_005">
+                <td class="text-truncate text-success text-right font-weight-bold mw_005">'.htmlentities($sr_no).'.</td>
+                <td class="text-truncate text-muted mw_020">'.htmlentities($datetime_of_comments).'</td>
+                <td class="text-truncate text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
+                <td class="text-truncate w_045"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
+                <td class="text-center mw_010">
                   <a href="admin_private.php?a=approve_comment&id='.$comment_id.'" title="Approve"><i class="far fa-check-circle"></i></a>
                   <a href="admin_private.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>
@@ -63,11 +63,11 @@
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
                 <tr>
-                  <th class="text-right w_005">#</th>
-                  <th class="w_015" >Date</th>
-                  <th class="w_020">Name</th>
-                  <th class="w_055">Comment</th>
-                  <th class="text-center w_005">Action</th>
+                  <th class="text-truncate text-right mw_005">#</th>
+                  <th class="text-truncate mw_020" >Date</th>
+                  <th class="text-truncate mw_020">Name</th>
+                  <th class="text-truncate mw_045">Comment</th>
+                  <th class="text-truncate text-center mw_010">Action</th>
                 </tr>
               </thead>
               ';
@@ -87,11 +87,11 @@
               $merged_content .= '
               <tbody>
                 <tr>
-                  <td class="text-right font-weight-bold w_005">'.htmlentities($sr_no).'.</td>
-                  <td class="text-muted w_015">'.htmlentities($datetime_of_comments).'</td>
-                  <td class="text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
-                  <td class="w_055"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
-                  <td class="text-center w_005">
+                  <td class="text-truncate text-success text-right font-weight-bold mw_005">'.htmlentities($sr_no).'.</td>
+                  <td class="text-truncate text-muted mw_020">'.htmlentities($datetime_of_comments).'</td>
+                  <td class="text-truncate text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
+                  <td class="text-truncate w_045"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
+                  <td class="text-center mw_010">
                     <a href="admin_private.php?a=approve_comment&id='.$comment_id.'" title="Dispprove"><i class="fas fa-undo"></i></a>
                     <a href="admin_private.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                   </td>

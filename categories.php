@@ -55,11 +55,11 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right w_005">#</th>
-                <th class="w_015">Date</th>
-                <th class="w_020">Category</th>
-                <th class="w_055">Creator</th>
-                <th class="text-center w_005">Action</th>
+                <th class="text-truncate text-right mw_005">#</th>
+                <th class="text-truncate mw_015">Date</th>
+                <th class="text-truncate mw_020">Category</th>
+                <th class="text-truncate mw_055">Creator</th>
+                <th class="text-truncate text-center mw_005">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -77,11 +77,11 @@
                 $sr_no++;
             $merged_content .= '
             <tr>
-              <td class="text-right text-success font-weight-bold w_005"><b>'. htmlentities($sr_no) .'.</b></td>
-              <td class="text-muted w_015">'. htmlentities($category_date) .'</td>
-              <td class="font-weight-bold w_020"><a href="blog.php?category='. $category_name .'" target="_blank" title="View all">'. htmlentities($category_name) .'</a></td>
-              <td class="w_055"><a href="profile_public.php?username='. htmlentities($creator_name) .'" target="_blank" title="Public profile">'. htmlentities($creator_name) .'</a></td>
-              <td class="text-center w_005">
+              <td class="text-truncate text-right text-success font-weight-bold mw_005"><b>'. htmlentities($sr_no) .'.</b></td>
+              <td class="text-truncate text-muted mw_015">'. htmlentities($category_date) .'</td>
+              <td class="text-truncate font-weight-bold mw_020"><a href="blog.php?category='. $category_name .'" target="_blank" title="View all">'. htmlentities($category_name) .'</a></td>
+              <td class="text-truncate mw_030"><a href="profile_public.php?username='. htmlentities($creator_name) .'" target="_blank" title="Public profile">'. htmlentities($creator_name) .'</a></td>
+              <td class="text-center mw_030">
                 <a href="admin_private.php?a=category_delete&id='. $category_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>

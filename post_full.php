@@ -131,7 +131,7 @@
           <img src="uploads/<?php echo htmlentities($image); ?>" class="img-fluid card-img-top" title="<?php echo $image; ?>" alt="<?php echo $image; ?>">
           <div class="card-body">
             <h4 class="bard-title mb-0"><?php echo htmlentities($post_title); ?></h4>
-            <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href="blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
+            <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href=blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
             <small class="text-muted">Written by <a href="profile_public.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
             On <?php echo htmlentities($datetime); ?></small>
             <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo  comment_approve($postId);?> Comment</span>
@@ -262,7 +262,7 @@
               $category_id = $data_rows["id"];
               $category_name = $data_rows["title"];
               ?>
-              <a href="blog.php?category=<?php echo $category_name; ?>"><span class="heading"><?php echo $category_name; ?></span></a><br>
+              <a href=blog.php?category=<?php echo $category_name; ?>"><span class="heading"><?php echo $category_name; ?></span></a><br>
             <?php } ?>
           </div>
         </div>

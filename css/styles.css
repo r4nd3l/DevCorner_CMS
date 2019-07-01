@@ -85,26 +85,26 @@ a:hover{
 }
 
 /* Custom width settings */
-.w_005{width: 5vw;}
-.w_010{width: 10vw;}
-.w_015{width: 15vw;}
-.w_020{width: 20vw;}
-.w_025{width: 25vw;}
-.w_030{width: 30vw;}
-.w_035{width: 35vw;}
-.w_040{width: 40vw;}
-.w_045{width: 45vw;}
-.w_050{width: 50vw;}
-.w_055{width: 55vw;}
-.w_060{width: 60vw;}
-.w_065{width: 65vw;}
-.w_070{width: 70vw;}
-.w_075{width: 75vw;}
-.w_080{width: 80vw;}
-.w_085{width: 85vw;}
-.w_090{width: 90vw;}
-.w_095{width: 95vw;}
-.w_100{width: 100vw;}
+.mw_005{max-width:   5vw;} .w_005{width:   5vw;}
+.mw_010{max-width:  10vw;} .w_010{width:  10vw;}
+.mw_015{max-width:  15vw;} .w_015{width:  15vw;}
+.mw_020{max-width:  20vw;} .w_020{width:  20vw;}
+.mw_025{max-width:  25vw;} .w_025{width:  25vw;}
+.mw_030{max-width:  30vw;} .w_030{width:  30vw;}
+.mw_035{max-width:  35vw;} .w_035{width:  35vw;}
+.mw_040{max-width:  40vw;} .w_040{width:  40vw;}
+.mw_045{max-width:  45vw;} .w_045{width:  45vw;}
+.mw_050{max-width:  50vw;} .w_050{width:  50vw;}
+.mw_055{max-width:  55vw;} .w_055{width:  55vw;}
+.mw_060{max-width:  60vw;} .w_060{width:  60vw;}
+.mw_065{max-width:  65vw;} .w_065{width:  65vw;}
+.mw_070{max-width:  70vw;} .w_070{width:  70vw;}
+.mw_075{max-width:  75vw;} .w_075{width:  75vw;}
+.mw_080{max-width:  80vw;} .w_080{width:  80vw;}
+.mw_085{max-width:  85vw;} .w_085{width:  85vw;}
+.mw_090{max-width:  90vw;} .w_090{width:  90vw;}
+.mw_095{max-width:  95vw;} .w_095{width:  95vw;}
+.mw_100{max-width: 100vw;} .w_100{width: 100vw;}
 
 /* Posts table first row setting */
 .table td{
@@ -281,7 +281,10 @@ a:hover{
   outline: none;
 }
 
-
+/* Circle Percentage settings */
+.c100:after{
+  background-color: white !important;
+}
 
 
 

@@ -71,12 +71,12 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right w_005">#</th>
-                <th class="w_015">Date</th>
-                <th class="w_025">Username</th>
-                <th class="w_025">Admin name</th>
-                <th class="w_025">Added by</th>
-                <th class="text-center w_005">Action</th>
+                <th class="text-truncate text-right mw_005">#</th>
+                <th class="text-truncate mw_010">Date</th>
+                <th class="text-truncate mw_020">Username</th>
+                <th class="text-truncate mw_020">Admin name</th>
+                <th class="text-truncate mw_020">Added by</th>
+                <th class="text-center mw_025">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -96,12 +96,12 @@
                 $sr_no++;
             $merged_content .= '
             <tr>
-              <td class="text-right font-weight-bold w_005"><b>'. htmlentities($sr_no) .'.</b></td>
-              <td class="text-muted w_015">'. htmlentities($admin_date) .'</td>
-              <td class="font-weight-bold w_025"><a href="profile_public.php?username='. htmlentities($admin_username) .'" target="_blank" title="Public profile">'. htmlentities($admin_username) .'</a></td>
-              <td class="text-muted w_025">'. htmlentities($admin_name) .'</td>
-              <td class="text-muted w_025">'. htmlentities($added_by) .'</td>
-              <td class="text-center w_005">
+              <td class="text-truncate text-right text-success font-weight-bold mw_005"><b>'. htmlentities($sr_no) .'.</b></td>
+              <td class="text-truncate text-muted mw_010">'. htmlentities($admin_date) .'</td>
+              <td class="text-truncate font-weight-bold mw_020"><a href="profile_public.php?username='. htmlentities($admin_username) .'" target="_blank" title="Public profile">'. htmlentities($admin_username) .'</a></td>
+              <td class="text-truncate text-muted mw_020">'. htmlentities($admin_name) .'</td>
+              <td class="text-truncate text-muted mw_020">'. htmlentities($added_by) .'</td>
+              <td class="text-center mw_025">
                 <a href="admin_private.php?a=admin_delete&id='. $admin_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>

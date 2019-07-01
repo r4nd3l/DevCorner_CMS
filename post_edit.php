@@ -92,7 +92,7 @@
 
               <div class="form-group">
                 <label for="category_title" class="m-0"><span class="fieldInfo">Chose category:</span></label>
-                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b>".$category_to_be_updated."</b>"." is set up)"; ?></span>
+                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b class=\"font-weight-bold text-success\">".$category_to_be_updated."</b>"." is set up)"; ?></b></span>
                 <select id="category_title" class="form-control pointer" name="category">
                   <?php
                   // Fetching all the categories from category table
@@ -114,7 +114,7 @@
                 <label class="m-0">Select image:
                   <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"><span class="fieldInfo_2 text-success clear"><i class="fas fa-times-circle"></i> Clear</span></a>
                 </label>
-                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b>".basename($image_to_be_updated)."</b>"." image is set up)"; ?></span>
+                <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b class=\"font-weight-bold text-success\">".basename($image_to_be_updated)."</b>"." image is set up)"; ?></span>
                 <label class="custom-file-container__custom-file m-0" for="image_select">
                   <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" aria-label="Choose File" name="image_upload" id="image_select" value="">
                   <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />

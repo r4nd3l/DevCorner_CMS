@@ -46,31 +46,59 @@
 
       <!-- Left side area -->
       <div class="col-lg-2">
-        <div class="card text-center text-success border-success mb-3">
+        <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <h6 class="my-2">Posts</h6>
-            <h5 class=""><i class="fab fa-readme"></i> '. total_posts() .'</h5>
+            <div class="c100 p'. total_posts()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
+              <span class="text-success">'. total_posts()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+              <div class="slice">
+                <div class="bar border-success"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+            <h5 class="m-0"><i class="fab fa-readme"></i><br> '. total_posts() .'</h5>
+            <h6 class="">Posts</h6>
           </div>
         </div>
 
-        <div class="card text-center text-success border-success mb-3">
+        <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <h6 class="my-2">Categories</h6>
-            <h5 class=""><i class="fas fa-inbox"></i> '. total_categories() .'</h5>
+            <div class="c100 p'. total_categories()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
+              <span class="text-success">'. total_categories()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+              <div class="slice">
+                <div class="bar border-success"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+            <h5 class="m-0"><i class="fas fa-inbox"></i><br> '. total_categories() .'</h5>
+            <h6 class="">Categories</h6>
           </div>
         </div>
 
-        <div class="card text-center text-success border-success mb-3">
+        <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <h6 class="my-2">Admins</h6>
-            <h5 class=""><i class="fas fa-users"></i> '. total_admins() .'</h5>
+            <div class="c100 p'. total_admins()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
+              <span class="text-success">'. total_admins()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+              <div class="slice">
+                <div class="bar border-success"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+            <h5 class="m-0"><i class="fas fa-users"></i><br> '. total_admins() .'</h5>
+            <h6 class="">Admins</h6>
           </div>
         </div>
 
-        <div class="card text-center text-success border-success mb-3">
+        <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <h6 class="my-2">Comments</h6>
-            <h5 class=""><i class="fas fa-comments"></i> '. total_comments() .'</h5>
+            <div class="c100 p'. total_comments()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
+              <span class="text-success">'. total_comments()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+              <div class="slice">
+                <div class="bar border-success"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+            <h5 class="m-0"><i class="fas fa-comments"></i><br> '. total_comments() .'</h5>
+            <h6 class="">Comments</h6>
           </div>
         </div>
       </div>
@@ -83,11 +111,11 @@
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
-                <th class="text-right w_005">#</th>
-                <th class="w_050">Title</th>
-                <th class="w_020">Date</th>
-                <th class="w_020">Author</th>
-                <th class="text-center w_005">Comments</th>
+                <th class="text-truncate text-right mw_005">#</th>
+                <th class="text-truncate mw_035">Title</th>
+                <th class="text-truncate mw_020">Date</th>
+                <th class="text-truncate mw_020">Author</th>
+                <th class="text-truncate text-center mw_020">Comments</th>
               </tr>
             </thead>
             <tbody>
@@ -105,11 +133,11 @@
                 $sr_no++;
             $merged_content .= '
               <tr>
-                <td class="text-right text-success font-weight-bold w_005">'.$sr_no.'.</td>
-                <td class="w_050"><a href="post_full.php?id='.$post_id.'" title="View" target="_blank">'.$title.'</a></td>
-                <td class="text-muted w_020">'.$datetime.'</td>
-                <td class="font-weight-bold w_020"><a href="profile_public.php?username='.htmlentities($author).'" target="_blank" title="Public profile">'.$author.'</a></td>
-                <td class="text-center w_005 mouse_default p-1">
+                <td class="text-truncate text-right text-success font-weight-bold mw_005">'.$sr_no.'.</td>
+                <td class="text-truncate mw_035"><a href="post_full.php?id='.$post_id.'" title="View" target="_blank">'.$title.'</a></td>
+                <td class="text-truncate text-muted mw_020">'.$datetime.'</td>
+                <td class="text-truncate font-weight-bold mw_020"><a href="profile_public.php?username='.htmlentities($author).'" target="_blank" title="Public profile">'.$author.'</a></td>
+                <td class="text-center mw_020 mouse_default p-1">
                   <span class="text-success" title="Unapproved"><i class="fas fa-clock"></i> '.comment_disapprove($post_id).'</span>
                   <hr class="m-0">
                   <span class="badge text-secondary" title="Approved"><i class="fas fa-check-circle"></i> '.comment_approve($post_id).'</span>
