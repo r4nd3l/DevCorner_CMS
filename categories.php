@@ -18,7 +18,7 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
-        <form class="" action="admin.php?a=category_add" method="post">
+        <form class="" action="admin_private.php?a=category_add" method="post">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Add new category</h5>
@@ -30,7 +30,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
+                  <a href="admin_private.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">
@@ -82,7 +82,7 @@
               <td class="font-weight-bold w_020"><a href="blog.php?category='. $category_name .'" target="_blank" title="View all">'. htmlentities($category_name) .'</a></td>
               <td class="w_055"><a href="profile_public.php?username='. htmlentities($creator_name) .'" target="_blank" title="Public profile">'. htmlentities($creator_name) .'</a></td>
               <td class="text-center w_005">
-                <a href="admin.php?a=category_delete&id='. $category_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                <a href="admin_private.php?a=category_delete&id='. $category_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
             ';

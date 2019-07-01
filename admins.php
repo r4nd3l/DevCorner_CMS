@@ -18,7 +18,7 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
-        <form class="" action="admin.php?a=admins_function" method="post">
+        <form class="" action="admin_private.php?a=admins_function" method="post">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Add new admin</h5>
@@ -47,7 +47,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
+                  <a href="admin_private.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">
@@ -102,7 +102,7 @@
               <td class="text-muted w_025">'. htmlentities($admin_name) .'</td>
               <td class="text-muted w_025">'. htmlentities($added_by) .'</td>
               <td class="text-center w_005">
-                <a href="admin.php?a=admin_delete&id='. $admin_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                <a href="admin_private.php?a=admin_delete&id='. $admin_id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
             ';

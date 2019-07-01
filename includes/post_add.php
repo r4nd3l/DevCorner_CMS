@@ -18,7 +18,7 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
-        <form class="" action="admin.php?a=post_add_function" method="post" enctype="multipart/form-data">
+        <form class="" action="admin_private.php?a=post_add_function" method="post" enctype="multipart/form-data">
           <div class="card">
             <div class="card-header">
               <h5 class="m-0">Add new post</h5>
@@ -58,7 +58,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
+                  <a href="admin_private.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">

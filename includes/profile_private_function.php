@@ -12,10 +12,10 @@
 
     if (strlen($admin_headline)>50) {
       $_SESSION["ErrorMessage"] = "Headline is too long! (maximum is 50 character)";
-      Redirect_to("admin.php?a=profile_private");
+      Redirect_to("admin_private.php?a=profile_private");
     }elseif (strlen($admin_bio)>500) {
       $_SESSION["ErrorMessage"] = "Bio text is too long! (maximum is 500 character)";
-      Redirect_to("admin.php?a=profile_private");
+      Redirect_to("admin_private.php?a=profile_private");
     }else{
       // Query to update admin data in DB when everything is fine
       global $connecting_db;
@@ -38,7 +38,7 @@
       }else{
         $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
       }
-      Redirect_to("admin.php?a=profile_private");
+      Redirect_to("admin_private.php?a=profile_private");
     }
   } // Ending of Submit button if-condition
 ?>

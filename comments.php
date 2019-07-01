@@ -39,8 +39,8 @@
                 <td class="text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
                 <td class="w_055"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
                 <td class="text-center w_005">
-                  <a href="admin.php?a=approve_comment&id='.$comment_id.'" title="Approve"><i class="far fa-check-circle"></i></a>
-                  <a href="admin.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                  <a href="admin_private.php?a=approve_comment&id='.$comment_id.'" title="Approve"><i class="far fa-check-circle"></i></a>
+                  <a href="admin_private.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                 </td>
               </tr>
               ';
@@ -92,8 +92,8 @@
                   <td class="text-muted font-weight-bold w_020">'.htmlentities($commenter_name).'</td>
                   <td class="w_055"><a href="post_full.php?id='.$comment_post_id.'" title="View" target="_blank">'.htmlentities($comment_content).'</a></td>
                   <td class="text-center w_005">
-                    <a href="admin.php?a=approve_comment&id='.$comment_id.'" title="Dispprove"><i class="fas fa-undo"></i></a>
-                    <a href="admin.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    <a href="admin_private.php?a=approve_comment&id='.$comment_id.'" title="Dispprove"><i class="fas fa-undo"></i></a>
+                    <a href="admin_private.php?a=comment_delete&id='.$comment_id.'" title="Delete"><i class="fas fa-trash-alt"></i></a>
                   </td>
                 </tr>
               </tbody>

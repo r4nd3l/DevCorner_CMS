@@ -14,13 +14,13 @@
 
       if(empty($post_title)){
         $_SESSION["ErrorMessage"] = "Title is empty!";
-        Redirect_to("admin.php?a=post_add");
+        Redirect_to("admin_private.php?a=post_add");
       }elseif (strlen($post_title)<5) {
         $_SESSION["ErrorMessage"] = "Post title should be greater than 2 characters!";
-        Redirect_to("admin.php?a=post_add");
+        Redirect_to("admin_private.php?a=post_add");
       }elseif (strlen($post_description)>9999) {
         $_SESSION["ErrorMessage"] = "The text is too long!";
-        Redirect_to("admin.php?a=post_add");
+        Redirect_to("admin_private.php?a=post_add");
       }else{
         // Query to insert post in DB when everything is fine
         global $connecting_db;
@@ -43,7 +43,7 @@
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
         }
-        Redirect_to("admin.php?a=post_add");
+        Redirect_to("admin_private.php?a=post_add");
       }
     } // Ending of Submit button if-condition
 ?>

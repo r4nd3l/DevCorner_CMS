@@ -10,25 +10,25 @@
 
         <div class="col-lg-3 mb-2">
           <!-- Add new post -->
-          <a href="admin.php?a=post_add" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin_private.php?a=post_add" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-file-alt"></i> Add new post</span>
           </a>
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Add new category -->
-          <a href="admin.php?a=categories" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin_private.php?a=categories" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-folder-plus"></i> Add new category</span>
           </a>
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Add new admin -->
-          <a href="admin.php?a=admins" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin_private.php?a=admins" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-user-plus"></i> Add new admin</span>
           </a>
         </div>
         <div class="col-lg-3 mb-2">
           <!-- Approve comment -->
-          <a href="admin.php?a=comments" class="btn btn-outline-success btn-sm btn-block">
+          <a href="admin_private.php?a=comments" class="btn btn-outline-success btn-sm btn-block">
             <span class="align-sub"><i class="fas fa-check"></i> Approve comment</span>
           </a>
         </div>

@@ -19,13 +19,13 @@
 
       if(empty($post_title)){
         $_SESSION["ErrorMessage"] = "Title is empty!";
-        Redirect_to("admin.php?a=posts");
+        Redirect_to("admin_private.php?a=posts");
       }elseif (strlen($post_title)<5) {
         $_SESSION["ErrorMessage"] = "Post title should be 2 characters at least!";
-        Redirect_to("admin.php?a=posts");
+        Redirect_to("admin_private.php?a=posts");
       }elseif (strlen($post_description)>9999) {
         $_SESSION["ErrorMessage"] = "The text is too long!";
-        Redirect_to("admin.php?a=posts");
+        Redirect_to("admin_private.php?a=posts");
       }else{
         // Query to update post in DB when everything is fine
         global $connecting_db;
@@ -50,7 +50,7 @@
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
         }
-        Redirect_to("admin.php?a=posts");
+        Redirect_to("admin_private.php?a=posts");
       }
     } // Ending of Submit button if-condition
 ?>
@@ -136,7 +136,7 @@
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
+              <a href="admin_private.php?a=dashboard" class="btn btn-light btn-sm border">
                 <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
               </a>
               <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">

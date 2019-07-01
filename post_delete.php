@@ -30,7 +30,7 @@
     }else{
       $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
     }
-    Redirect_to("admin.php?a=posts");
+    Redirect_to("admin_private.php?a=posts");
   } // Ending of Submit button if-condition
 ?>
 <!DOCTYPE html>
@@ -96,7 +96,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="admin.php?a=dashboard" class="btn btn-light btn-sm border">
+                  <a href="admin_private.php?a=dashboard" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-danger btn-sm float-right">
