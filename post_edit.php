@@ -31,11 +31,11 @@
         global $connecting_db;
         if (!empty($_FILES["image_upload"]["name"])) {
           $sql = "UPDATE posts
-                  SET title='$post_title', category='$category', image='$image', post='$post_description'
+                  SET title='$post_title', category_id='$category', image='$image', post='$post_description'
                   WHERE id='$search_query_parameter'";
         }else{
           $sql = "UPDATE posts
-                  SET title='$post_title', category='$category', post='$post_description'
+                  SET title='$post_title', category_id='$category', post='$post_description'
                   WHERE id='$search_query_parameter'";
         }
 
@@ -70,11 +70,12 @@
     <?php
 
     global $connecting_db;
-    $sql = "SELECT * FROM posts WHERE id='$search_query_parameter'";
+    $sql = "SELECT p.*, c.title as category_title FROM posts p left join category c on (c.id=p.category_id) WHERE p.id='$search_query_parameter'";
     $stmt = $connecting_db->query($sql);
     while($data_rows = $stmt->fetch()){
       $title_to_be_updated    = $data_rows['title'];
-      $category_to_be_updated = $data_rows['category'];
+      $category_id = $data_rows['category_id'];
+      $category_to_be_updated = $data_rows['category_title'];
       $image_to_be_updated    = $data_rows['image'];
       $post_to_be_updated     = $data_rows['post'];
     }
@@ -94,6 +95,7 @@
                 <label for="category_title" class="m-0"><span class="fieldInfo">Chose category:</span></label>
                 <span class="fieldInfo_2 text-muted float-right pt-1">(Currently the <?php echo "<b class=\"font-weight-bold text-success\">".$category_to_be_updated."</b>"." is set up)"; ?></b></span>
                 <select id="category_title" class="form-control pointer" name="category">
+                  <option>Semmise</option>
                   <?php
                   // Fetching all the categories from category table
                   global $connecting_db;
@@ -102,9 +104,10 @@
                   while($data_rows = $stmt->fetch()){
                     $id = $data_rows["id"];
                     $category_name = $data_rows["title"];
-                    ?>
-                    <option><?php echo $category_name; ?></option>
-                  <?php } ?>
+                    $id == $category_id ? $sel = 'SELECTED' : $sel = '';
+                    echo '<option '.$sel.' value="'.$id.'">'.$category_name.'</option>';
+                  }
+                  ?>
                 </select>
               </div>
 

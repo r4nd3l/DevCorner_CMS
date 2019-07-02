@@ -60,6 +60,7 @@
             ';
               global $connecting_db;
               $sql = "SELECT * FROM posts";
+              $sql = "SELECT p.*, c.title as category_title FROM posts p left join category c on (c.id=p.category_id) order by id desc";
               $stmt = $connecting_db->query($sql);
               $sr = 0;
 
@@ -67,7 +68,7 @@
                 $id               = $data_rows["id"];
                 $datetime         = $data_rows["datetime"];
                 $post_title       = $data_rows["title"];
-                $category         = $data_rows["category"];
+                $category         = $data_rows["category_title"];
                 $admin            = $data_rows["author"];
                 $image            = $data_rows["image"];
                 $post_description = $data_rows["post"];
@@ -97,24 +98,7 @@
               </td>
               <td class="text-center mw_005">
 
-                <!-- Modal for posts-->
-                <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog content_modal" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header py-1">
-                        <h6 class="mb-0 mt-1">Editing now - <span class="text-muted"> '. $post_title .' </span></h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body content_modal_body p-0">
-                          <iframe id="editPostIframe" class="posts_iframe" src="" frameborder="0"></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <a href="#editPost-id='.$id.'" title="Edit" data-toggle="modal" data-target="#editPostModal" data-postid="'.$id.'"><i class="fas fa-edit"></i></a>
+                <a href="#editPost-id='.$id.'" title="Edit" data-toggle="modal" data-target="#editPostModal" data-postid="'.$id.'" data-modaltitle="'.htmlentities($post_title).'"><i class="fas fa-edit"></i></a>
                 <a href="post_delete.php?id='.$id.'" title="Delete"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
@@ -128,5 +112,23 @@
     </div>
   </section>
   <!-- Main part - END -->
+
+  <!-- Modal for posts-->
+  <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog content_modal" role="document">
+      <div class="modal-content">
+        <div class="modal-header py-1">
+          <h6 class="mb-0 mt-1">Editing now - <span class="text-muted" id="modalTitle"></span></h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body content_modal_body p-0">
+            <iframe id="editPostIframe" class="posts_iframe" src="" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
 ';
 ?>
