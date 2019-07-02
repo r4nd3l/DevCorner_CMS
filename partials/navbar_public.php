@@ -13,9 +13,9 @@
     <div class="collapse navbar-collapse" id="navbar_collapse_CMS">
       <!-- Menu part -->
       <ul class="navbar-nav m-auto">
-        <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="blog.php" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="" class="nav-link">About us</a></li>
-        <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
         <li class="nav-item"><a href="" class="nav-link">Contact us</a></li>
         <li class="nav-item"><a href="" class="nav-link">Features</a></li>
       </ul>

@@ -31,49 +31,58 @@
         ?>
         <?php
           global $connecting_db;
+
+
+          if(!$_GET['page']) {
+            $page = 1;
+          } else {
+            $page = $_GET["page"];
+          }
+          $postNum = 5;
+
+          if ($page<=1) {
+            $show_post_from = 0;
+          }else{
+            $show_post_from = ($page*$postNum)-$postNum;
+          }
+
           // SQL query when search button is active
           if (isset($_GET["search_button"])) {
             $search = $_GET["Search"];
-            $sql = "SELECT * FROM posts
-            WHERE datetime LIKE :search
-            OR title LIKE :search
-            OR category LIKE :search
-            OR post LIKE :search";
+            $sql = "SELECT  p.*, c.title FROM posts p
+            left join category c on (c.id=p.category_id)
+            WHERE p.datetime LIKE :search
+            OR p.title LIKE :search
+            OR c.title LIKE :search
+            OR p.post LIKE :search
+            LIMIT $show_post_from,$postNum";
 
             $stmt = $connecting_db->prepare($sql);
             $stmt->bindValue(':search','%'.$search.'%');
             $stmt->execute();
-          }elseif (isset($_GET["page"])) {
-            // Query when pagination is active ex blog.php?page=1
-            $page = $_GET["page"];
-            // zero (0) should not be present in the URL lik this -> blog.php?page=0
-            if ($page == 0 || $page<1) {
-              $show_post_from = 0;
-            }else{
-              $show_post_from = ($page*5)-5;
-            }
-            $sql = "SELECT * FROM posts ORDER BY id desc LIMIT $show_post_from,5";
-            $stmt = $connecting_db->query($sql);
-          }elseif (isset($_GET["category"])) {
+            //$stmt->debugDumpParams();
+          } elseif (isset($_GET["category"])) {
             // Query when category is active in URL tab
             $category = $_GET["category"];
-            $sql = "SELECT * FROM posts WHERE category=:category_id";
+            $sql = "SELECT  p.*, c.title FROM posts p left join category c on (c.id=p.category_id) WHERE c.title like :category_title LIMIT $show_post_from,$postNum";
             $stmt = $connecting_db->prepare($sql);
-            $stmt->bindValue(':category_id',$category);
+            $stmt->bindValue(':category_title','%'.$category.'%');
             $stmt->execute();
+            //$stmt->debugDumpParams();
           }
 
 
           // The default SQL query
           else{
-            $sql = "SELECT * FROM posts ORDER BY id desc LIMIT 0,3";
+            $sql = "SELECT p.*, c.title as category_title FROM posts p left join category c on (c.id=p.category_id) ORDER BY p.id desc LIMIT $show_post_from,$postNum";
             $stmt = $connecting_db->query($sql);
           }
           while($data_rows = $stmt->fetch()){
+            //var_dump($data_rows);
             $postId            = $data_rows["id"];
             $datetime          = $data_rows["datetime"];
             $post_title        = $data_rows["title"];
-            $category          = $data_rows["category"];
+            $category          = $data_rows["category_title"];
             $admin             = $data_rows["author"];
             $image             = $data_rows["image"];
             $post_description  = $data_rows["post"];
@@ -107,29 +116,39 @@
         <!-- Pagination -->
         <nav>
           <ul class="pagination pagination-md">
-            <!-- Creating backward button -->
-            <?php
-              if(isset($page)){
-                if ($page > 1) {
-                ?>
-                  <li class="page-item ">
-                    <a href="blog.php?page=<?php echo $page-1; ?>" class="page-link text-success"><i class="fas fa-chevron-left"></i></a>
-                  </li>
-                <?php
-                }
-              }
-            ?>
 
             <?php
-              global $connecting_db;
-              $sql = "SELECT COUNT(*) FROM posts";
+              //$stmt->debugDumpParams();
+              // select SQL_CALC_FOUND_ROWS * from ... limit 0,5
+              // select FOUND_ROWS();
+              $sql = substr($sql, 0, strpos($sql, "LIMIT"));
               $stmt = $connecting_db->query($sql);
               $row_pagination = $stmt->fetch();
-              $total_posts = array_shift($row_pagination);
-              // echo $total_posts."<br>";
-              $post_pagination = $total_posts/5;
+              $total_posts = $stmt->rowCount();
+              //
+              $post_pagination = $total_posts/$postNum;
               $post_pagination = ceil($post_pagination);
               // echo $post_pagination;
+
+              if($total_posts>=$postNum) {
+
+                if($page>1) {
+                  $pagePrev = $page - 1;
+                } else {
+                  $pagePrev = 1;
+                }
+                if($page<$total_posts) {
+                  $pageNext = $page + 1;
+                } else {
+                  $pageNext = $total_posts;
+                }
+
+              ?>
+              <!-- Creating backward button -->
+                <li class="page-item ">
+                  <a href="blog.php?page=<?php echo $pagePrev; ?>" class="page-link text-success"><i class="fas fa-chevron-left"></i></a>
+                </li>
+              <?php
 
               // A loop for pagination
               for ($i=1; $i <=$post_pagination; $i++) {
@@ -140,7 +159,7 @@
                         <a href="blog.php?page=<?php echo $i; ?>" class="page-link bg-success border-success"><?php echo $i; ?></a>
                       </li>
                     <?php
-                    }else{
+                  }else{
                     ?>
                       <li class="page-item ">
                         <a href="blog.php?page=<?php echo $i; ?>" class="page-link text-success"><?php echo $i; ?></a>
@@ -152,15 +171,14 @@
             ?>
             <!-- Creating forward button -->
             <?php
-              if(isset($page) && !empty($page)){
-                if ($page + 1 <= $post_pagination) {
+                if ($pageNext <= $post_pagination) {
                 ?>
                   <li class="page-item ">
-                    <a href="blog.php?page=<?php echo $page+1; ?>" class="page-link text-success"><i class="fas fa-chevron-right"></i></a>
+                    <a href="blog.php?page=<?php echo $pageNext; ?>" class="page-link text-success"><i class="fas fa-chevron-right"></i></a>
                   </li>
                 <?php
                 }
-              }
+              } // > $postNum
             ?>
           </ul>
         </nav>
