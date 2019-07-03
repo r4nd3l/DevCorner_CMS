@@ -194,10 +194,6 @@
   </div>
   <!-- Header - END -->
 
-  <!-- Main part -->
-
-  <!-- Main part - END -->
-
   <!-- Footer part --><!-- fixed-bottom -->
     <?php require_once("partials/footer.php"); ?>
   <!-- Footer part - END -->

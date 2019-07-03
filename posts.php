@@ -99,7 +99,7 @@
               <td class="text-center mw_005">
 
                 <a href="#editPost-id='.$id.'" title="Edit" data-toggle="modal" data-target="#editPostModal" data-postid="'.$id.'" data-modaltitle="'.htmlentities($post_title).'"><i class="fas fa-edit"></i></a>
-                <a href="post_delete.php?id='.$id.'" title="Delete"><i class="fas fa-trash-alt"></i>
+                <a href="#deletePost-id='.$id.'" title="Delete" data-toggle="modal" data-target="#deletePostModal" data-postid="'.$id.'" data-modaltitle="'.htmlentities($post_title).'"><i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
               ';
@@ -113,7 +113,7 @@
   </section>
   <!-- Main part - END -->
 
-  <!-- Modal for posts-->
+  <!-- Modal for Edit posts -->
   <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog content_modal" role="document">
       <div class="modal-content">
@@ -129,6 +129,25 @@
       </div>
     </div>
   </div>
+  <!-- Modal for edit posts - END -->
+
+  <!-- Modal for Delete posts -->
+  <div class="modal fade" id="deletePostModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog content_modal" role="document">
+      <div class="modal-content">
+        <div class="modal-header py-1">
+          <h6 class="mb-0 mt-1">Editing now - <span class="text-muted" id="modalTitle"></span></h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body content_modal_body p-0">
+            <iframe id="deletePostIframe" class="posts_iframe" src="" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for Delete posts - END -->
 
 ';
 ?>

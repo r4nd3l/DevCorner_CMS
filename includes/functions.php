@@ -106,4 +106,28 @@
     return $total;
   }
 
+  // Percentage of Posts
+  function pct_posts(){
+    $calc_posts = round(total_posts()*100/(total_posts()+total_categories()+total_admins()+total_comments()),0);
+    return $calc_posts;
+  }
+
+  // Percentage of Categories
+  function pct_categories(){
+    $calc_categories = round(total_categories()*100/(total_posts()+total_categories()+total_admins()+total_comments()),0);
+    return $calc_categories;
+  }
+
+  // Percentage of Admins
+  function pct_admins(){
+    $calc_admins = round(total_admins()*100/(total_posts()+total_categories()+total_admins()+total_comments()),0);
+    return $calc_admins;
+  }
+
+  // Percentage of Comments
+  function pct_comments(){
+    $calc_comments = round(total_comments()*100/(total_posts()+total_categories()+total_admins()+total_comments()),0);
+    return $calc_comments;
+  }
+
 ?>

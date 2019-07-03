@@ -48,8 +48,8 @@
       <div class="col-lg-2">
         <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <div class="c100 p'. total_posts()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
-              <span class="text-success">'. total_posts()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+            <div class="c100 p'. pct_posts() .' small bg-grayish">
+              <span class="text-success">'. pct_posts() .'%</span>
               <div class="slice">
                 <div class="bar border-success"></div>
                 <div class="fill"></div>
@@ -62,8 +62,8 @@
 
         <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <div class="c100 p'. total_categories()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
-              <span class="text-success">'. total_categories()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+            <div class="c100 p'. pct_categories() .' small bg-grayish">
+              <span class="text-success">'. pct_categories() .'%</span>
               <div class="slice">
                 <div class="bar border-success"></div>
                 <div class="fill"></div>
@@ -76,8 +76,8 @@
 
         <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <div class="c100 p'. total_admins()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
-              <span class="text-success">'. total_admins()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+            <div class="c100 p'. pct_admins() .' small bg-grayish">
+              <span class="text-success">'. pct_admins() .'%</span>
               <div class="slice">
                 <div class="bar border-success"></div>
                 <div class="fill"></div>
@@ -90,8 +90,8 @@
 
         <div class="card text-center text-success border-0 mb-3">
           <div class="crad-body">
-            <div class="c100 p'. total_comments()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .' small bg-grayish">
-              <span class="text-success">'. total_comments()*100/(total_posts()+total_categories()+total_admins()+total_comments()) .'%</span>
+            <div class="c100 p'. pct_comments() .' small bg-grayish">
+              <span class="text-success">'. pct_comments() .'%</span>
               <div class="slice">
                 <div class="bar border-success"></div>
                 <div class="fill"></div>
