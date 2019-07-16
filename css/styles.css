@@ -305,6 +305,11 @@ a:hover{
   box-shadow: var(--shadow1-);
 }
 
+#sideBar,
+#contentBar{
+  -webkit-transition-duration: 0.5s;
+}
+
 
 
 

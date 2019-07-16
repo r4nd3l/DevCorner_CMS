@@ -32,8 +32,8 @@
     case 'category_add':
         include('includes/category_add.php');
       break;
-    case 'dashboard':
-        include('dashboard.php');
+    case 'indicators':
+        include('indicators.php');
       break;
     case 'profile_private':
         include('profile_private.php');
@@ -50,6 +50,9 @@
     case 'admin_delete':
         include('includes/admin_delete.php');
       break;
+    case 'dashboard':
+        include('dashboard.php');
+      break;
   }
 ?>
 <!DOCTYPE html>
@@ -62,43 +65,55 @@
   <title><?php echo $merged_title; ?></title>
 </head>
 <body>
-
-  <!-- Navbar -->
-    <?php require_once("partials/navbar_admin.php"); ?>
-  <!-- Navbar - END -->
-
-  <!-- Header -->
-  <header class="py-3">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <h6><i class="fas fa-comments text-success"></i> Manage <?php echo $merged_title; ?></h6>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar - with toggle/minimize function -->
+      <div id="sideBar" class="col-lg-2 p-0 border border-success">
+        <p>SidebarSidebarSidebarSidebarSidebarSidebarSidebar</p>
       </div>
+      <!-- Sidebar - with toggle/minimize function - END -->
+
+      <!-- Sections -->
+      <div id="contentBar" class="col-lg-10 p-0 border border-danger">
+        <!-- Navbar -->
+          <?php require_once("partials/navbar_admin.php"); ?>
+        <!-- Navbar - END -->
+
+        <!-- Header -->
+        <header class="py-3">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <h6><?php echo $recent_icon; ?> <?php echo $merged_title; ?></h6>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- Header - END -->
+
+        <!-- Main part -->
+          <section class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <?php
+                  echo ErrorMessage();
+                  echo SuccessMessage();
+                ?>
+              </div>
+            </div>
+          </section>
+        <!-- Main part - END -->
+
+        <?php echo $merged_content;?>
+
+        <!-- Footer part --><!-- fixed-bottom -->
+          <?php require_once("partials/footer.php"); ?>
+        <!-- Footer part - END -->
+      </div>
+      <!-- Sections - END -->
+
     </div>
-  </header>
-  <!-- Header - END -->
-
-  <!-- Main part -->
-    <section class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <?php
-            echo ErrorMessage();
-            echo SuccessMessage();
-          ?>
-        </div>
-      </div>
-    </section>
-  <!-- Main part - END -->
-
-  <?php
-    echo $merged_content;// :)
-  ?>
-
-  <!-- Footer part --><!-- fixed-bottom -->
-    <?php require_once("partials/footer.php"); ?>
-  <!-- Footer part - END -->
+  </div>
 
   <!-- Scripts -->
     <?php require_once("partials/scripts.php"); ?>

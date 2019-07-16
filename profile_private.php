@@ -1,5 +1,6 @@
 <?php
   $merged_title = 'Profile private';
+  $recent_icon = '<i class="far fa-address-card text-success"></i>';
 
   // Fetching the existing admin data start
   $admin_id = $_SESSION["user_id"];
@@ -79,7 +80,7 @@
 
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="admin_private.php?a=dashboard" class="btn btn-light btn-sm border">
+                  <a href="admin_private.php?a=indicators" class="btn btn-light btn-sm border">
                     <span class="align-sub"><i class="fas fa-arrow-left"></i> Back to dashboard</span>
                   </a>
                   <button type="submit" name="Submit" class="btn btn-success btn-sm float-right">

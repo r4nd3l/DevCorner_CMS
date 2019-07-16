@@ -1,6 +1,6 @@
 <div class="lift"></div>
 <div class="d-none d-md-block">
-  <footer class="bg-light border-top fixed-bottom lift shadow-sm">
+  <footer class="bg-light border-top lift shadow-sm"><!-- fixed-bottom -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 text-center">

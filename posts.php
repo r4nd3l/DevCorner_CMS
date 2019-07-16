@@ -1,5 +1,6 @@
 <?php
   $merged_title = 'Posts';
+  $recent_icon = '<i class="fas fa-file-alt text-success"></i>';
   $merged_content .= '
   <header class="py-3">
     <div class="container-fluid">

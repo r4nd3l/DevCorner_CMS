@@ -1,5 +1,6 @@
 <?php
   $merged_title = 'Comments';
+  $recent_icon = '<i class="fas fa-comments text-success"></i>';
   $merged_content .= '
   <section class="container-fluid py-2 mb-4">
   <div class="row">
