@@ -15,6 +15,6 @@ function openSideBar() {
 }
 
 function closeSideBar() {
-  document.getElementById("sideBar").style.width = "0";
-  document.getElementById("contentBar").style.marginLeft= "0";
+  document.getElementById("sideBar").style.width = "42px";
+  document.getElementById("contentBar").style.marginLeft= "42px";
 }

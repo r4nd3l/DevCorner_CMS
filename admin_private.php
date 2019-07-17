@@ -64,14 +64,20 @@
 
   <title><?php echo $merged_title; ?></title>
 </head>
-<body class="oflowy_o">
+<body>
   <!-- Sidebar - with toggle/minimize function -->
   <div id="sideBar" class="sideBar bg-success">
-    <a href="javascript:void(0)" class="closeButton" onclick="closeSideBar()">×</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <a href="javascript:void(0)" onclick="closeSideBar()"><i class="fas fa-sign-out-alt fa-fw mr-2 mt-1"></i> Minimize</a>
+    <a href="admin_private.php?a=dashboard"><i class="fas fa-home fa-fw mr-2 mt-1"></i> Dashboard</a>
+    <a href="admin_private.php?a=profile_private"><i class="far fa-address-card fa-fw mr-2 mt-1"></i> Profile</a>
+    <a href="admin_private.php?a=indicators"><i class="fas fa-tachometer-alt fa-fw mr-2 mt-1"></i> Indicators</a>
+    <a href="admin_private.php?a=posts"><i class="fas fa-file-alt fa-fw mr-2 mt-1"></i> Posts</a>
+    <a href="admin_private.php?a=categories"><i class="fas fa-folder-plus fa-fw mr-2 mt-1"></i> Categories</a>
+    <a href="admin_private.php?a=admins"><i class="fas fa-user fa-fw mr-2 mt-1"></i> Admins</a>
+    <a href="admin_private.php?a=comments"><i class="fas fa-comments fa-fw mr-2 mt-1"></i> Comments</a>
+    <a href="blog.php?page=1"><i class="fas fa-sign-out-alt fa-fw mr-2 mt-1"></i> Blog</a>
+    <hr class="bg-light">
+    <a href="logout.php"><i class="fas fa-sign-out-alt fa-fw mr-2 mt-1"></i> Logout</a>
   </div>
   <!-- Sidebar - with toggle/minimize function - END -->
 

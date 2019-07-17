@@ -50,6 +50,7 @@ body{
   /* background-size: cover; */
   /* background-attachment: fixed; */
   width: 100vw;
+  overflow-y: overlay;
 }
 
 .navbar-brand{
@@ -313,9 +314,12 @@ a:hover{
 #contentBar{
   -webkit-transition-duration: 0.5s;
 }
+#contentBar{
+  margin-left: 42px;
+}
 .sideBar {
   height: 100%;
-  width: 0;
+  width: 42px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -324,28 +328,26 @@ a:hover{
   transition: 0.5s;
   padding-top: 60px;
 }
-.sideBar a {
+.sideBar a{
   padding: 5px 10px;
   text-decoration: none;
   font-size: 1.2em;
   color: var(--sg-);
-  display: block;
+  display: flex;
   transition: 0.3s;
+  width: fit-content;
 }
-.sideBar a:not(:nth-child(1)):hover{
+.sideBar a:hover{
   color: var(--dc-);
   background: var(--sg-);
 }
-.sideBar .closeButton {
+.sideBar a:first-child {
   position: absolute;
   top: 0;
-  right: 0;
-  font-size: 2em;
+  left: 0;
+  font-size: 1.2em;
+  width: fit-content;
 }
-.sideBar .closeButton:hover{
-  color: var(--gr-);
-}
-
 
 
 
