@@ -2,7 +2,7 @@
 
   <!-- Sidebar toggle -->
   <a href="javascript:void(0)">
-    <i class="fab fa-elementor fa-2x text-success toggle-sidebar"></i>
+    <i class="fab fa-elementor fa-2x text-success" onclick="openSideBar()"></i>
   </a>
 
   <div class="container-fluid">

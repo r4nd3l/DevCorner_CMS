@@ -64,26 +64,30 @@
 
   <title><?php echo $merged_title; ?></title>
 </head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar - with toggle/minimize function -->
-      <div id="sideBar" class="col-lg-2 p-0 border border-success">
-        <p>SidebarSidebarSidebarSidebarSidebarSidebarSidebar</p>
-      </div>
-      <!-- Sidebar - with toggle/minimize function - END -->
+<body class="oflowy_o">
+  <!-- Sidebar - with toggle/minimize function -->
+  <div id="sideBar" class="sideBar bg-success">
+    <a href="javascript:void(0)" class="closeButton" onclick="closeSideBar()">×</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  <!-- Sidebar - with toggle/minimize function - END -->
 
+  <div class="container-fluid p-0">
+    <div id="contentBar" class="">
       <!-- Sections -->
-      <div id="contentBar" class="col-lg-10 p-0 border border-danger">
+      <div class="col-lg-12 p-0">
         <!-- Navbar -->
-          <?php require_once("partials/navbar_admin.php"); ?>
+        <?php require_once("partials/navbar_admin.php"); ?>
         <!-- Navbar - END -->
 
         <!-- Header -->
         <header class="py-3">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-lg-12">
                 <h6><?php echo $recent_icon; ?> <?php echo $merged_title; ?></h6>
               </div>
             </div>
@@ -92,31 +96,31 @@
         <!-- Header - END -->
 
         <!-- Main part -->
-          <section class="container-fluid">
-            <div class="row">
-              <div class="col-lg-12">
-                <?php
-                  echo ErrorMessage();
-                  echo SuccessMessage();
-                ?>
-              </div>
+        <section class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <?php
+              echo ErrorMessage();
+              echo SuccessMessage();
+              ?>
             </div>
-          </section>
+          </div>
+        </section>
         <!-- Main part - END -->
 
         <?php echo $merged_content;?>
 
         <!-- Footer part --><!-- fixed-bottom -->
-          <?php require_once("partials/footer.php"); ?>
+        <?php require_once("partials/footer.php"); ?>
         <!-- Footer part - END -->
       </div>
       <!-- Sections - END -->
-
     </div>
   </div>
 
+
   <!-- Scripts -->
-    <?php require_once("partials/scripts.php"); ?>
+  <?php require_once("partials/scripts.php"); ?>
   <!-- Scripts - END -->
 
 </body>

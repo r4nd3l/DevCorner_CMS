@@ -8,7 +8,7 @@
   font-family: 'Roboto';
   src: url('../font/Roboto/Roboto-Medium.ttf');
 }
-
+*, *::before, *::after{box-sizing: border-box;}
 
 :root{
   --dc-: #28a745; /* #28a745 */
@@ -31,9 +31,11 @@
 .align-sub{
   vertical-align: sub;
 }
-
 .mouse_default{
   cursor: default;
+}
+.oflowy_o{
+  overflow-y: overlay;
 }
 
 html,body{
@@ -47,6 +49,7 @@ body{
   /* background: url('../img/img_05.jpeg') no-repeat 50% 50%; */
   /* background-size: cover; */
   /* background-attachment: fixed; */
+  width: 100vw;
 }
 
 .navbar-brand{
@@ -305,9 +308,42 @@ a:hover{
   box-shadow: var(--shadow1-);
 }
 
+/* Sidebar settings */
 #sideBar,
 #contentBar{
   -webkit-transition-duration: 0.5s;
+}
+.sideBar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sideBar a {
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: var(--sg-);
+  display: block;
+  transition: 0.3s;
+}
+.sideBar a:not(:nth-child(1)):hover{
+  color: var(--dc-);
+  background: var(--sg-);
+}
+.sideBar .closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2em;
+}
+.sideBar .closeButton:hover{
+  color: var(--gr-);
 }
 
 
