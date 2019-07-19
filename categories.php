@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-edit text-success"></i> Manage categories</h6>
+          <!-- content -->
         </div>
       </div>
     </div>

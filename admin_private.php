@@ -67,17 +67,18 @@
 <body>
   <!-- Sidebar - with toggle/minimize function -->
   <div id="sideBar" class="sideBar bg-success">
-    <a href="javascript:void(0)" onclick="closeSideBar()"><i class="fas fa-sign-out-alt fa-fw mr-2 mt-1"></i> Minimize</a>
-    <a href="admin_private.php?a=dashboard"><i class="fas fa-home fa-fw mr-2 mt-1"></i> Dashboard</a>
-    <a href="admin_private.php?a=profile_private"><i class="far fa-address-card fa-fw mr-2 mt-1"></i> Profile</a>
-    <a href="admin_private.php?a=indicators"><i class="fas fa-tachometer-alt fa-fw mr-2 mt-1"></i> Indicators</a>
-    <a href="admin_private.php?a=posts"><i class="fas fa-file-alt fa-fw mr-2 mt-1"></i> Posts</a>
-    <a href="admin_private.php?a=categories"><i class="fas fa-folder-plus fa-fw mr-2 mt-1"></i> Categories</a>
-    <a href="admin_private.php?a=admins"><i class="fas fa-user fa-fw mr-2 mt-1"></i> Admins</a>
-    <a href="admin_private.php?a=comments"><i class="fas fa-comments fa-fw mr-2 mt-1"></i> Comments</a>
-    <a href="blog.php?page=1"><i class="fas fa-sign-out-alt fa-fw mr-2 mt-1"></i> Blog</a>
+    <a href="javascript:void(0)" id="toggle-sideBar"><i class="fas fa-window-maximize fa-rotate-270 fa-fw mr-3 mt-1"></i> <span>Minimize</span></a>
+    <a href="admin_private.php?a=dashboard"><i class="fas fa-home fa-fw mr-3 mt-1"></i> <span>Dashboard</span></a>
+    <a href="admin_private.php?a=profile_private"><i class="far fa-address-card fa-fw mr-3 mt-1"></i> <span>Profile</span></a>
+    <a href="admin_private.php?a=indicators"><i class="fas fa-tachometer-alt fa-fw mr-3 mt-1"></i> <span>Indicators</span></a>
+    <a href="admin_private.php?a=posts"><i class="fas fa-file-alt fa-fw mr-3 mt-1"></i> <span>Posts</span></a>
+    <a href="admin_private.php?a=categories"><i class="fas fa-folder-plus fa-fw mr-3 mt-1"></i> <span>Categories</span></a>
+    <a href="admin_private.php?a=admins"><i class="fas fa-users fa-fw mr-3 mt-1"></i> <span>Admins</span></a>
+    <a href="admin_private.php?a=comments"><i class="fas fa-comments fa-fw mr-3 mt-1"></i> <span>Comments</span></a>
     <hr class="bg-light">
-    <a href="logout.php"><i class="fas fa-sign-out-alt fa-fw mr-2 mt-1"></i> Logout</a>
+    <a href="blog.php?page=1"><i class="fas fa-book fa-fw mr-3 mt-1"></i> <span>LiveBlog</span></a>
+    <hr class="bg-light">
+    <a href="logout.php"><i class="fas fa-power-off fa-fw mr-3 mt-1"></i> <span>Logout</span></a>
   </div>
   <!-- Sidebar - with toggle/minimize function - END -->
 

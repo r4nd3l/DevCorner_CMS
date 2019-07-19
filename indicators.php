@@ -7,9 +7,6 @@
   <header class="py-3">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
-          <h6><i class="fas fa-cog text-success"></i> Dashboard</h6>
-        </div>
 
         <div class="col-lg-3 mb-2">
           <!-- Add new post -->

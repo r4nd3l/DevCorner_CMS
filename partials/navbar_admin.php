@@ -1,14 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top shadow-sm">
 
-  <!-- Sidebar toggle -->
-  <a href="javascript:void(0)">
-    <i class="fab fa-elementor fa-2x text-success" onclick="openSideBar()"></i>
-  </a>
+  <!-- Logo part -->
+  <a href="" class="navbar-brand"><i class="fas fa-code text-success"></i> DevCorner</a>
 
   <div class="container-fluid">
-
-    <!-- Logo part -->
-    <!-- <a href="" class="navbar-brand"><i class="fas fa-code text-success"></i> DevCorner</a> -->
 
     <!-- The button for "Collapsable munu" -->
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar_collapse_CMS">

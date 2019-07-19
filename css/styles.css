@@ -315,11 +315,11 @@ a:hover{
   -webkit-transition-duration: 0.5s;
 }
 #contentBar{
-  margin-left: 42px;
+  margin-left: 45px;
 }
 .sideBar {
   height: 100%;
-  width: 42px;
+  width: 45px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -333,9 +333,9 @@ a:hover{
   text-decoration: none;
   font-size: 1.2em;
   color: var(--sg-);
-  display: flex;
+  display: inline-flex;
   transition: 0.3s;
-  width: fit-content;
+  /* width: fit-content; */
 }
 .sideBar a:hover{
   color: var(--dc-);

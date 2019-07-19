@@ -1,20 +1,14 @@
-// Sidebar function
-// $('.toggle-sidebar').click(function(){
-//   $('#contentBar').hide();
-// });
-
-// $('.toggle-sidebar').click(function(){
-//   $('#sideBar').toggleClass('col-lg-2 col-lg-1');
-//   $('#contentBar').toggleClass('col-lg-10 col-lg-11');
-// });
-//
-
-function openSideBar() {
-  document.getElementById("sideBar").style.width = "200px";
-  document.getElementById("contentBar").style.marginLeft = "200px";
-}
-
-function closeSideBar() {
-  document.getElementById("sideBar").style.width = "42px";
-  document.getElementById("contentBar").style.marginLeft= "42px";
-}
+$(document).ready(function($){
+  $('#toggle-sideBar').on('click',function(){
+    if($(this).attr('data-click-state') == 1) {
+      $(this).attr('data-click-state', 0);
+      $("#sideBar").css({width: "45px"});
+      $("#contentBar").css({marginLeft: "45px"});
+    } else {
+      $(this).attr('data-click-state', 1)
+      $("#sideBar").css({width: "200px"});
+      $("#contentBar").css({marginLeft: "200px"});
+    }
+    $('.fa-window-maximize').toggleClass('fas far');
+  });
+});
