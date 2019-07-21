@@ -19,7 +19,7 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
-        <h1>Content = Sections will goes here</h1>
+        <h1 class="">Content = Sections will goes here</h1>          
       </div>
     </div>
   </section>

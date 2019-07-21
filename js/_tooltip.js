@@ -1,8 +1,7 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip({
-    container: 'body',
     animated: 'fade',
-    placement: 'top',
+    placement: 'left',
     html: true
   });
 });
