@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
 <!-- Bootstrap 4.3 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap_4.3.1.css">
 
 <!-- Custom Style -->
 <link rel="stylesheet" href="css/styles.css" type="text/css">

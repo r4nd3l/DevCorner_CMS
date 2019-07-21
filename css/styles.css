@@ -332,6 +332,9 @@ a:hover{
   margin: 0 auto;
   padding: 0;
 }
+.sideBar ul li{
+  display: grid;
+}
 .sideBar ul hr{
   color: var(--rgba-dc-);
 }
@@ -346,12 +349,11 @@ a:hover{
   text-decoration: none;
   font-size: 1.2em;
   color: var(--sg-);
-  transition: 0.3s;
   display: flex;
 }
 .sideBar ul li a:hover{
   color: var(--dc-);
-  background: var(--sg-);
+  background: white;
 }
 .sideBar ul li:first-child{
   margin-bottom: 2em;
@@ -363,12 +365,21 @@ a:hover{
 }
 
 /* Custom Tooltip settings */
-.retek{
+._tip{
   display: none;
+  position: fixed;
+  margin-top: 1px;
+  margin-left: 3.5em;
+  z-index: auto;
 }
-.kolbas:hover ~ .retek {
-  background: #ff0000;
+._tool:hover ~ ._tip {
+  background: var(--sg-);
+  color: var(--dc-);
+  border: 1px solid var(--dc-);
+  border-radius: 0.5em;
+  box-shadow: var(--shadow1-);
   display: block;
+  padding: 5px 10px;
 }
 
 
