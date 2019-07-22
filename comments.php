@@ -1,12 +1,27 @@
 <?php
-  $merged_title = 'Comments';
-  $recent_icon = '<i class="fas fa-comments text-success"></i>';
+  // $merged_title = 'Comments';
+  // $recent_icon = '<i class="fas fa-comments text-success"></i>';
   $merged_content .= '
+
+  <div class="border mb-3 rounded">
+  <!-- Header -->
+  <header class="py-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h6><i class="fas fa-comments text-success"></i> Categories section</h6>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header - END -->
+
+  <!-- Main part -->
   <section class="container-fluid py-2 mb-4">
   <div class="row">
     <div class="col-lg-12">
           <!-- Unapproved table -->
-          <h5><i class="far fa-clock text-success"></i> Unapproved comments</h5>
+          <h6><i class="far fa-clock text-success"></i> Unapproved comments</h6>
           <div class="card">
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
@@ -59,7 +74,7 @@
       <div class="row">
         <div class="col-lg-12">
           <!-- Disapprove table -->
-          <h5><i class="fas fa-history text-success"></i> Disapprove comments</h5>
+          <h6><i class="fas fa-history text-success"></i> Disapprove comments</h6>
           <div class="card">
             <table class="table table-sm" style="margin-bottom: 0;">
               <thead class="thead-light">
@@ -108,5 +123,6 @@
       </div>
     </section>
   <!-- Main part - END -->
+  </div>
   ';
 ?>

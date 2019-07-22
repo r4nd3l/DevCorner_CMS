@@ -1,13 +1,15 @@
 <?php
-  $merged_title = 'Categories';
-  $recent_icon = '<i class="fas fa-folder-plus text-success"></i>';
+  // $merged_title = 'Categories';
+  // $recent_icon = '<i class="fas fa-folder-plus text-success"></i>';
   $merged_content .= '
+
+  <div class="border mb-3 rounded">
   <!-- Header -->
   <header class="py-3">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <!-- content -->
+          <h6><i class="fas fa-folder-plus text-success"></i> Categories section</h6>
         </div>
       </div>
     </div>
@@ -51,7 +53,7 @@
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
-        <h5><i class="fas fa-inbox text-success"></i> Existing categories</h5>
+        <h6><i class="fas fa-inbox text-success"></i> Existing categories</h6>
         <div class="card">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
@@ -99,5 +101,6 @@
   </section>
   <!-- Delete existing category - END -->
   <!-- Main part - END -->
+  </div>
   ';
 ?>

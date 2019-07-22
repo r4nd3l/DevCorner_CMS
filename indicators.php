@@ -1,12 +1,16 @@
 <?php
-  $merged_title = 'Indicators';
-  $recent_icon = '<i class="fas fa-tachometer-alt text-success"></i>';
+  // $merged_title = 'Indicators';
+  // $recent_icon = '<i class="fas fa-tachometer-alt text-success"></i>';
   $merged_content .= '
 
+  <div class="border mb-3 rounded">
   <!-- Header -->
   <header class="py-3">
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-12">
+          <h6><i class="fas fa-tachometer-alt text-success"></i> Indicators section</h6>
+        </div>
 
         <div class="col-lg-3 mb-2">
           <!-- Add new post -->
@@ -152,5 +156,6 @@
     </div>
   </section>
   <!-- Main part - END -->
+  </div>
   ';
 ?>

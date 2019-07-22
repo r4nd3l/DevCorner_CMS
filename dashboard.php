@@ -2,24 +2,29 @@
   $merged_title = 'Dashboard';
   $recent_icon = '<i class="fas fa-home text-success"></i>';
   $merged_content .= '
-  <header class="py-3">
-    <div class="container-fluid">
-
-      <div class="row">
-        <div class="col-md-12">
-          <h6> Header sectiion</h6>
-        </div>
-      </div>
-
-    </div>
-  </header>
-  <!-- Header - END -->
 
   <!-- Main part -->
   <section class="container-fluid py-2 mb-4">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="">Content = Sections will goes here</h1>
+        ';?>
+
+        <!-- Indicators - SECTION -->
+        <?php require_once('indicators.php'); ?>
+
+        <!-- Indicators - SECTION -->
+        <?php require_once('posts.php'); ?>
+
+        <!-- Indicators - SECTION -->
+        <?php require_once('categories.php'); ?>
+
+        <!-- Indicators - SECTION -->
+        <?php require_once('admins.php'); ?>
+
+        <!-- Indicators - SECTION -->
+        <?php require_once('comments.php'); ?>
+
+        <?php $merged_content .='
       </div>
     </div>
   </section>

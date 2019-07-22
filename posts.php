@@ -1,12 +1,14 @@
 <?php
-  $merged_title = 'Posts';
-  $recent_icon = '<i class="fas fa-file-alt text-success"></i>';
+  // $merged_title = 'Posts';
+  // $recent_icon = '<i class="fas fa-file-alt text-success"></i>';
   $merged_content .= '
+
+  <div class="border mb-3 rounded">
   <header class="py-3">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-edit text-success"></i> Manage blog posts</h6>
+          <h6><i class="fas fa-edit text-success"></i> Posts section</h6>
         </div>
 
         <div class="col-lg-3 mb-2">
@@ -149,6 +151,6 @@
     </div>
   </div>
   <!-- Modal for Delete posts - END -->
-
+  </div>
 ';
 ?>

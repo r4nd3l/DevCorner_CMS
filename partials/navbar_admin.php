@@ -25,7 +25,7 @@
         <li class="nav-item">
           <div class="btn-group btn-group-sm border-secondary" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-light border border-secondary">
-              <a href="" class="text-success"><span class="align-sub"><i class="fas fa-home "></i> Home</span></a>
+              <a href="admin_private.php?a=dashboard" class="text-success"><span class="align-sub"><i class="fas fa-home "></i> Home</span></a>
             </button>
             <button type="button" class="btn btn-light border border-secondary">
               <a href="logout.php" class="text-secondary"><span class="align-sub"><i class="fas fa-power-off "></i> Logout</span></a>

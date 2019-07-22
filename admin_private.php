@@ -117,7 +117,11 @@
         </section>
         <!-- Main part - END -->
 
-        <?php echo $merged_content;?>
+        <!-- Merged contents -->
+        <section class="">
+          <?php echo $merged_content;?>
+        </section>
+        <!-- Merged contents - END -->
 
         <!-- Footer part --><!-- fixed-bottom -->
         <?php require_once("partials/footer.php"); ?>
