@@ -1,5 +1,5 @@
 <?php
-  $merged_title = 'Dashboard';
+  $merged_title = 'Indicators';
   $recent_icon = '<i class="fas fa-tachometer-alt text-success"></i>';
   $merged_content .= '
 

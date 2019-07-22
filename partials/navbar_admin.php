@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top shadow-sm">
 
   <!-- Logo part -->
-  <a href="" class="navbar-brand"><i class="fas fa-code text-success"></i> DevCorner</a>
+  <!-- <a href="" class="navbar-brand"><i class="fas fa-code text-success"></i> DevCorner</a> -->
+
+  <!-- Current section's title -->
+  <p class="m-0" style="width: 200px;">Current section's title</p>
 
   <div class="container-fluid">
 
@@ -14,22 +17,20 @@
     <div class="collapse navbar-collapse" id="navbar_collapse_CMS">
       <!-- Menu part -->
       <ul class="navbar-nav m-auto">
-        <li class="nav-item"><a href="admin_private.php?a=dashboard" class="nav-link"> Dashboard</a></li>
-        <li class="nav-item"><a href="admin_private.php?a=profile_private" class="nav-link"> Profile</a></li>
-        <li class="nav-item"><a href="admin_private.php?a=indicators" class="nav-link">Indicators</a></li>
-        <li class="nav-item"><a href="admin_private.php?a=posts" class="nav-link">Posts</a></li>
-        <li class="nav-item"><a href="admin_private.php?a=categories" class="nav-link">Categories</a></li>
-        <li class="nav-item"><a href="admin_private.php?a=admins" class="nav-link">Admins</a></li>
-        <li class="nav-item"><a href="admin_private.php?a=comments" class="nav-link">Comments</a></li>
-        <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="blog.php?page=1" class="nav-link">Sample link</a></li>
       </ul>
 
       <!-- Login/out part -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="logout.php" class="btn btn-light btn-sm nav-link">
-            <span class="align-sub"><i class="fas fa-sign-out-alt"></i> Logout</span>
-          </a>
+          <div class="btn-group btn-group-sm border-secondary" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-light border border-secondary">
+              <a href="" class="text-success"><span class="align-sub"><i class="fas fa-home "></i> Home</span></a>
+            </button>
+            <button type="button" class="btn btn-light border border-secondary">
+              <a href="logout.php" class="text-secondary"><span class="align-sub"><i class="fas fa-power-off "></i> Logout</span></a>
+            </button>
+          </div>
         </li>
       </ul>
     </div>

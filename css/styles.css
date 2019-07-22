@@ -320,7 +320,7 @@ a:hover{
 .sideBar {
   height: 100%;
   width: 45px;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
@@ -343,13 +343,27 @@ a:hover{
 }
 .sideBar ul li a span{
   margin-left: 2em;
+  font-size: 0.9em;
+}
+.sideBar ul li a small{
+  color: var(--dc-);
+  background: var(--sg-);
+  padding: 2px 5px 0px 5px;
+  margin: 3px auto;
+  border-radius: 4px;
+  float: right;
+  font-size: 0.7em;
+}
+.sideBar ul li a:hover small{
+  color: var(--sg-);
+  background: var(--dc-);
 }
 .sideBar ul li a{
   padding: 5px 10px;
   text-decoration: none;
   font-size: 1.2em;
   color: var(--sg-);
-  display: flex;
+  width: 10.5em;
 }
 .sideBar ul li a:hover{
   color: var(--dc-);
@@ -370,7 +384,7 @@ a:hover{
   position: fixed;
   margin-top: 1px;
   margin-left: 3.5em;
-  z-index: auto;
+  z-index: 2;
 }
 ._tool:hover ~ ._tip {
   background: var(--sg-);
