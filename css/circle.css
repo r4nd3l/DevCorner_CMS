@@ -274,7 +274,7 @@
 	-webkit-transition-timing-function: ease-out;
 	-moz-transition-timing-function: ease-out;
 	-o-transition-timing-function: ease-out;
-	transition-timing-function: ease-out
+	transition-timing-function: ease-out;
 }
 .c100:after {
 	position: absolute;

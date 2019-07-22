@@ -9,7 +9,7 @@
 <script type="text/javascript">$('#year').text(new Date().getFullYear());</script>
 <script src="js/_left_sidebar.js"></script>
 <script src="js/_modal.js"></script>
-<script src="js/_scrollTop.js"></script>
+<script src="js/_scrollTo.js"></script>
 <script src="js/_popover.js"></script>
 <script src="js/_tooltip.js"></script>
 <script src="js/_imgUpload.js"></script>

@@ -3,7 +3,7 @@
   // $recent_icon = '<i class="fas fa-users text-success"></i>';
   $merged_content .= '
 
-  <div class="border mb-3 rounded">
+  <div id="sec_admins" class="border mb-3 rounded shadow mr-3">
   <!-- Header -->
   <header class="py-3">
     <div class="container-fluid">

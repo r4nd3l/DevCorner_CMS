@@ -385,7 +385,7 @@ a:hover{
   position: fixed;
   margin-top: 1px;
   margin-left: 3.5em;
-  z-index: 2;
+  z-index: 3;
 }
 ._tool:hover ~ ._tip {
   background: var(--sg-);

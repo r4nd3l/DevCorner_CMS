@@ -8,7 +8,16 @@ $(document).ready(function(){
     }
   });
 
+  // scroll to the top
   $("#topBtn").click(function(){
     $('html ,body').animate({scrollTop : 0},500);
+  });
+
+  // scroll to each section
+  $('.scroll_to_section').click(function(){
+    $('html, body').animate({
+      scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
+    return false;
   });
 });
