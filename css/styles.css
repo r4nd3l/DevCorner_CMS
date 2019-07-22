@@ -311,8 +311,10 @@ a:hover{
 
 /* Sidebar settings */
 #sideBar,
-#contentBar{
-  -webkit-transition-duration: 0.5s;
+#contentBar,
+.sideBar ul li a{
+  -webkit-transition-duration: 0.3s;
+  transition: 0.3s; /* Fallback */
 }
 #contentBar{
   margin-left: 45px;
@@ -325,7 +327,6 @@ a:hover{
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: 0.5s;
 }
 .sideBar ul{
   list-style: none;
