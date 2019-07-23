@@ -18,7 +18,7 @@
 
   <!-- Main part -->
   <!-- Add new category -->
-  <section class="container-fluid py-2 mb-4">
+  <section class="container-fluid p-3">
     <div class="row">
       <div class="offset-lg-1 col-lg-10" style="">
         <form class="" action="admin_private.php?a=category_add" method="post">

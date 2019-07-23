@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h6><i class="fas fa-comments text-success"></i> Categories section</h6>
+          <h6><i class="fas fa-comments text-success"></i> Comment section</h6>
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
   <!-- Header - END -->
 
   <!-- Main part -->
-  <section class="container-fluid py-2 mb-4">
+  <section class="container-fluid p-3">
   <div class="row">
     <div class="col-lg-12">
           <!-- Unapproved table -->

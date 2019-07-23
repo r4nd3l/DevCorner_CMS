@@ -293,8 +293,8 @@ a:hover{
 /* ScrollTop */
 #topBtn{
   position: fixed;
-  bottom: 35px;
-  right: 10px;
+  bottom: 2rem;
+  right: 1rem;
   font-size: 1em;
   padding: 0;
   width: 30px;

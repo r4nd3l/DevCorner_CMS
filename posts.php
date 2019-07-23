@@ -42,7 +42,7 @@
   <!-- Header - END -->
 
   <!-- Main part -->
-  <section class="container-fluid py-2 mb-4">
+  <section class="container-fluid p-3">
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
