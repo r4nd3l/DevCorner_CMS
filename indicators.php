@@ -3,18 +3,20 @@
   // $recent_icon = '<i class="fas fa-tachometer-alt text-success"></i>';
   $merged_content .= '
 
-  <div id="sec_indicators" class="border mb-3 rounded shadow mr-3">
-  <!-- Header -->
-  <header class="py-3">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <h6><i class="fas fa-tachometer-alt text-success"></i> Indicators section</h6>
+<div id="sec_indicators">
+  <div class="border mb-3 rounded shadow mr-3">
+    <!-- Header -->
+    <header class="line_left py-2">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h6 class="m-0"><i class="fas fa-tachometer-alt text-success"></i> Indicators section</h6>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <!-- Header - END -->
+    </header>
+    <!-- Header - END -->
+  </div>
 
   <!-- Main part -->
   <section class="container-fluid p-3">
@@ -24,77 +26,131 @@
       <div class="col-lg-12">
         <div class="row">
 
-          <div class="col-lg-4">
-            <div class="card text-center text-success border">
+          <div class="col-lg-6">
+            <div class="card text-center text-success border mb-2">
               <div class="crad-body">
                 <p>File overview box - list of uploaded files/images</p>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-2">
-            <div class="card text-center text-success border-0">
+            <div class="card text-center text-success border mb-2">
               <div class="crad-body">
-                <div class="c100 p'. pct_posts() .' small bg-grayish">
-                  <span class="text-success">'. pct_posts() .'%</span>
-                  <div class="slice">
-                    <div class="bar border-success"></div>
-                    <div class="fill"></div>
-                  </div>
-                </div>
-                <h5 class="m-0"><i class="fas fa-file-alt"></i><br> '. total_posts() .'</h5>
-                <h6 class="">Posts</h6>
+                <p>Calendar overview box - days of posted contents</p>
+              </div>
+            </div>
+            <div class="card text-center text-success border mb-2">
+              <div class="crad-body">
+                <p>Drag\'n\'drop box - quick upload</p>
+              </div>
+            </div>
+            <div class="card text-center text-success border mb-2">
+              <div class="crad-body">
+                <p>Gallery box - image library</p>
+              </div>
+            </div>
+            <div class="card text-center text-success border mb-2">
+              <div class="crad-body">
+                <p>Time graph based on the dates/calendar</p>
+              </div>
+            </div>
+            <div class="card text-center text-success border mb-2">
+              <div class="crad-body">
+                <p>Dragable ToDo list(?)</p>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-2">
-            <div class="card text-center text-success border-0">
-              <div class="crad-body">
-                <div class="c100 p'. pct_categories() .' small bg-grayish">
-                  <span class="text-success">'. pct_categories() .'%</span>
-                  <div class="slice">
-                    <div class="bar border-success"></div>
-                    <div class="fill"></div>
-                  </div>
-                </div>
-                <h5 class="m-0"><i class="fas fa-inbox"></i><br> '. total_categories() .'</h5>
-                <h6 class="">Categories</h6>
-              </div>
-            </div>
-          </div>
+          <!-- Indicator boxes - END -->
+          <div class="col-lg-6">
+            <div class="col-lg-12">
+              <div class="row">
 
-          <div class="col-lg-2">
-            <div class="card text-center text-success border-0">
-              <div class="crad-body">
-                <div class="c100 p'. pct_admins() .' small bg-grayish">
-                  <span class="text-success">'. pct_admins() .'%</span>
-                  <div class="slice">
-                    <div class="bar border-success"></div>
-                    <div class="fill"></div>
+                <div class="col-lg-6 pb-3 pr-0">
+                <div class="line_header">Posts</div>
+                  <div class="line_bottom line_sharp_top card m-1 p-0 shadow text-center text-success">
+                      <div class="crad-body m_x">
+                        <div class="c100 p'. pct_posts() .' small bg-grayish mt-2">
+                          <span class="text-success">'. pct_posts() .'%</span>
+                          <div class="slice">
+                            <div class="bar border-success"></div>
+                            <div class="fill"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="line_bar">
+                      <div class="line_stat m-0">In total - '. total_posts() .'</div>
+                      <div class="line_icon"><i class="fas fa-file-alt fa-fw"></i></div>
+                    </div>
                   </div>
                 </div>
-                <h5 class="m-0"><i class="fas fa-users"></i><br> '. total_admins() .'</h5>
-                <h6 class="">Admins</h6>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-2">
-            <div class="card text-center text-success border-0">
-              <div class="crad-body">
-                <div class="c100 p'. pct_comments() .' small bg-grayish">
-                  <span class="text-success">'. pct_comments() .'%</span>
-                  <div class="slice">
-                    <div class="bar border-success"></div>
-                    <div class="fill"></div>
+                <div class="col-lg-6 pb-3 pr-0">
+                <div class="line_header">Categories</div>
+                  <div class="line_bottom line_sharp_top card m-1 p-0 shadow text-center text-success">
+                      <div class="crad-body m_x">
+                        <div class="c100 p'. pct_categories() .' small bg-grayish mt-2">
+                          <span class="text-success">'. pct_categories() .'%</span>
+                          <div class="slice">
+                            <div class="bar border-success"></div>
+                            <div class="fill"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="line_bar">
+                      <div class="line_stat m-0">In total - '. total_categories() .'</div>
+                      <div class="line_icon"><i class="fas fa-inbox fa-fw"></i></div>
+                    </div>
                   </div>
                 </div>
-                <h5 class="m-0"><i class="fas fa-comments"></i><br> '. total_comments() .'</h5>
-                <h6 class="">Comments</h6>
+
               </div>
             </div>
+
+            <div class="col-lg-12">
+              <div class="row">
+
+                <div class="col-lg-6 pb-3 pr-0">
+                <div class="line_header">Admins</div>
+                  <div class="line_bottom line_sharp_top card m-1 p-0 shadow text-center text-success">
+                      <div class="crad-body m_x">
+                        <div class="c100 p'. pct_admins() .' small bg-grayish mt-2">
+                          <span class="text-success">'. pct_admins() .'%</span>
+                          <div class="slice">
+                            <div class="bar border-success"></div>
+                            <div class="fill"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="line_bar">
+                      <div class="line_stat m-0">In total - '. total_admins() .'</div>
+                      <div class="line_icon"><i class="fas fa-users fa-fw"></i></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 pb-3 pr-0">
+                <div class="line_header">Comments</div>
+                  <div class="line_bottom line_sharp_top card m-1 p-0 shadow text-center text-success">
+                      <div class="crad-body m_x">
+                        <div class="c100 p'. pct_comments() .' small bg-grayish mt-2">
+                          <span class="text-success">'. pct_comments() .'%</span>
+                          <div class="slice">
+                            <div class="bar border-success"></div>
+                            <div class="fill"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="line_bar">
+                      <div class="line_stat m-0">In total - '. total_comments() .'</div>
+                      <div class="line_icon"><i class="fas fa-comments fa-fw"></i></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
+          <!-- Indicator boxes - END -->
 
         </div>
       </div>
@@ -150,6 +206,6 @@
     </div>
   </section>
   <!-- Main part - END -->
-  </div>
+</div>
   ';
 ?>
