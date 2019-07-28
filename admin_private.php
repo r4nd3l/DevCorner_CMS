@@ -105,9 +105,7 @@
         </section>
         <!-- Message part - END -->
 
-        <!-- Merged contents -->
         <?php echo $merged_content;?>
-        <!-- Merged contents - END -->
 
         <!-- Footer part --><!-- fixed-bottom -->
         <?php require_once("partials/footer.php"); ?>

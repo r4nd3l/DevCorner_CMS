@@ -6,7 +6,7 @@
 <div id="sec_indicators">
   <div class="border rounded shadow mr-3">
     <!-- Header -->
-    <header class="line_left py-2">
+    <div class="line_left py-2">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
@@ -14,18 +14,14 @@
           </div>
         </div>
       </div>
-    </header>
+    </div>
     <!-- Header - END -->
   </div>
 
-  <!-- Main part -->
-  <section class="container-fluid p-3">
+  <div class="container-fluid p-3">
     <div class="row">
-
-      <!-- Indicators -->
       <div class="col-lg-12">
         <div class="row">
-
           <div class="col-lg-8">
             <div class="card text-center text-success border mb-2">
               <div class="crad-body">
@@ -58,50 +54,34 @@
               </div>
             </div>
           </div>
-
-          <!-- Pie-Chart -->
-          <div class="col-lg-4">
-            <div class="col-lg-12">
-              <div class="row">
-
-                <div class="col-lg-12 pb-3 pr-0">
-                  <div class="line_bottom card p-0 shadow text-center text-success">
-                    <div class="card-body m_x pb-0 d-flex">
-                      <!-- Pie-chart part -->
-                      <script type="text/javascript">
-                        var _posts = '. pct_posts() .';
-                        var _categories = '. pct_categories() .';
-                        var _admins = '. pct_admins() .';
-                        var _comments = '. pct_comments() .';
-                      </script>
-                      <!-- Pie-chart part - END -->
-                      <div id="pie"></div>
-                      <ul class="list-group text-secondary m_y text-left">
-                        <li class="list-group-item"><span class="badge badge_orange">'. total_posts() .'</span> Posts</li>
-                        <li class="list-group-item"><span class="badge badge_green">'. total_categories() .'</span> Categoires</li>
-                        <li class="list-group-item"><span class="badge badge_purple">'. total_admins() .'</span> Admins</li>
-                        <li class="list-group-item"><span class="badge badge_blue">'. total_comments() .'</span> Comments</li>
-                      </ul>
-                    </div>
-                  <div class="line_bar">
-                    <div class="text-secondary ml-3 mt-1">Recent stats</div>
-                    <div class="line_icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
-                  </div>
-                </div>
-
+          <div class="col-lg-4 pl-0">
+            <div class="card line_bottom p-0 shadow">
+              <div class="card-body m_x pb-0 d-flex">
+                <div id="pie"></div>
+                <ul class="list-group text-secondary m_y text-left">
+                  <li class="list-group-item"><span class="badge badge_orange">'. total_posts() .'</span> Posts</li>
+                  <li class="list-group-item"><span class="badge badge_green">'. total_categories() .'</span> Categoires</li>
+                  <li class="list-group-item"><span class="badge badge_purple">'. total_admins() .'</span> Admins</li>
+                  <li class="list-group-item"><span class="badge badge_blue">'. total_comments() .'</span> Comments</li>
+                </ul>
+              </div>
+              <div class="line_bar">
+                <div class="text-secondary ml-3 mt-1">Recent stats</div>
+                <div class="line_icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
               </div>
             </div>
           </div>
-          <!-- Pie-Chart - END -->
-
         </div>
       </div>
-      <!-- Indicators - END -->
+    </div>
+  </div>
 
-      <!-- Right side area -->
-      <div class="col-lg-12">
+  <div class="container-fluid p-3">
+    <div class="row">
+      <!-- Recent posts -->
+      <div class="col-lg-12 pl-0">
         <h6><i class="fas fa-file-alt text-success"></i> Recent posts</h6>
-        <div class="card">
+        <div class="card shadow">
           <table class="table table-sm" style="margin-bottom: 0;">
             <thead class="thead-light">
               <tr>
@@ -144,10 +124,18 @@
           </table>
         </div>
       </div>
-      <!-- Right side area - END -->
+      <!-- Recent posts - END -->
     </div>
-  </section>
-  <!-- Main part - END -->
+  </div>
+
+  <!-- Pie-chart part -->
+  <script type="text/javascript">
+    var _posts = '. pct_posts() .';
+    var _categories = '. pct_categories() .';
+    var _admins = '. pct_admins() .';
+    var _comments = '. pct_comments() .';
+  </script>
+  <!-- Pie-chart part - END -->
 </div>
   ';
 ?>
