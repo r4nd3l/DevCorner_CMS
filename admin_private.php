@@ -92,7 +92,7 @@
         </header>
         <!-- Header - END -->
 
-        <!-- Main part -->
+        <!-- Message part -->
         <section class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
@@ -103,12 +103,10 @@
             </div>
           </div>
         </section>
-        <!-- Main part - END -->
+        <!-- Message part - END -->
 
         <!-- Merged contents -->
-        <section class="">
-          <?php echo $merged_content;?>
-        </section>
+        <?php echo $merged_content;?>
         <!-- Merged contents - END -->
 
         <!-- Footer part --><!-- fixed-bottom -->

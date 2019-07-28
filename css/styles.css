@@ -30,6 +30,12 @@
   --card-: perspective(1000px) rotateY(-20deg) translateX(-20px);
   --rnd-: 0.25rem;
   --rnd0-: 0;
+
+  /* Pie-chart colors */
+  --orange-: #ffc107;
+  --green-: #28a745;
+  --purple-: #dc3545;
+  --blue-: #17a2b8;
 }
 
 /* Utilities */
@@ -567,7 +573,30 @@ input:checked + .slider:before {
 .m_x{margin: 0 auto;}
 .m_y{margin: auto 0;}
 
-
+/* Pie chart settings */
+.badge_orange{
+  background-color: var(--orange-);
+  color: white;
+  font-size: 1em;
+}
+.badge_green{
+  background-color: var(--green-);
+  color: white;
+  font-size: 1em;
+}
+.badge_purple{
+  background-color: var(--purple-);
+  color: white;
+  font-size: 1em;
+}
+.badge_blue{
+  background-color: var(--blue-);
+  color: white;
+  font-size: 1em;
+}
+.list-group-item{
+  border: 0;
+}
 
 
 
