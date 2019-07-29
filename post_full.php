@@ -11,7 +11,8 @@
     // Data and time settings
     date_default_timezone_set("Europe/Budapest");
     $current_time = time();
-    $datetime     = strftime("%Y %B %d - %H:%M:%S",$current_time);
+    $datetime     = strftime("%Y.%m.%d - %H:%M:%S",$current_time);
+    // $datetime     = strftime("%Y %b %d - %H:%M:%S",$current_time);
 
       if(empty($name) || empty($email) || empty($comment)){
         $_SESSION["ErrorMessage"] = "All fields must be filled out!";

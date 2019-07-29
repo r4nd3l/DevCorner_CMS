@@ -1,4 +1,5 @@
 <?php
+
   if(isset($_POST["Submit"])){
     $post_title       = $_POST["post_title"];
     $category         = $_POST["category"];
@@ -10,7 +11,8 @@
     // Data and time settings
     date_default_timezone_set("Europe/Budapest");
     $current_time = time();
-    $datetime     = strftime("%Y %B %d - %H:%M:%S",$current_time);
+    $datetime     = strftime("%Y.%m.%d - %H:%M:%S",$current_time);
+    // $datetime     = strftime("%Y %b %d - %H:%M:%S",$current_time);
 
       if(empty($post_title)){
         $_SESSION["ErrorMessage"] = "Title is empty!";
@@ -24,12 +26,12 @@
       }else{
         // Query to insert post in DB when everything is fine
         global $connecting_db;
-        $sql = "INSERT INTO posts(datetime,title,category,author,image,post)";
-        $sql .= "VALUES(:dateTime,:postTitle,:categoryName,:adminName,:imageName,:postDescription)";
+        $sql = "INSERT INTO posts(datetime,title,category_id,author,image,post)";
+        $sql .= "VALUES(:dateTime,:postTitle,:categoryId,:adminName,:imageName,:postDescription)";
         $stmt = $connecting_db->prepare($sql);
         $stmt->bindValue(':dateTime',$datetime);
         $stmt->bindValue(':postTitle',$post_title);
-        $stmt->bindValue(':categoryName',$category);
+        $stmt->bindValue(':categoryId',$category);
         $stmt->bindValue(':adminName',$admin);
         $stmt->bindValue(':imageName',$image);
         $stmt->bindValue(':postDescription',$post_description);

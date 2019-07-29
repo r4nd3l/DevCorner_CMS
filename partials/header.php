@@ -15,8 +15,5 @@
 <!-- Custom Style -->
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 
-<!-- Circle Percentage Style -->
-<link rel="stylesheet" href="css/circle.css" type="text/css">
-
 <!-- Google Fonts Roboto - Fallback -->
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">

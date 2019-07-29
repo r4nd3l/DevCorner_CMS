@@ -1,4 +1,5 @@
 <?php
+
   $merged_title = 'Add post';
   $merged_content .= '
 
@@ -26,7 +27,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="title"><span class="fieldInfo">Post title:</span></label>
-                <input class="form-control" type="text" name="post_title" id="title" placeholder="Type title here" value="">
+                <input class="form-control" type="text" name="post_title" id="title" placeholder="Type title here" value="'.$_POST['post_title'].'">
               </div>
               <div class="form-group">
                 <label for="title"><span class="fieldInfo">Chose category:</span></label>
@@ -38,9 +39,10 @@
                     $stmt = $connecting_db->query($sql);
                     while($data_rows = $stmt->fetch()){
                       $id = $data_rows["id"];
+                      $id == $_POST['category'] ? $sel = ' selected' : $sel = '';
                       $category_name = $data_rows["title"];
                   $merged_content .= '
-                    <option>'. $category_name .'</option>
+                    <option value="'.$id.'" '.$sel.'>'. $category_name .'</option>
                     ';
                   }
                   $merged_content .= '
@@ -54,7 +56,7 @@
               </div>
               <div class="form-group">
                 <label for="post"><span class="fieldInfo">Post:</span></label>
-                <textarea class="form-control" id="post" name="post_description" rows="8" cols="80"></textarea>
+                <textarea class="form-control" id="post" name="post_description" rows="8" cols="80">'.$_POST['post_description'].'</textarea>
               </div>
               <div class="row">
                 <div class="col-lg-12">

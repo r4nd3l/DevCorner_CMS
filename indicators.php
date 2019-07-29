@@ -1,4 +1,7 @@
 <?php
+  // For later on for the Posts bar charts
+  $sql = "SELECT distinct date_format(`datetime`, '%Y%m%d') datum, count(id) cnt FROM `posts` group by datum order by datum";
+
   // $merged_title = 'Indicators';
   // $recent_icon = '<i class="fas fa-tachometer-alt text-success"></i>';
   $merged_content .= '
@@ -22,37 +25,27 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="row">
-          <div class="col-lg-8">
-            <div class="card text-center text-success border mb-2">
-              <div class="crad-body">
-                <p>File overview box - list of uploaded files/images</p>
-              </div>
+          <div class="col-lg-4 pl-0">
+          <div class="card line_bottom p-0 shadow">
+            <div class="card-body m_x pb-0 d-flex">
+              <p style="height: 13.2em;">Posts - bar chart area</p>
             </div>
-            <div class="card text-center text-success border mb-2">
-              <div class="crad-body">
-                <p>Calendar overview box - days of posted contents</p>
-              </div>
+            <div class="line_bar">
+              <div class="text-secondary ml-3 mt-1">Posts activity</div>
+              <div class="line_icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
             </div>
-            <div class="card text-center text-success border mb-2">
-              <div class="crad-body">
-                <p>Drag\'n\'drop box - quick upload</p>
-              </div>
+          </div>
+          </div>
+          <div class="col-lg-4 pl-0">
+          <div class="card line_bottom p-0 shadow">
+            <div class="card-body m_x pb-0 d-flex">
+             <p style="height: 13.2em;">Comments  - bar chart area</p>
             </div>
-            <div class="card text-center text-success border mb-2">
-              <div class="crad-body">
-                <p>Gallery box - image library</p>
-              </div>
+            <div class="line_bar">
+              <div class="text-secondary ml-3 mt-1">Comments activity</div>
+              <div class="line_icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
             </div>
-            <div class="card text-center text-success border mb-2">
-              <div class="crad-body">
-                <p>Time graph based on the dates/calendar</p>
-              </div>
-            </div>
-            <div class="card text-center text-success border mb-2">
-              <div class="crad-body">
-                <p>Dragable ToDo list(?)</p>
-              </div>
-            </div>
+          </div>
           </div>
           <div class="col-lg-4 pl-0">
             <div class="card line_bottom p-0 shadow">
@@ -70,6 +63,43 @@
                 <div class="line_icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid p-3">
+    <div class="row">
+      <div class="col-lg-12 pl-0">
+        <div class="card text-center text-success border mb-2">
+          <div class="crad-body">
+            <p>File overview box - list of uploaded files/images</p>
+          </div>
+        </div>
+        <div class="card text-center text-success border mb-2">
+          <div class="crad-body">
+            <p>Calendar overview box - days of posted contents</p>
+          </div>
+        </div>
+        <div class="card text-center text-success border mb-2">
+          <div class="crad-body">
+            <p>Drag\'n\'drop box - quick upload</p>
+          </div>
+        </div>
+        <div class="card text-center text-success border mb-2">
+          <div class="crad-body">
+            <p>Gallery box - image library</p>
+          </div>
+        </div>
+        <div class="card text-center text-success border mb-2">
+          <div class="crad-body">
+            <p>Time graph based on the dates/calendar</p>
+          </div>
+        </div>
+        <div class="card text-center text-success border mb-2">
+          <div class="crad-body">
+            <p>Dragable ToDo list(?)</p>
           </div>
         </div>
       </div>
