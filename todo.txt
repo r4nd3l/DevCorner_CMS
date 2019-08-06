@@ -6,3 +6,4 @@ Time graph based on the dates/calendar
 Dragable ToDo list(?)
 
 Test Desktop
+Test EliteBook
