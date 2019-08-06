@@ -8,6 +8,6 @@
   <li><a href="#sec_admins" class="_tool scroll_to_section"><i class="fas fa-users fa-fw mr-3 mt-1"></i> <span>Admins</span><small><?php echo total_admins(); ?></small></a><span class="_tip">Admins</span></li>
   <li><a href="#sec_comments" class="_tool scroll_to_section"><i class="fas fa-comments fa-fw mr-3 mt-1"></i> <span>Comments</span><small><?php echo total_comments(); ?></small></a><span class="_tip">Comments</span></li>
   <hr>
-  <li><a href="blog.php?page=1" class="_tool"><i class="fas fa-book fa-fw mr-3 mt-1"></i> <span>Visit the blog</span></a><span class="_tip">LiveBlog</span></li>
+  <li><a href="blog.php?page=1" class="_tool" target="_blank"><i class="fas fa-book fa-fw mr-3 mt-1"></i> <span>Visit the blog</span></a><span class="_tip">LiveBlog</span></li>
   <li><a href="logout.php" class="_tool"><i class="fas fa-power-off fa-fw mr-3 mt-1"></i> <span>Logout</span></a><span class="_tip">Logout</span></li>
 </ul>

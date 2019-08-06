@@ -11,13 +11,13 @@
 
       if(empty($category)){
         $_SESSION["ErrorMessage"] = "All fields must be filled out!";
-        Redirect_to("admin_private.php?a=categories");
+        Redirect_to("admin_private.php?a=dashboard#sec_categories");
       }elseif (strlen($category)<3) {
         $_SESSION["ErrorMessage"] = "Category title should be greater than 2 characters!";
-        Redirect_to("admin_private.php?a=categories");
+        Redirect_to("admin_private.php?a=dashboard#sec_categories");
       }elseif (strlen($category)>49) {
         $_SESSION["ErrorMessage"] = "Category title should be shorter!";
-        Redirect_to("admin_private.php?a=categories");
+        Redirect_to("admin_private.php?a=dashboard#sec_categories");
       }else{
         // Query to insert category in DB when everything is fine
         global $connecting_db;
@@ -34,7 +34,7 @@
         }else{
           $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
         }
-        Redirect_to("admin_private.php?a=categories");
+        Redirect_to("admin_private.php?a=dashboard#sec_categories");
       }
     } // Ending of Submit button if-condition
 ?>

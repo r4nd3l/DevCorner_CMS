@@ -11,6 +11,6 @@
     }else{
       $_SESSION["ErrorMessage"]= "Something went wrong. Please try again!";
     }
-    Redirect_to("admin_private.php?a=comments");
+    Redirect_to("admin_private.php?a=dashboard#sec_comments");
   }
 ?>
