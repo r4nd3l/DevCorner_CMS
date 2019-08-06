@@ -33,38 +33,34 @@
       <hr class="my-5">
       <div class="row">
         <div class="col-lg-12 mb-5">
-          <div class="about-section">
-            <div class="inner-width">
-              <h1>Our indicators</h1>
-              <div class="border"></div>
-              <div class="about-section-row">
-                <div class="about-section-col">
-                  <div class="about">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga provident ea hic, neque amet sequi temporibus iure aliquid placeat inventore. Quae dolores dolore, cum nulla quas ipsum facere maxime, necessitatibus!</p>
-                    <a href="https://github.com/r4nd3l?tab=repositories" target="_blank"><button type="button" class="btn btn-sm btn-outline-success mt-3">Read More</button></a>
-                  </div>
+          <h1>Our indicators</h1>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="about">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga provident ea hic, neque amet sequi temporibus iure aliquid placeat inventore. Quae dolores dolore, cum nulla quas ipsum facere maxime, necessitatibus!</p>
+                  <a href="https://github.com/r4nd3l?tab=repositories" target="_blank"><button type="button" class="btn btn-sm btn-outline-success mt-3">Read More</button></a>
                 </div>
-                <div class="about-section-col">
-                  <div class="skills">
-                    <div class="skill">
-                      <div class="title">Web Design</div>
-                      <div class="progress">
-                        <div class="progress-bar p1"><span>90%</span></div>
-                      </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="">
+                  <div class="mb-3">
+                    <div class="">Web Design</div>
+                    <div class="progress">
+                      <div class="progress-bar progress-state-1"><span>90%</span></div>
                     </div>
+                  </div>
 
-                    <div class="skill">
-                      <div class="title">UI Design</div>
-                      <div class="progress">
-                        <div class="progress-bar p2"><span>70%</span></div>
-                      </div>
+                  <div class="mb-3">
+                    <div class="">UI Design</div>
+                    <div class="progress">
+                      <div class="progress-bar progress-state-2"><span>70%</span></div>
                     </div>
+                  </div>
 
-                    <div class="skill">
-                      <div class="title">UX Design</div>
-                      <div class="progress">
-                        <div class="progress-bar p3"><span>50%</span></div>
-                      </div>
+                  <div class="mb-3">
+                    <div class="">UX Design</div>
+                    <div class="progress">
+                      <div class="progress-bar progress-state-3"><span>50%</span></div>
                     </div>
                   </div>
                 </div>
