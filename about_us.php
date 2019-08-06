@@ -20,7 +20,7 @@
     <section class="container mt-5">
       <div class="row my-5">
         <div class="col-lg-8">
-          <h1 class="display-2 text-success">The Community Behind</h1>
+          <h1 class="display-3 text-success">The Community Behind</h1>
           <h2 class="mt-5">Web developer group for coding</h2>
           <h5 class="text-justify mt-4">A web developer is a programmer who specializes in, or is specifically engaged in, the development of World Wide Web applications, or applications that are run over HTTP from a web server to a web browser.</h5>
           <h5 class="text-justify mt-4">Web developers are found working in various types of organizations, including large corporations and governments, small and medium - sized companies, or alone as freelancers.</h5>
@@ -37,8 +37,8 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="about">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga provident ea hic, neque amet sequi temporibus iure aliquid placeat inventore. Quae dolores dolore, cum nulla quas ipsum facere maxime, necessitatibus!</p>
-                  <a href="https://github.com/r4nd3l?tab=repositories" target="_blank"><button type="button" class="btn btn-sm btn-outline-success mt-3">Read More</button></a>
+                  <p class="text-justify">We are eager to help and teach new students to let them know, how a good user interface is look like. Not to mention the basis of user experience as well! This two segment should be the core of every web development!</p>
+                  <a href="https://github.com/r4nd3l?tab=repositories" target="_blank"><button type="button" class="btn btn-sm btn-outline-success mt-3">Explore</button></a>
                 </div>
               </div>
               <div class="col-lg-6">
