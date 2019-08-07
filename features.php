@@ -18,12 +18,30 @@
 
   <!-- Main part -->
     <section class="container mt-5">
+      <!-- Decsription -->
       <div class="row my-5">
-        <div class="col-lg-4">
-          <h1 class="text-success">Features</h1>
+        <div class="col-lg-12">
+          <h5 class="text-success">Changelog</h5>
+          <h6 class="text-secondary">To get a better overview</h6>
+          <div class="card bg-success border-0">
+            <div class="card-body">
+              <p class="card-text text-white text-justify">
+                This CMS is based on a case study under the rights of the DevCorner Community.
+                This particular project is meant for those rookie web developers whose would like to know how to code a <i>simple blog CMS</i> using PHP.
+                In order to get a better view of each update, we decided to create a <i>changelog</i> section where the major updates can be seen.
+              </p>
+              <p class="card-text text-white text-justify text-right">More will come, stay tuned! <br>
+                <small>by DevCorner Community</small>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-8">
+      </div>
 
+      <!-- Changelog -->
+      <div class="row">
+        <div class="col-lg-12">
+          Content will goes here..
         </div>
       </div>
     </section>
