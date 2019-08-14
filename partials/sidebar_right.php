@@ -1,34 +1,43 @@
-<div class="card mt-4">
+<div class="card line_top">
   <div class="card-body">
-    <img src="img/img_05.jpeg" class="d-block img-fluid mb-3" alt="side_banner">
+    <a href="https://github.com/r4nd3l" target="_blank" title="GitHub Repo">
+      <img src="img/devcorner_card.png" class="d-block img-fluid mb-3 rounded" alt="side_banner">
+    </a>
     <div class="text-justify">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati soluta quidem quis error voluptatem, voluptatibus ratione ducimus officia, ipsa, iste velit ut in eius? Vitae quibusdam magni quos sint eius.
+      <h6 class="font-weight-bold">Join to our community and be part of the web developers team!</h6>
+      <ul class="m-0">
+        <li>Immersive coding bootcamp</li>
+        <li>Growing developer forum</li>
+        <li>DevCorner network</li>
+      </ul>
     </div>
   </div>
 </div>
 <br>
-<div class="card">
-  <div class="card-header bg-dark text-light">
-    <h2 class="lead">Sign up!</h2>
+<div class="card line_top">
+  <div class="card-header text-secondary text-center p-2">
+    <h2 class="lead m-0">Subscribe to our monthly</h2>
+    <h2 class="m-0"><i class="far fa-newspaper text-success"></i> NEWSLETTER</h2>
+    <small>Start receiving our monthly newsletter right away!</small>
   </div>
-  <div class="card-body">
-    <button type="button" class="btn btn-success btn-block text-center text-white mb-4" name="button">Join the forum</button>
-    <button type="button" class="btn btn-danger btn-block text-center text-white mb-4" name="button">Login</button>
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" name="" placeholder="Enter your email">
+  <div class="card-body p-3">
+    <div class="input-group">
+      <input type="text" class="form-control" name="" placeholder="Add your email">
       <div class="input-group-append">
-        <button class="btn btn-primary btn-sm text-center text-white">Subscribe now!</button>
+        <button class="btn btn-success btn-sm text-center text-white">
+          <h6 class="m-0"><i class="far fa-paper-plane fa-fw"></i> Send</h6>
+        </button>
       </div>
     </div>
   </div>
 </div>
 <br>
 
-<div class="card">
-  <div class="card-header bg-primary text-light">
-    <h2 class="lead">Categories</h2>
+<div class="card line_top">
+  <div class="card-header text-secondary p-2">
+    <h2 class="lead m-0"><i class="fas fa-asterisk fa-fw text-success"></i> Categories</h2>
   </div>
-  <div class="card-body">
+  <div class="card-body text-justify p-3">
     <?php
     global $connecting_db;
     $sql = "SELECT * FROM category ORDER BY id desc";
@@ -38,17 +47,19 @@
       $category_id = $data_rows["id"];
       $category_name = $data_rows["title"];
       ?>
-      <a href="blog.php?category=<?php echo $category_name; ?>"><span class="heading"><?php echo $category_name; ?></span></a><br>
+      <span class="line_left">
+        <a class="border rounded mr-1" href="blog.php?category=<?php echo $category_name; ?>"><span class="mx-1"><?php echo $category_name; ?></span></a>
+      </span>
     <?php } ?>
   </div>
 </div>
 <br>
 
-<div class="card">
-  <div class="card-header bg-info text-white">
-    <h2 class="lead">Recent posts</h2>
+<div class="card line_top">
+  <div class="card-header text-secondary p-2">
+    <h2 class="lead m-0"><i class="fas fa-file fa-fw text-success"></i> Recent posts</h2>
   </div>
-  <div class="card-body">
+  <div class="card-body p-3">
     <?php
       global $connecting_db;
       $sql = "SELECT * FROM posts ORDER BY id desc LIMIT 0,5";
@@ -60,16 +71,19 @@
         $datetime = $data_rows['datetime'];
         $image    = $data_rows['image'];
     ?>
-      <div class="media">
-        <img src="uploads/<?php echo htmlentities($image); ?>" class="d-block img-fluid align-self-start" width="90" height="90" alt="<?php echo basename(htmlentities($image)); ?>" title="<?php echo basename(htmlentities($image)); ?>">
-        <div class="media-body ml-2">
-          <a href="post_full.php?id=<?php echo htmlentities($id); ?>" target="_blank">
-            <h6 class="lead"><?php echo htmlentities($title); ?></h6>
+      <div class="rounded line_right mb-3 _last">
+        <div class="media border rounded bg-light">
+          <a href="post_full.php?id=<?php echo htmlentities($id); ?>">
+            <img src="uploads/<?php echo htmlentities($image); ?>" class="d-block img-fluid align-self-start rounded-left" width="130" alt="<?php echo htmlentities($title); ?>" title="<?php echo basename(htmlentities($image)); ?>">
           </a>
-          <p class="small"><?php echo htmlentities($datetime); ?></p>
+          <div class="media-body mx-2">
+            <a href="post_full.php?id=<?php echo htmlentities($id); ?>">
+              <p class="lead fs_4 text-justify mt-1"><?php if(strlen($title)>40){$title = substr($title,0,40).'..';} echo htmlentities($title); ?></p>
+            </a>
+            <p class="mb-0 fs_3"><?php echo htmlentities($datetime); ?></p>
+          </div>
         </div>
       </div>
-      <hr>
     <?php } ?>
   </div>
 </div>

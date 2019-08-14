@@ -15,6 +15,7 @@
   --rgba-dc-: rgba(40, 167, 69, 0.5);
   --rgba-wh-: rgba(255, 255, 255, 0.5);
   --gr-: #515151;
+  --gr2-: #dee2e6;
   --wh-: #fefefe;
   --sg-: #f7f7f7;
   --sg2-: #dee2e6;
@@ -627,10 +628,36 @@ input:checked + .slider:before {
   font-size: 12px;
 }
 
+/* Custom font sizes */
+.fs_1{
+  font-size: 0.25rem;
+}
+.fs_2{
+  font-size: 0.5rem;
+}
+.fs_3{
+  font-size: 0.75rem;
+}
+.fs_4{
+  font-size: 1rem;
+}
+.fs_5{
+  font-size: 1.25rem;
+}
+.fs_6{
+  font-size: 1.5rem;
+}
+.fs_7{
+  font-size: 1.75rem;
+}
+.fs_8{
+  font-size: 2rem;
+}
 
-
-
-
+/* Last items settings */
+._last:last-child{
+  margin-bottom: 0 !important;
+}
 
 
 

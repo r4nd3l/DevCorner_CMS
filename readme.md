@@ -37,7 +37,7 @@ To test the CMS simply just open your browser inspect element and play around or
 
 ## Deployment
 
-All the files (Html, Css, Js, Php) are web based technolgoies, and Php required to have a server to run
+All the files (Html, Css, Js, Php) are web based technologies and Php required to have a server to run
 
 ## Built With
 
@@ -66,5 +66,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Technologies - HTML5, CSS3, JavaScript - [HTML + CSS + JavaScript introduction - web 0x00](https://youtu.be/jmgsgjPn1vs)
+* Technologies - HTML5, CSS3, JavaScript, PHP - [HTML + CSS + JavaScript introduction - web 0x00](https://youtu.be/jmgsgjPn1vs)
 * Inspiration - [Viaweb](https://en.wikipedia.org/wiki/Viaweb)
