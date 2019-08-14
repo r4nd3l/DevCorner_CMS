@@ -31,7 +31,7 @@
     }else{
       $_SESSION["ErrorMessage"]="Something went wrong.. Please try again!";
     }
-    Redirect_to("admin_private.php?a=posts");
+    Redirect_to("admin_private.php?a=dashboard#sec_posts");
   } // Ending of Submit button if-condition
 ?>
 <!DOCTYPE html>

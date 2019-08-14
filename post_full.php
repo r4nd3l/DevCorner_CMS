@@ -107,7 +107,7 @@
             $postId            = $data_rows["id"];
             $datetime          = $data_rows["datetime"];
             $post_title        = $data_rows["title"];
-            $category          = $data_rows["category"];
+            $category          = $data_rows["category_title"];
             $admin             = $data_rows["author"];
             $image             = $data_rows["image"];
             $post_description  = $data_rows["post"];
@@ -119,7 +119,7 @@
             <small class="text-muted"><i class="fas fa-tag fa-flip-horizontal text-success"></i> <a href=blog.php?category=<?php echo htmlentities($category); ?>"><?php echo htmlentities($category); ?></a></small><br>
             <small class="text-muted">Written by <a href="profile_public.php?username=<?php echo htmlentities($admin); ?>" class="text-success"><?php echo htmlentities($admin); ?></a><br>
             On <?php echo htmlentities($datetime); ?></small>
-            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo  comment_approve($postId);?> Comment</span>
+            <span class="float-right fieldInfo_2 mt-1"><i class="fas fa-comment-alt text-success"></i> <?php echo  comment_approve($postId);?> <a href="#sec_comment" class="scroll_to_section">Comment</a></span>
             <hr>
             <p class="card-text">
               <?php echo nl2br($post_description); ?></p>
@@ -129,7 +129,7 @@
 
         <!-- Comment part -->
         <div class="mb-5">
-          <h3 class="text-dark"><i class="fas fa-comment-alt text-success"></i> Comments</h3>
+          <h3 id="sec_comment" class="text-dark"><i class="fas fa-comment-alt text-success"></i> Comments</h3>
             <!-- Fetching existing comment -->
             <?php
               global $connecting_db;

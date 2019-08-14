@@ -64,12 +64,14 @@
       global $connecting_db;
       $sql = "SELECT * FROM posts ORDER BY id desc LIMIT 0,5";
       $stmt = $connecting_db->query($sql);
+      $sr = 0;
 
       while ($data_rows = $stmt->fetch()) {
         $id       = $data_rows['id'];
         $title    = $data_rows['title'];
         $datetime = $data_rows['datetime'];
         $image    = $data_rows['image'];
+        $sr++;
     ?>
       <div class="rounded line_right mb-3 _last">
         <div class="media border rounded bg-light">
@@ -78,7 +80,7 @@
           </a>
           <div class="media-body mx-2">
             <a href="post_full.php?id=<?php echo htmlentities($id); ?>">
-              <p class="lead fs_4 text-justify mt-1"><?php if(strlen($title)>40){$title = substr($title,0,40).'..';} echo htmlentities($title); ?></p>
+              <p class="lead fs_4 text-justify mt-1"><?php if(strlen($title)>35){$title = substr($title,0,35).'..';} echo htmlentities($title); ?></p>
             </a>
             <p class="mb-0 fs_3"><?php echo htmlentities($datetime); ?></p>
           </div>
